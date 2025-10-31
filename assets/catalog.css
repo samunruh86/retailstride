@@ -50,17 +50,17 @@ body.catalog-body {
   box-shadow: 0 20px 56px rgba(5, 9, 20, 0.38);
   backdrop-filter: blur(22px);
   padding: clamp(1rem, 1.6vw, 1.6rem);
-  position: sticky;
-  top: 6.5rem;
+  position: static;
+  top: auto;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   color: #f6f9ff;
-  max-height: calc(100vh - 7.5rem);
-  overflow-y: auto;
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(125, 199, 255, 0.35) rgba(255, 255, 255, 0.03);
+  max-height: none;
+  overflow: visible;
+  scrollbar-gutter: auto;
+  scrollbar-width: auto;
+  scrollbar-color: auto;
 }
 
 .catalog-filters::-webkit-scrollbar {
@@ -141,8 +141,8 @@ body.catalog-body {
 
 .catalog-category-list {
   display: flex;
-  flex-direction: column;
-  gap: 0.18rem;
+  flex-wrap: wrap;
+  gap: 0.45rem;
 }
 
 .catalog-category-main {
@@ -793,10 +793,15 @@ body.catalog-body {
   gap: 0.75rem;
 }
 
-.catalog-rating-options,
-.catalog-brand-list {
+.catalog-rating-options {
   display: grid;
   gap: 0.3rem;
+}
+
+.catalog-brand-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
 }
 
 .catalog-applied-filters {
@@ -1066,7 +1071,8 @@ body.catalog-body {
     padding: 1rem 1.15rem 1.2rem;
   }
 }
-.catalog-subcategory-pill {
+.catalog-subcategory-pill,
+.catalog-category-pill {
   border: 1px solid rgba(125, 199, 255, 0.25);
   background: rgba(255, 255, 255, 0.06);
   color: var(--catalog-text-light);
@@ -1088,21 +1094,49 @@ body.catalog-body {
     transform var(--catalog-transition);
 }
 
-.catalog-subcategory-pill:hover {
+.catalog-subcategory-pill:hover,
+.catalog-category-pill:hover {
   background: rgba(125, 199, 255, 0.18);
   border-color: rgba(125, 199, 255, 0.45);
   color: #fff;
   transform: translateY(-1px);
 }
 
-.catalog-subcategory-pill.is-active {
+.catalog-subcategory-pill.is-active,
+.catalog-category-pill.is-active {
   background: var(--color--accent);
   border-color: var(--color--accent);
   color: #fff;
   box-shadow: 0 12px 24px rgba(37, 99, 235, 0.35);
 }
 
-.catalog-subcategory-pill:focus-visible {
+.catalog-subcategory-pill:focus-visible,
+.catalog-category-pill:focus-visible {
   outline: 2px solid rgba(125, 199, 255, 0.7);
   outline-offset: 2px;
+}
+
+.catalog-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.catalog-pill__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(246, 249, 255, 0.82);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.catalog-category-pill.is-active .catalog-pill__count,
+.catalog-brand-pill.is-active .catalog-pill__count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }

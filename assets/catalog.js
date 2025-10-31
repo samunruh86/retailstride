@@ -2,7 +2,6 @@ const PAGE_SIZE = 12;
 const categoryListEl = document.querySelector('[data-category-list]');
 const categoryCollapseTrigger = document.querySelector('[data-collapse-trigger="category"]');
 const categoryCollapseContent = document.querySelector('[data-collapse-content="category"]');
-const categoryShowAllButton = document.querySelector('[data-category-view="all"]');
 const brandListEl = document.querySelector('[data-brand-list]');
 const ratingListEl = document.querySelector('[data-rating-list]');
 const resultCountEl = document.querySelector('[data-result-count]');
@@ -14,21 +13,17 @@ const priceMinSlider = document.querySelector('[data-price-min]');
 const priceMaxSlider = document.querySelector('[data-price-max]');
 const priceMinInput = document.querySelector('[data-price-min-input]');
 const priceMaxInput = document.querySelector('[data-price-max-input]');
-const resetButtons = Array.from(document.querySelectorAll('[data-reset]'));
 
 const state = {
   categories: [],
   activeMain: null,
-  expandedMain: null,
   categoryCollapseOpen: true,
-  showAllMainCategories: true,
   productsCache: new Map(),
   metaCache: new Map(),
   allProducts: [],
   filteredProducts: [],
   totalProducts: 0,
   filters: {
-    subs: new Set(),
     brands: new Set(),
     rating: null,
     price: { min: null, max: null },
@@ -64,20 +59,6 @@ const setCategoryCollapseState = (isOpen) => {
   }
 };
 
-const syncCategoryControls = () => {
-  if (categoryShowAllButton) {
-    const shouldHide = state.showAllMainCategories || state.categories.length <= 1;
-    if (shouldHide) {
-      categoryShowAllButton.setAttribute('hidden', '');
-    } else {
-      categoryShowAllButton.removeAttribute('hidden');
-    }
-  }
-  if (categoryListEl) {
-    categoryListEl.dataset.view = state.showAllMainCategories ? 'all' : 'active';
-  }
-};
-
 const setupCategoryCollapse = () => {
   const toggleCollapse = (nextState = !state.categoryCollapseOpen) => {
     setCategoryCollapseState(nextState);
@@ -90,16 +71,6 @@ const setupCategoryCollapse = () => {
     categoryCollapseTrigger.addEventListener('click', (event) => {
       event.preventDefault();
       toggleCollapse();
-    });
-  }
-  if (categoryShowAllButton) {
-    categoryShowAllButton.addEventListener('click', () => {
-      state.showAllMainCategories = true;
-      if (!state.expandedMain) {
-        state.expandedMain = state.activeMain;
-      }
-      renderMainCategories();
-      toggleCollapse(true);
     });
   }
   setCategoryCollapseState(state.categoryCollapseOpen);
@@ -126,7 +97,6 @@ const loadCategories = async () => {
   const data = await response.json();
   state.categories = data;
   state.activeMain = data[0]?.cat_main_id ?? null;
-  state.expandedMain = state.activeMain;
   renderMainCategories();
   if (state.activeMain) {
     await loadProductsForCategory(state.activeMain);
@@ -135,61 +105,24 @@ const loadCategories = async () => {
 
 const renderMainCategories = () => {
   if (!categoryListEl) return;
-  syncCategoryControls();
   categoryListEl.innerHTML = '';
 
   state.categories.forEach((category) => {
-    const shouldRender = state.showAllMainCategories || category.cat_main_id === state.activeMain;
-    if (!shouldRender) return;
-
-    const wrapper = document.createElement('div');
-    wrapper.className = 'catalog-category-main';
-    if (!state.showAllMainCategories) {
-      wrapper.classList.add('catalog-category-main--condensed');
-    }
-
     const isActive = category.cat_main_id === state.activeMain;
-    if (isActive) wrapper.classList.add('is-active');
-
-    const isExpanded = state.showAllMainCategories
-      ? category.cat_main_id === state.expandedMain
-      : state.expandedMain === category.cat_main_id;
-    if (isExpanded) wrapper.classList.add('is-expanded');
-
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'catalog-category-main__trigger';
+    button.className = 'catalog-category-pill catalog-subcategory-pill';
     button.dataset.catMain = category.cat_main_id;
-    const panelId = `catalog-panel-${category.cat_main_id}`;
-    const triggerId = `catalog-trigger-${category.cat_main_id}`;
-    button.id = triggerId;
-    button.setAttribute('aria-controls', panelId);
-    button.setAttribute('aria-expanded', String(isExpanded));
-    button.innerHTML = `
-      <span class="catalog-category-main__label">
-        <span class="catalog-category-main__name">${category.category_main}</span>
-      </span>
-      <span class="catalog-category-main__meta">
-        <span class="catalog-category-main__count">${category.products}</span>
-        <span class="catalog-category-main__chevron" aria-hidden="true"></span>
-      </span>
-    `;
+    button.textContent = category.category_main;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
     button.addEventListener('click', async () => {
       if (state.activeMain === category.cat_main_id) {
-        if (state.showAllMainCategories) {
-          state.showAllMainCategories = false;
-          state.expandedMain = category.cat_main_id;
-          renderMainCategories();
-          return;
-        }
-        state.expandedMain = state.expandedMain === category.cat_main_id ? null : category.cat_main_id;
+        clearCategorySelection();
         renderMainCategories();
         return;
       }
       state.activeMain = category.cat_main_id;
-      state.expandedMain = category.cat_main_id;
-      state.showAllMainCategories = false;
-      state.filters.subs.clear();
       state.filters.brands.clear();
       state.filters.rating = null;
       state.filters.price = { min: null, max: null };
@@ -197,42 +130,24 @@ const renderMainCategories = () => {
       renderMainCategories();
       await loadProductsForCategory(category.cat_main_id);
     });
-    wrapper.appendChild(button);
-
-    const subList = document.createElement('div');
-    subList.className = 'catalog-subcategory-list';
-    subList.id = panelId;
-    subList.setAttribute('role', 'region');
-    subList.setAttribute('aria-labelledby', triggerId);
-    subList.setAttribute('aria-hidden', String(!isExpanded));
-    subList.hidden = !isExpanded;
-    category.subs.forEach((sub) => {
-      const subId = String(sub.cat_sub_id);
-      const pill = document.createElement('button');
-      pill.type = 'button';
-      pill.className = 'catalog-subcategory-pill';
-      pill.dataset.subId = subId;
-      pill.textContent = sub.category_sub;
-      const isSelected = state.filters.subs.has(subId);
-      if (isSelected) pill.classList.add('is-active');
-      pill.setAttribute('aria-pressed', String(isSelected));
-      pill.addEventListener('click', () => {
-        const wasSelected = state.filters.subs.has(subId);
-        state.filters.subs.clear();
-        if (!wasSelected) {
-          state.filters.subs.add(subId);
-        }
-        pill.classList.toggle('is-active', !wasSelected);
-        pill.setAttribute('aria-pressed', String(!wasSelected));
-        state.page = 1;
-        renderMainCategories();
-        applyFilters();
-      });
-      subList.appendChild(pill);
-    });
-    wrapper.appendChild(subList);
-    categoryListEl.appendChild(wrapper);
+    categoryListEl.appendChild(button);
   });
+};
+
+const clearCategorySelection = () => {
+  state.activeMain = null;
+  state.allProducts = [];
+  state.filteredProducts = [];
+  state.totalProducts = 0;
+  state.priceBounds = { min: 0, max: 0 };
+  state.filters.brands.clear();
+  state.filters.rating = null;
+  state.filters.price = { min: null, max: null };
+  state.page = 1;
+  setPriceControlsEnabled(false);
+  syncPriceInputs();
+  renderRatingOptions();
+  applyFilters();
 };
 
 const loadProductsForCategory = async (catMainId) => {
@@ -258,13 +173,22 @@ const loadProductsForCategory = async (catMainId) => {
   applyFilters();
 };
 
+const setPriceControlsEnabled = (enabled) => {
+  [priceMinSlider, priceMaxSlider, priceMinInput, priceMaxInput].forEach((control) => {
+    if (!control) return;
+    control.disabled = !enabled;
+  });
+};
+
 const decorateFiltersFromProducts = () => {
   if (!state.allProducts.length) {
     state.priceBounds = { min: 0, max: 0 };
+    setPriceControlsEnabled(false);
     syncPriceInputs();
     renderRatingOptions();
     return;
   }
+  setPriceControlsEnabled(true);
   const prices = state.allProducts.map((product) => product.price).filter((price) => typeof price === 'number');
   const minPrice = Math.floor(Math.min(...prices));
   const maxPrice = Math.ceil(Math.max(...prices));
@@ -302,6 +226,14 @@ const syncPriceInputs = () => {
 const renderBrandList = (brandCount = new Map()) => {
   if (!brandListEl) return;
   brandListEl.innerHTML = '';
+  if (!state.activeMain) {
+    const notice = document.createElement('p');
+    notice.textContent = 'Select a category to view brands.';
+    notice.style.fontSize = '0.85rem';
+    notice.style.color = 'rgba(226, 232, 255, 0.65)';
+    brandListEl.appendChild(notice);
+    return;
+  }
   const sortedBrands = Array.from(brandCount.entries())
     .filter(([brand]) => Boolean(brand))
     .sort((a, b) => b[1] - a[1]);
@@ -327,29 +259,29 @@ const renderBrandList = (brandCount = new Map()) => {
   }
 
   finalBrands.forEach(([brand, count]) => {
-    const label = document.createElement('label');
-    label.className = 'catalog-checkbox';
-    label.dataset.brand = brand;
-    label.innerHTML = `
-      <input type="checkbox" value="${brand}">
-      <span class="catalog-checkbox__visual">
-        <span class="catalog-checkbox__control"></span>
-        <span class="catalog-checkbox__label">${brand}</span>
-      </span>
-      <span class="catalog-checkbox__count">${count}</span>
-    `;
-    const input = label.querySelector('input');
-    input.checked = state.filters.brands.has(brand);
-    input.addEventListener('change', () => {
-      if (input.checked) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'catalog-brand-pill catalog-category-pill';
+    button.dataset.brand = String(brand);
+    const label = document.createElement('span');
+    label.textContent = brand;
+    const badge = document.createElement('span');
+    badge.className = 'catalog-pill__count';
+    badge.textContent = String(count);
+    button.append(label, badge);
+    const isSelected = state.filters.brands.has(brand);
+    button.classList.toggle('is-active', isSelected);
+    button.setAttribute('aria-pressed', String(isSelected));
+    button.addEventListener('click', () => {
+      const wasSelected = state.filters.brands.has(brand);
+      state.filters.brands.clear();
+      if (!wasSelected) {
         state.filters.brands.add(brand);
-      } else {
-        state.filters.brands.delete(brand);
       }
       state.page = 1;
       applyFilters();
     });
-    brandListEl.appendChild(label);
+    brandListEl.appendChild(button);
   });
 };
 
@@ -397,24 +329,32 @@ const renderRatingOptions = () => {
 };
 
 const applyFilters = () => {
-  const { subs, brands, rating, price } = state.filters;
+  if (!state.activeMain) {
+    setPriceControlsEnabled(false);
+    renderBrandList(new Map());
+    state.filteredProducts = [];
+    renderResultCount(0);
+    renderAppliedFilters();
+    renderProducts();
+    renderPagination();
+    return;
+  }
+  const { brands, rating, price } = state.filters;
   const priceMin = price.min ?? state.priceBounds.min;
   const priceMax = price.max ?? state.priceBounds.max;
 
   const brandCount = new Map();
   let products = state.allProducts.filter((product) => {
-    const productSubId = product.cat_sub_id !== undefined && product.cat_sub_id !== null ? String(product.cat_sub_id) : null;
-    const matchesSub = !subs.size || (productSubId && subs.has(productSubId));
     const matchesRating = rating === null || (product.rating ?? 0) >= rating;
     const priceValue = product.price ?? 0;
     const matchesPrice = priceValue >= priceMin && priceValue <= priceMax;
 
-    if (matchesSub && matchesRating && matchesPrice && product.brand) {
+    if (matchesRating && matchesPrice && product.brand) {
       brandCount.set(product.brand, (brandCount.get(product.brand) || 0) + 1);
     }
 
     const matchesBrand = !brands.size || brands.has(product.brand);
-    return matchesSub && matchesBrand && matchesRating && matchesPrice;
+    return matchesBrand && matchesRating && matchesPrice;
   });
 
   renderBrandList(brandCount);
@@ -447,24 +387,18 @@ const applySort = (products) => {
 
 const renderResultCount = (shown) => {
   if (!resultCountEl) return;
+  if (!state.activeMain) {
+    resultCountEl.innerHTML = 'Select a category to see products.';
+    return;
+  }
   const meta = state.metaCache.get(state.activeMain);
   const categoryName = meta?.category_main || 'All Products';
-  const querySummary = (() => {
-    if (!state.filters.subs.size) return categoryName;
-    const subNames = meta?.subs
-      ?.filter((sub) => state.filters.subs.has(String(sub.cat_sub_id)))
-      .map((sub) => sub.category_sub);
-    return subNames?.length ? subNames.join(', ') : categoryName;
-  })();
-
-  resultCountEl.innerHTML = `<strong>${state.totalProducts}</strong> products · Showing <strong>${shown}</strong> for <strong>${querySummary}</strong>`;
+  resultCountEl.innerHTML = `<strong>${state.totalProducts}</strong> products · Showing <strong>${shown}</strong> in <strong>${categoryName}</strong>`;
 };
 
 const renderAppliedFilters = () => {
   if (!appliedFiltersEl) return;
   appliedFiltersEl.innerHTML = '';
-  const meta = state.metaCache.get(state.activeMain);
-
   const createChip = (label, onRemove) => {
     const chip = document.createElement('span');
     chip.className = 'catalog-chip';
@@ -473,27 +407,14 @@ const renderAppliedFilters = () => {
     appliedFiltersEl.appendChild(chip);
   };
 
-  state.filters.subs.forEach((subId) => {
-    const sub = meta?.subs?.find((item) => String(item.cat_sub_id) === subId);
-    const name = sub?.category_sub || 'Category';
-    createChip(name, () => {
-      state.filters.subs.delete(subId);
-      const pill = categoryListEl?.querySelector(`.catalog-subcategory-pill[data-sub-id="${cssEscape(subId)}"]`);
-      if (pill) {
-        pill.classList.remove('is-active');
-        pill.setAttribute('aria-pressed', 'false');
-      }
-      renderMainCategories();
-      state.page = 1;
-      applyFilters();
-    });
-  });
-
   state.filters.brands.forEach((brand) => {
     createChip(brand, () => {
       state.filters.brands.delete(brand);
-      const checkbox = brandListEl?.querySelector(`label[data-brand="${cssEscape(brand)}"] input`);
-      if (checkbox) checkbox.checked = false;
+      const brandButton = brandListEl?.querySelector(`button[data-brand="${cssEscape(brand)}"]`);
+      if (brandButton) {
+        brandButton.classList.remove('is-active');
+        brandButton.setAttribute('aria-pressed', 'false');
+      }
       state.page = 1;
       applyFilters();
     });
@@ -524,7 +445,7 @@ const renderAppliedFilters = () => {
     const notice = document.createElement('span');
     notice.style.fontSize = '0.875rem';
     notice.style.color = 'rgba(15, 29, 58, 0.6)';
-    notice.textContent = 'No filters applied.';
+    notice.textContent = state.activeMain ? 'No filters applied.' : 'Pick a category to start filtering.';
     appliedFiltersEl.appendChild(notice);
   }
 };
@@ -537,6 +458,19 @@ const renderProducts = () => {
   productsGridEl.classList.add('is-transitioning');
   requestAnimationFrame(() => {
     productsGridEl.innerHTML = '';
+    if (!state.activeMain) {
+      const prompt = document.createElement('div');
+      prompt.className = 'catalog-empty';
+      prompt.innerHTML = `
+        <h3>Select a category</h3>
+        <p>Choose a category pill to load matching products.</p>
+      `;
+      productsGridEl.appendChild(prompt);
+      requestAnimationFrame(() => {
+        productsGridEl.classList.remove('is-transitioning');
+      });
+      return;
+    }
     if (!pageProducts.length) {
       const empty = document.createElement('div');
       empty.className = 'catalog-empty';
@@ -585,6 +519,9 @@ const renderProducts = () => {
 const renderPagination = () => {
   if (!paginationEl) return;
   paginationEl.innerHTML = '';
+  if (!state.activeMain) {
+    return;
+  }
   const totalPages = Math.max(1, Math.ceil(state.filteredProducts.length / PAGE_SIZE));
 
   const makeButton = (label, page, disabled = false, isActive = false) => {
@@ -663,53 +600,11 @@ const setupPriceHandlers = () => {
   }
 };
 
-const attachResetHandlers = () => {
-  resetButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const target = button.dataset.reset;
-      switch (target) {
-        case 'category':
-          state.filters.subs.clear();
-          state.showAllMainCategories = true;
-          if (!state.expandedMain) {
-            state.expandedMain = state.activeMain;
-          }
-          categoryListEl?.querySelectorAll('.catalog-subcategory-pill').forEach((pill) => {
-            pill.classList.remove('is-active');
-            pill.setAttribute('aria-pressed', 'false');
-          });
-          renderMainCategories();
-          break;
-        case 'price':
-          state.filters.price = { min: state.priceBounds.min, max: state.priceBounds.max };
-          syncPriceInputs();
-          break;
-        case 'rating':
-          state.filters.rating = null;
-          ratingListEl?.querySelectorAll('input[type="radio"]').forEach((input) => {
-            input.checked = input.value === '';
-          });
-          break;
-        case 'brand':
-          state.filters.brands.clear();
-          brandListEl?.querySelectorAll('input[type="checkbox"]').forEach((input) => {
-            input.checked = false;
-          });
-          break;
-        default:
-          break;
-      }
-      state.page = 1;
-      applyFilters();
-    });
-  });
-};
-
 const initCatalog = async () => {
   try {
     setupPriceHandlers();
     setupCategoryCollapse();
-    attachResetHandlers();
+    setPriceControlsEnabled(false);
     sortSelectEl?.addEventListener('change', handleSortChange);
     await loadCategories();
   } catch (error) {
