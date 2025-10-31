@@ -1,14 +1,15 @@
 {
     "meta": {
-        "category_main": "Arts, Crafts & Sewing",
-        "cat_main_id": "main_8d33a",
+        "category_main": "Crafts",
+        "cat_main_id": "main_841d8",
         "products": 292,
+        "relevancy": 25,
         "subs": []
     },
     "products": [
         {
             "upc": "728131673343",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b625e73f",
             "brand": "SimpleNature",
@@ -21,7 +22,7 @@
         },
         {
             "upc": "850067023043",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "554da42f",
             "brand": "Tinyspool & Co.",
@@ -34,7 +35,7 @@
         },
         {
             "upc": "704219223044",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2f0c4122",
             "brand": "AMAOGE",
@@ -47,7 +48,7 @@
         },
         {
             "upc": "700646847846",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "9c7be460",
             "brand": "Badge Magic",
@@ -60,7 +61,7 @@
         },
         {
             "upc": "717203918581",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8b712654",
             "brand": "Ninekong",
@@ -72,21 +73,21 @@
             "volume": 249
         },
         {
-            "upc": "652695701313",
-            "cat_main_id": "main_8d33a",
+            "upc": "652695700057",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "02b1e5de",
             "brand": "Darice",
-            "title": "Darice 2000 Pcs Popsicle Stick, 4.5\" Natural Wood Craft Sticks Supplies, Ice-Cream Stick Pop, Ages 3+",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/41glHJsxiRL.jpg",
-            "price": 25.2,
+            "title": "Darice 1000 Pcs Popsicle Stick, 4.5\" Natural Wood Craft Sticks Supplies, Ice-Cream Stick Pop, Ages 3+",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/41WYPlXuQPL.jpg",
+            "price": 21.43,
             "reviews": 105,
             "rating": 4.5,
-            "volume": 668
+            "volume": 763
         },
         {
             "upc": "766757397724",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "fcd6539e",
             "brand": "WELLOKB",
@@ -99,7 +100,7 @@
         },
         {
             "upc": "742952598838",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "6ec4c401",
             "brand": "AHKUNMT",
@@ -112,7 +113,7 @@
         },
         {
             "upc": "000050856046",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8e217281",
             "brand": "Lineco",
@@ -125,7 +126,7 @@
         },
         {
             "upc": "046903298403",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "bcf628e5",
             "brand": "Creative Paperclay",
@@ -138,7 +139,7 @@
         },
         {
             "upc": "796433602538",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "28cf4708",
             "brand": "Lobe Wonder",
@@ -151,7 +152,7 @@
         },
         {
             "upc": "788392296606",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b7480d6b",
             "brand": "ArtAt",
@@ -164,7 +165,7 @@
         },
         {
             "upc": "810078135432",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "7a7d95cd",
             "brand": "DIAMOND ART CLUB",
@@ -177,7 +178,7 @@
         },
         {
             "upc": "778942820740",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0ff15622",
             "brand": "YUANHANG",
@@ -190,7 +191,7 @@
         },
         {
             "upc": "630456760083",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "4edf43a8",
             "brand": "KHKD RESIN",
@@ -203,7 +204,7 @@
         },
         {
             "upc": "035352100368",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e48671f3",
             "brand": "Poly-Fil",
@@ -216,7 +217,7 @@
         },
         {
             "upc": "655457094234",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "4579df2c",
             "brand": "Rustic Wood Slices Inc.",
@@ -229,7 +230,7 @@
         },
         {
             "upc": "602309889623",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2bf7d7ec",
             "brand": "Mostme",
@@ -242,7 +243,7 @@
         },
         {
             "upc": "850018393676",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "56a254f3",
             "brand": "Pepy",
@@ -255,7 +256,7 @@
         },
         {
             "upc": "860013318635",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "271881a0",
             "brand": "LuwoArte",
@@ -268,7 +269,7 @@
         },
         {
             "upc": "711274465173",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "267785a8",
             "brand": "MyArtscape",
@@ -280,21 +281,21 @@
             "volume": 1148
         },
         {
-            "upc": "795847329994",
-            "cat_main_id": "main_8d33a",
+            "upc": "795847330006",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b8c06746",
             "brand": "DenCert",
-            "title": "Beeswax Pellets 5LB Cosmetic Beeswax Triple Filtered Beeswax Pastilles for Candle Making Great for DIY Projects Creams Lotions Lip Balm and Soap Making Supplies(5LB)",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/41bW8zQI0yL.jpg",
-            "price": 25.99,
+            "title": "Beeswax Pellets 10LB Cosmetic Beeswax Triple Filtered Beeswax Pastilles for Candle Making Great for DIY Projects Creams Lotions Lip Balm and Soap Making Supplies(10LB)",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/41xzHaO1-EL.jpg",
+            "price": 35.99,
             "reviews": 419,
             "rating": 4.4,
-            "volume": 355
+            "volume": 557
         },
         {
             "upc": "783911336641",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "9127b890",
             "brand": "prefleur",
@@ -307,7 +308,7 @@
         },
         {
             "upc": "046946491373",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "78b93ddc",
             "brand": "ByAnnie",
@@ -320,7 +321,7 @@
         },
         {
             "upc": "860005989003",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "28d41a67",
             "brand": "Gemzeez",
@@ -333,7 +334,7 @@
         },
         {
             "upc": "700381717077",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "4f78b1c1",
             "brand": "Chainmail Joe",
@@ -346,7 +347,7 @@
         },
         {
             "upc": "045155890892",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "725b4a1c",
             "brand": "The Beadery",
@@ -359,7 +360,7 @@
         },
         {
             "upc": "843128143422",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "9dd3a221",
             "brand": "Paper Junkie",
@@ -371,47 +372,47 @@
             "volume": 1066
         },
         {
-            "upc": "850030298270",
-            "cat_main_id": "main_8d33a",
+            "upc": "850030298034",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "4a230399",
             "brand": "TOOLI-ART",
-            "title": "Acrylic Paint Pens 22 Skin Tones Assorted Pro Color Series Markers Set 0.7mm Extra Fine Tip for Rock Painting, Glass, Mugs, Wood, Metal, Canvas, Projects, Non Toxic, Waterbased, Quick Drying",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/51ASN1LQ7PL.jpg",
-            "price": 37.99,
+            "title": "Acrylic Paint Pens 22 Gray Tones Assorted Pro Color Series Markers Set 0.7mm Extra Fine Tip for Rock Painting, Glass, Mugs, Wood, Metal, Canvas, Projects, Non Toxic, Waterbased, Quick Drying",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/51xOEPdiVSL.jpg",
+            "price": 36.99,
             "reviews": 545,
             "rating": 4.5,
-            "volume": 138
+            "volume": 134
         },
         {
-            "upc": "860001639926",
-            "cat_main_id": "main_8d33a",
+            "upc": "860001639995",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8b37a234",
             "brand": "The Foamory",
-            "title": "The Foamory EVA Foam Cosplay - 2mm Thick (1mm to 10mm) - Extra Large Foam Sheets - Black or White - 35\" x 59\" Sheet - Ultra High Density Craft Foam 85 kg/m3",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/41lAavAFvXL.jpg",
-            "price": 28.99,
+            "title": "EVA Foam Cosplay - 6mm Thick (1mm to 10mm) - Extra Large Foam Sheets - Black or White - 35\" x 59\" Sheet - Ultra High Density Craft Foam 85 kg/m3 - by The Foamory",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/41WkzWYv4BL.jpg",
+            "price": 39.99,
             "reviews": 392,
             "rating": 4.8,
             "volume": 124
         },
         {
-            "upc": "651307776480",
-            "cat_main_id": "main_8d33a",
+            "upc": "651307776558",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f0fa8916",
             "brand": "Bins & Things",
-            "title": "Bins & Things Clear 3-Tier Stackable Storage Containers with Lids - 18 Adjustable Compartments for Bead - Organizing Drawers for Jewelry, Kids Toys, Makeup",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/51Lyo9vME0L.jpg",
-            "price": 24.99,
+            "title": "Bins & Things Bead Organizer with Adjustable Compartments - Durable Toy Organizers and Storage Solution for Dolls, Crafts, Mini Toy Figures, Jewelry and Beads - 4 Tier, 40 Compartments, Pink",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/51nV2Mfp2XL.jpg",
+            "price": 26.99,
             "reviews": 728,
             "rating": 4.2,
             "volume": 193
         },
         {
             "upc": "737029853835",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "9a7ec66d",
             "brand": "Frisco Craft",
@@ -424,7 +425,7 @@
         },
         {
             "upc": "697691502649",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "a046af2d",
             "brand": "NuFun Activities",
@@ -436,21 +437,21 @@
             "volume": 128
         },
         {
-            "upc": "600821087015",
-            "cat_main_id": "main_8d33a",
+            "upc": "600821159064",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "da8187d4",
             "brand": "DUA MAIGA",
             "title": "280 Pcs Washable Acrylic Paint for Kids Arts and Crafts, 20 Gouache Watercolor Paint Sets of 12 Colors for Party Classroom Painting Supplies, 20 Flat and 20 Pointed Brushes",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/51fB749yBcL.jpg",
-            "price": 22.87,
+            "image": "https://images-na.ssl-images-amazon.com/images/I/51VTmyMVB2L.jpg",
+            "price": 23.99,
             "reviews": 61,
             "rating": 4.7,
-            "volume": 619
+            "volume": 521
         },
         {
             "upc": "300716225880",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "823bd626",
             "brand": "Tsukineko",
@@ -463,7 +464,7 @@
         },
         {
             "upc": "752349652845",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "6ee3e35c",
             "brand": "ULLFEU",
@@ -476,7 +477,7 @@
         },
         {
             "upc": "850885004019",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b713adf0",
             "brand": "BlingGuard",
@@ -489,7 +490,7 @@
         },
         {
             "upc": "638428425725",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e499cfdc",
             "brand": "BOSWELL",
@@ -502,7 +503,7 @@
         },
         {
             "upc": "853247007291",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "3ea9aa79",
             "brand": "DOODLE HOG",
@@ -515,7 +516,7 @@
         },
         {
             "upc": "842048033677",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "60571aa4",
             "brand": "It's Academic",
@@ -528,7 +529,7 @@
         },
         {
             "upc": "703194394770",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f675fa54",
             "brand": "ilauke",
@@ -541,7 +542,7 @@
         },
         {
             "upc": "730637370626",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0cdd5d5e",
             "brand": "IVSUN",
@@ -554,7 +555,7 @@
         },
         {
             "upc": "766757397779",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "fcd6539e",
             "brand": "WELLOKB",
@@ -567,7 +568,7 @@
         },
         {
             "upc": "727268028774",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "3a1ea7de",
             "brand": "CHROMATEK",
@@ -580,7 +581,7 @@
         },
         {
             "upc": "649823629113",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "4ddb5d05",
             "brand": "SEVNDE",
@@ -593,7 +594,7 @@
         },
         {
             "upc": "848849085792",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "1c1c5cd4",
             "brand": "Pouring Masters",
@@ -606,7 +607,7 @@
         },
         {
             "upc": "035926165434",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "15deae89",
             "brand": "Beadalon",
@@ -619,7 +620,7 @@
         },
         {
             "upc": "695301430245",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "92dead6e",
             "brand": "Odif",
@@ -632,7 +633,7 @@
         },
         {
             "upc": "781509720254",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2cbb5bdf",
             "brand": "imyyds",
@@ -645,7 +646,7 @@
         },
         {
             "upc": "843128175034",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "9dd3a221",
             "brand": "Paper Junkie",
@@ -658,7 +659,7 @@
         },
         {
             "upc": "706384177573",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f1c8b599",
             "brand": "SUPMIND",
@@ -671,7 +672,7 @@
         },
         {
             "upc": "765442655323",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "de852996",
             "brand": "VEYETTE",
@@ -684,7 +685,7 @@
         },
         {
             "upc": "748966785745",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "98942f2a",
             "brand": "KPCB Tech",
@@ -697,7 +698,7 @@
         },
         {
             "upc": "810026273841",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c6ad0e30",
             "brand": "Stone Coat Countertops",
@@ -710,7 +711,7 @@
         },
         {
             "upc": "769194525316",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "307008a0",
             "brand": "Mira HandCrafts",
@@ -723,7 +724,7 @@
         },
         {
             "upc": "707516695316",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "1b716e42",
             "brand": "Sew Tech",
@@ -736,7 +737,7 @@
         },
         {
             "upc": "794163930891",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8f411b77",
             "brand": "LYNDA",
@@ -749,7 +750,7 @@
         },
         {
             "upc": "099295320061",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8e217281",
             "brand": "Lineco",
@@ -762,7 +763,7 @@
         },
         {
             "upc": "036346150901",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b0782059",
             "brand": "SCHMETZ",
@@ -775,7 +776,7 @@
         },
         {
             "upc": "046308296394",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "718410ff",
             "brand": "Walnut Hollow",
@@ -788,7 +789,7 @@
         },
         {
             "upc": "087006425051",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b420989b",
             "brand": "Bo-Nash",
@@ -801,7 +802,7 @@
         },
         {
             "upc": "042491900889",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "1e77fe44",
             "brand": "Officemate OIC",
@@ -814,7 +815,7 @@
         },
         {
             "upc": "011130700005",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e0d3050d",
             "brand": "Hagerty",
@@ -827,7 +828,7 @@
         },
         {
             "upc": "035352100054",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f040978d",
             "brand": "Fairfield",
@@ -840,7 +841,7 @@
         },
         {
             "upc": "798837958723",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "7538a674",
             "brand": "The Candlemaker's Store",
@@ -853,7 +854,7 @@
         },
         {
             "upc": "091955060768",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2507490e",
             "brand": "Roxanne",
@@ -866,7 +867,7 @@
         },
         {
             "upc": "075176156578",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "07df6b41",
             "brand": "Handy Art",
@@ -879,7 +880,7 @@
         },
         {
             "upc": "610825457943",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "06eecfe7",
             "brand": "Simthread",
@@ -892,7 +893,7 @@
         },
         {
             "upc": "762360230571",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "96fe06e6",
             "brand": "tiktecklab",
@@ -905,7 +906,7 @@
         },
         {
             "upc": "657390571186",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "10ef8763",
             "brand": "ELDVAP",
@@ -918,7 +919,7 @@
         },
         {
             "upc": "810026273568",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "db708e0d",
             "brand": "Alumilite",
@@ -931,7 +932,7 @@
         },
         {
             "upc": "720570864016",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "89f28875",
             "brand": "Lily",
@@ -944,7 +945,7 @@
         },
         {
             "upc": "764966343617",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b38c83ec",
             "brand": "Sewline",
@@ -957,7 +958,7 @@
         },
         {
             "upc": "613792299783",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "04f70de0",
             "brand": "YITOHOP",
@@ -970,7 +971,7 @@
         },
         {
             "upc": "856898007634",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "fb15d156",
             "brand": "Paint Puck",
@@ -983,7 +984,7 @@
         },
         {
             "upc": "788392495597",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2b7f4b4d",
             "brand": "BAOHONG",
@@ -996,7 +997,7 @@
         },
         {
             "upc": "636676441146",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "47a6a6fe",
             "brand": "RC RICHCRAFT",
@@ -1009,7 +1010,7 @@
         },
         {
             "upc": "651174977867",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "a595aa84",
             "brand": "MEAVIA",
@@ -1021,21 +1022,21 @@
             "volume": 445
         },
         {
-            "upc": "663992506174",
-            "cat_main_id": "main_8d33a",
+            "upc": "663992506372",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "afefa43a",
             "brand": "WuNa",
-            "title": "5LB Yellow Beeswax Pellets Food Grade Beeswax Triple Filtered Beeswax for Candle Making Beeswax Pastilles for DIY Creams Lotions Lip Balm Soap",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/51Y8h+7CpDL.jpg",
-            "price": 25.99,
+            "title": "10LB Yellow Beeswax Pellets Food Grade Beeswax Triple Filtered Beeswax for Candle Making Beeswax Pastilles for DIY Creams Lotions Lip Balm Soap",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/51NDmRiHmZL.jpg",
+            "price": 35.99,
             "reviews": 230,
             "rating": 4.0,
-            "volume": 219
+            "volume": 223
         },
         {
             "upc": "036346150802",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b0782059",
             "brand": "SCHMETZ",
@@ -1048,7 +1049,7 @@
         },
         {
             "upc": "810124125400",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "99bc500c",
             "brand": "E-CLIPS USA",
@@ -1061,7 +1062,7 @@
         },
         {
             "upc": "864363000332",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0d7d15ee",
             "brand": "Color Swell",
@@ -1074,7 +1075,7 @@
         },
         {
             "upc": "701936209313",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2190443d",
             "brand": "Gain Express",
@@ -1087,7 +1088,7 @@
         },
         {
             "upc": "751635476417",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -1100,7 +1101,7 @@
         },
         {
             "upc": "714819801641",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c1bf63de",
             "brand": "TRANSON",
@@ -1113,7 +1114,7 @@
         },
         {
             "upc": "370393001268",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "ac6753b2",
             "brand": "Hearts & Crafts",
@@ -1126,7 +1127,7 @@
         },
         {
             "upc": "746092285221",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "50336bc2",
             "brand": "Kulay",
@@ -1139,7 +1140,7 @@
         },
         {
             "upc": "778992409155",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "ba05d14f",
             "brand": "Epesl",
@@ -1152,7 +1153,7 @@
         },
         {
             "upc": "703610714977",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e8005658",
             "brand": "Pink Power",
@@ -1165,7 +1166,7 @@
         },
         {
             "upc": "723661634659",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "d8df1363",
             "brand": "Oficrafted",
@@ -1178,7 +1179,7 @@
         },
         {
             "upc": "783907641445",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "11968c1c",
             "brand": "HissiCo",
@@ -1191,7 +1192,7 @@
         },
         {
             "upc": "706954235771",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0cd375c2",
             "brand": "BRILLIANCE LASER INKS",
@@ -1204,7 +1205,7 @@
         },
         {
             "upc": "762511022291",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2d44d102",
             "brand": "Omnigrid",
@@ -1217,7 +1218,7 @@
         },
         {
             "upc": "046961598118",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "405fe439",
             "brand": "DMC",
@@ -1230,7 +1231,7 @@
         },
         {
             "upc": "824006919872",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0a098708",
             "brand": "Magicdo",
@@ -1243,7 +1244,7 @@
         },
         {
             "upc": "798220499758",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "624414c4",
             "brand": "ibotti",
@@ -1256,7 +1257,7 @@
         },
         {
             "upc": "766416129505",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0620963b",
             "brand": "Snazaroo",
@@ -1269,7 +1270,7 @@
         },
         {
             "upc": "075176154024",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "07df6b41",
             "brand": "Handy Art",
@@ -1282,7 +1283,7 @@
         },
         {
             "upc": "731199924425",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95f01f64",
             "brand": "CRAFTILOO",
@@ -1295,7 +1296,7 @@
         },
         {
             "upc": "788402965607",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c9571a7b",
             "brand": "Loyohep",
@@ -1308,7 +1309,7 @@
         },
         {
             "upc": "799457348406",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0d1b08c3",
             "brand": "???",
@@ -1321,7 +1322,7 @@
         },
         {
             "upc": "637938542922",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "14b9b7ba",
             "brand": "SUNHE YHK",
@@ -1334,7 +1335,7 @@
         },
         {
             "upc": "842364124486",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "72cb1a45",
             "brand": "7 Elements",
@@ -1347,7 +1348,7 @@
         },
         {
             "upc": "721545372130",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "d760d4b9",
             "brand": "Aujazyble",
@@ -1360,7 +1361,7 @@
         },
         {
             "upc": "756014304725",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "22dccfc6",
             "brand": "Pott'd",
@@ -1373,7 +1374,7 @@
         },
         {
             "upc": "636343170836",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "38563d39",
             "brand": "The Grace Company",
@@ -1386,7 +1387,7 @@
         },
         {
             "upc": "761989853055",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "77dbbc54",
             "brand": "CRAFT WORLD",
@@ -1399,7 +1400,7 @@
         },
         {
             "upc": "713072681670",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "3ab79fa6",
             "brand": "TEKCOPLUS",
@@ -1412,7 +1413,7 @@
         },
         {
             "upc": "634543572481",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c0a239bd",
             "brand": "Knitter's Pride",
@@ -1425,7 +1426,7 @@
         },
         {
             "upc": "046929999704",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "7538a674",
             "brand": "The Candlemaker's Store",
@@ -1438,7 +1439,7 @@
         },
         {
             "upc": "739197223274",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "a626781a",
             "brand": "PPD",
@@ -1451,7 +1452,7 @@
         },
         {
             "upc": "729911000922",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e7f87762",
             "brand": "Gamblin",
@@ -1464,7 +1465,7 @@
         },
         {
             "upc": "787415463681",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "5df8b71c",
             "brand": "Ouraqto",
@@ -1477,7 +1478,7 @@
         },
         {
             "upc": "019962430336",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "d2e10d12",
             "brand": "Scor-Pal",
@@ -1490,7 +1491,7 @@
         },
         {
             "upc": "715235751152",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "55a59894",
             "brand": "Kraftex",
@@ -1503,7 +1504,7 @@
         },
         {
             "upc": "628055667032",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "81a7f881",
             "brand": "kullaloo",
@@ -1516,7 +1517,7 @@
         },
         {
             "upc": "600300824452",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "3e1a7e9c",
             "brand": "XNM Creations",
@@ -1529,7 +1530,7 @@
         },
         {
             "upc": "737054787006",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f6f1f712",
             "brand": "yygywen",
@@ -1542,7 +1543,7 @@
         },
         {
             "upc": "738283655418",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e1207952",
             "brand": "Plant Guru",
@@ -1555,7 +1556,7 @@
         },
         {
             "upc": "885634068028",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "6e7646f1",
             "brand": "Sax",
@@ -1568,7 +1569,7 @@
         },
         {
             "upc": "850000235823",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "5e9d2c79",
             "brand": "Craftzilla",
@@ -1581,7 +1582,7 @@
         },
         {
             "upc": "760509414790",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "284877f8",
             "brand": "YIEHO",
@@ -1594,7 +1595,7 @@
         },
         {
             "upc": "840065332353",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0d269ab9",
             "brand": "Laflare",
@@ -1607,7 +1608,7 @@
         },
         {
             "upc": "751816911201",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "fcd6539e",
             "brand": "WELLOKB",
@@ -1620,7 +1621,7 @@
         },
         {
             "upc": "703194394008",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f675fa54",
             "brand": "ilauke",
@@ -1633,7 +1634,7 @@
         },
         {
             "upc": "075633906463",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "688d0345",
             "brand": "ITOYA",
@@ -1646,7 +1647,7 @@
         },
         {
             "upc": "798220499659",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "624414c4",
             "brand": "ibotti",
@@ -1659,7 +1660,7 @@
         },
         {
             "upc": "817918022921",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "df71bbcb",
             "brand": "Sili",
@@ -1672,7 +1673,7 @@
         },
         {
             "upc": "110709421584",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "a2ba4897",
             "brand": "Guidelines4quilting",
@@ -1685,7 +1686,7 @@
         },
         {
             "upc": "010199088567",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "727b79a9",
             "brand": "Accent",
@@ -1698,7 +1699,7 @@
         },
         {
             "upc": "727268028415",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "3a1ea7de",
             "brand": "CHROMATEK",
@@ -1711,7 +1712,7 @@
         },
         {
             "upc": "711662934298",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "7bc7f0c3",
             "brand": "Jewelry Displays & Boxes",
@@ -1724,7 +1725,7 @@
         },
         {
             "upc": "712131978645",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "51cbed5f",
             "brand": "Mybecca",
@@ -1737,7 +1738,7 @@
         },
         {
             "upc": "737269551164",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "3dcb04df",
             "brand": "MONVICT",
@@ -1750,7 +1751,7 @@
         },
         {
             "upc": "742404210707",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c8e79675",
             "brand": "Semoprus",
@@ -1763,7 +1764,7 @@
         },
         {
             "upc": "614591705604",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8a0991b7",
             "brand": "Ogrmar",
@@ -1776,7 +1777,7 @@
         },
         {
             "upc": "818014028565",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b01199d3",
             "brand": "Our Earth's Secrets",
@@ -1789,7 +1790,7 @@
         },
         {
             "upc": "751635953109",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -1802,7 +1803,7 @@
         },
         {
             "upc": "850051006373",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "fa353c0b",
             "brand": "Positive Art",
@@ -1815,7 +1816,7 @@
         },
         {
             "upc": "709758872319",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f38841d8",
             "brand": "Charvin",
@@ -1828,7 +1829,7 @@
         },
         {
             "upc": "741459671389",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "36f67c5c",
             "brand": "Buddha Board",
@@ -1841,7 +1842,7 @@
         },
         {
             "upc": "715891114421",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "dbfcf644",
             "brand": "Super Sculpey",
@@ -1854,7 +1855,7 @@
         },
         {
             "upc": "071617090029",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c238100a",
             "brand": "ArtBin",
@@ -1867,7 +1868,7 @@
         },
         {
             "upc": "751635227415",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -1880,7 +1881,7 @@
         },
         {
             "upc": "093432601204",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "860200e7",
             "brand": "Panacea",
@@ -1893,7 +1894,7 @@
         },
         {
             "upc": "799473191918",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "995745ec",
             "brand": "K KERNOWO",
@@ -1906,7 +1907,7 @@
         },
         {
             "upc": "661706938419",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "92a54374",
             "brand": "Praisebank",
@@ -1919,7 +1920,7 @@
         },
         {
             "upc": "850000854635",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "80bd0f08",
             "brand": "PINTY PLUS",
@@ -1932,7 +1933,7 @@
         },
         {
             "upc": "754111774618",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "00fa59ff",
             "brand": "EXTCCT",
@@ -1945,7 +1946,7 @@
         },
         {
             "upc": "743162034895",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "585742f1",
             "brand": "DANIEL SMITH",
@@ -1958,7 +1959,7 @@
         },
         {
             "upc": "751635296602",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -1971,7 +1972,7 @@
         },
         {
             "upc": "611677863005",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "162c15a4",
             "brand": "IMT",
@@ -1984,7 +1985,7 @@
         },
         {
             "upc": "599039085121",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "6a62a490",
             "brand": "Soft Flex",
@@ -1997,7 +1998,7 @@
         },
         {
             "upc": "634901006207",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "53437a19",
             "brand": "Kwik Stix",
@@ -2010,7 +2011,7 @@
         },
         {
             "upc": "787588923258",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "261a5baf",
             "brand": "Soapeauty",
@@ -2023,7 +2024,7 @@
         },
         {
             "upc": "819682023241",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "a19f060d",
             "brand": "KINGART",
@@ -2036,7 +2037,7 @@
         },
         {
             "upc": "783710547958",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "1b716e42",
             "brand": "Sew Tech",
@@ -2049,7 +2050,7 @@
         },
         {
             "upc": "614591697930",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8a0991b7",
             "brand": "Ogrmar",
@@ -2062,7 +2063,7 @@
         },
         {
             "upc": "046912691592",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "db3b99b3",
             "brand": "American Crafts",
@@ -2075,7 +2076,7 @@
         },
         {
             "upc": "745681781045",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "62d3ba3f",
             "brand": "YOUNTHYE",
@@ -2088,7 +2089,7 @@
         },
         {
             "upc": "751635225411",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -2101,7 +2102,7 @@
         },
         {
             "upc": "760635732362",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "78bd7659",
             "brand": "NAWOD",
@@ -2114,7 +2115,7 @@
         },
         {
             "upc": "715663001935",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "a5017a2a",
             "brand": "Earlex",
@@ -2127,7 +2128,7 @@
         },
         {
             "upc": "751635834415",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -2140,7 +2141,7 @@
         },
         {
             "upc": "369374783057",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "db3b99b3",
             "brand": "American Crafts",
@@ -2153,7 +2154,7 @@
         },
         {
             "upc": "035352112057",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e48671f3",
             "brand": "Poly-Fil",
@@ -2166,7 +2167,7 @@
         },
         {
             "upc": "000943240105",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "5e3a8f5d",
             "brand": "HeatnBond",
@@ -2179,7 +2180,7 @@
         },
         {
             "upc": "751635292413",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "9515e6ab",
             "brand": "Smooth-On, Inc.",
@@ -2192,7 +2193,7 @@
         },
         {
             "upc": "810008427606",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "071ba94e",
             "brand": "GRAS Art Bundles",
@@ -2205,7 +2206,7 @@
         },
         {
             "upc": "028841193088",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e3ea46de",
             "brand": "XURON",
@@ -2218,7 +2219,7 @@
         },
         {
             "upc": "861928000110",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "90687885",
             "brand": "Easy Earring Cards",
@@ -2231,7 +2232,7 @@
         },
         {
             "upc": "044974103008",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "77ad119e",
             "brand": "The Masters",
@@ -2244,7 +2245,7 @@
         },
         {
             "upc": "791159413413",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "84bfd583",
             "brand": "Caran d'Ache",
@@ -2257,7 +2258,7 @@
         },
         {
             "upc": "054947122981",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "41b89d10",
             "brand": "Beacon",
@@ -2270,7 +2271,7 @@
         },
         {
             "upc": "736950538613",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "988afd1e",
             "brand": "Ronyes Lifescience",
@@ -2283,7 +2284,7 @@
         },
         {
             "upc": "854549004001",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "90687885",
             "brand": "Easy Earring Cards",
@@ -2296,7 +2297,7 @@
         },
         {
             "upc": "700310301834",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "35eeff76",
             "brand": "UCHIDA",
@@ -2309,7 +2310,7 @@
         },
         {
             "upc": "821079269279",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "98e6ffc3",
             "brand": "Laguna",
@@ -2322,7 +2323,7 @@
         },
         {
             "upc": "619317586574",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e40cabe3",
             "brand": "DANOPLUS",
@@ -2335,7 +2336,7 @@
         },
         {
             "upc": "659676238219",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e7179608",
             "brand": "EFFECTEER",
@@ -2348,7 +2349,7 @@
         },
         {
             "upc": "860001901801",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "4a230399",
             "brand": "TOOLI-ART",
@@ -2361,7 +2362,7 @@
         },
         {
             "upc": "812637025116",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "911c51b6",
             "brand": "WiseBond",
@@ -2374,7 +2375,7 @@
         },
         {
             "upc": "799695736546",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b01199d3",
             "brand": "Our Earth's Secrets",
@@ -2387,7 +2388,7 @@
         },
         {
             "upc": "096701137770",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "404718e4",
             "brand": "Grafix",
@@ -2400,7 +2401,7 @@
         },
         {
             "upc": "090385480016",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "eabbec9c",
             "brand": "Dr. Ph. Martin's",
@@ -2413,7 +2414,7 @@
         },
         {
             "upc": "810120682266",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "11ce3f07",
             "brand": "Hogg",
@@ -2426,7 +2427,7 @@
         },
         {
             "upc": "097539359129",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "487d420c",
             "brand": "Mayco",
@@ -2439,7 +2440,7 @@
         },
         {
             "upc": "309787690689",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "a41a77f8",
             "brand": "Creative Memories",
@@ -2452,7 +2453,7 @@
         },
         {
             "upc": "075611919607",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b18eae70",
             "brand": "Testors",
@@ -2465,7 +2466,7 @@
         },
         {
             "upc": "522180814821",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "36e4af3e",
             "brand": "Derwent",
@@ -2478,7 +2479,7 @@
         },
         {
             "upc": "680904047914",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2b705b07",
             "brand": "Kalawen",
@@ -2491,7 +2492,7 @@
         },
         {
             "upc": "606089858138",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "9f3bbb24",
             "brand": "EricX Light",
@@ -2504,7 +2505,7 @@
         },
         {
             "upc": "014137755566",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "ea25633a",
             "brand": "Crafty Dab",
@@ -2517,7 +2518,7 @@
         },
         {
             "upc": "706954235948",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0cd375c2",
             "brand": "BRILLIANCE LASER INKS",
@@ -2530,7 +2531,7 @@
         },
         {
             "upc": "843128143538",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "9dd3a221",
             "brand": "Paper Junkie",
@@ -2543,7 +2544,7 @@
         },
         {
             "upc": "093616020012",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "10ba63fe",
             "brand": "HomeHobby by 3L",
@@ -2556,7 +2557,7 @@
         },
         {
             "upc": "641773923846",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "38ec8488",
             "brand": "VALLENWOOD",
@@ -2569,7 +2570,7 @@
         },
         {
             "upc": "762409109103",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8980facf",
             "brand": "LAMXD",
@@ -2582,7 +2583,7 @@
         },
         {
             "upc": "055844312796",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "09cfa2dc",
             "brand": "Simply Soson",
@@ -2595,7 +2596,7 @@
         },
         {
             "upc": "799408752580",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "76910147",
             "brand": "Artowell",
@@ -2608,7 +2609,7 @@
         },
         {
             "upc": "046928593941",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "d2e10d12",
             "brand": "Scor-Pal",
@@ -2621,7 +2622,7 @@
         },
         {
             "upc": "090146005960",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "850daa0c",
             "brand": "PrintWorks",
@@ -2634,7 +2635,7 @@
         },
         {
             "upc": "745408017815",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "99dff5ad",
             "brand": "Vanstek",
@@ -2647,7 +2648,7 @@
         },
         {
             "upc": "762511512648",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2d44d102",
             "brand": "Omnigrid",
@@ -2660,7 +2661,7 @@
         },
         {
             "upc": "810026279249",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "720491db",
             "brand": "SPRESIN",
@@ -2673,7 +2674,7 @@
         },
         {
             "upc": "810008427095",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f730d6c6",
             "brand": "Pixiss",
@@ -2686,7 +2687,7 @@
         },
         {
             "upc": "708111377966",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "ef0129ee",
             "brand": "harmiey",
@@ -2699,7 +2700,7 @@
         },
         {
             "upc": "779296174992",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "98b8f0e0",
             "brand": "cenoz",
@@ -2712,7 +2713,7 @@
         },
         {
             "upc": "818014024307",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b01199d3",
             "brand": "Our Earth's Secrets",
@@ -2725,7 +2726,7 @@
         },
         {
             "upc": "689867046576",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "ba7b44f4",
             "brand": "Milliput",
@@ -2738,7 +2739,7 @@
         },
         {
             "upc": "075611913209",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b18eae70",
             "brand": "Testors",
@@ -2751,7 +2752,7 @@
         },
         {
             "upc": "729911030165",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e7f87762",
             "brand": "Gamblin",
@@ -2764,7 +2765,7 @@
         },
         {
             "upc": "737069511344",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "82b102db",
             "brand": "MudTools",
@@ -2777,7 +2778,7 @@
         },
         {
             "upc": "191814387385",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e7dbf157",
             "brand": "Godora",
@@ -2790,7 +2791,7 @@
         },
         {
             "upc": "015586945560",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c5d165ea",
             "brand": "EK Tools",
@@ -2803,7 +2804,7 @@
         },
         {
             "upc": "670221771494",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "37939c1b",
             "brand": "Scissor-Tailed",
@@ -2816,7 +2817,7 @@
         },
         {
             "upc": "795787527115",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "94e963cf",
             "brand": "Booshow",
@@ -2829,7 +2830,7 @@
         },
         {
             "upc": "652012891741",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "7edcac4f",
             "brand": "Hamilco",
@@ -2842,7 +2843,7 @@
         },
         {
             "upc": "753936113046",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c41515b7",
             "brand": "HXH",
@@ -2855,7 +2856,7 @@
         },
         {
             "upc": "753637235580",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "734dc20f",
             "brand": "MOTEERLLU",
@@ -2868,7 +2869,7 @@
         },
         {
             "upc": "709758874696",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c4cd77fc",
             "brand": "Soho Urban Artist",
@@ -2881,7 +2882,7 @@
         },
         {
             "upc": "018239311804",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b42cc536",
             "brand": "FPC Corporation (Surebonder)",
@@ -2894,7 +2895,7 @@
         },
         {
             "upc": "717049137184",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0ec84d19",
             "brand": "FYGAIN",
@@ -2907,7 +2908,7 @@
         },
         {
             "upc": "737069511443",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "82b102db",
             "brand": "MudTools",
@@ -2920,7 +2921,7 @@
         },
         {
             "upc": "765381496667",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "82c49a7e",
             "brand": "VISWIN",
@@ -2933,7 +2934,7 @@
         },
         {
             "upc": "078433287138",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "6e2e6d31",
             "brand": "Loew-Cornell",
@@ -2946,7 +2947,7 @@
         },
         {
             "upc": "008853497244",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c6184cfd",
             "brand": "Art-n-Fly",
@@ -2959,7 +2960,7 @@
         },
         {
             "upc": "085353514503",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "922ddb73",
             "brand": "Eggone",
@@ -2972,7 +2973,7 @@
         },
         {
             "upc": "013372009359",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c5d165ea",
             "brand": "EK Tools",
@@ -2985,7 +2986,7 @@
         },
         {
             "upc": "694394200001",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "6f1348d9",
             "brand": "Bean Products",
@@ -2998,7 +2999,7 @@
         },
         {
             "upc": "639510584078",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e06ad8e8",
             "brand": "Fuumuui",
@@ -3011,7 +3012,7 @@
         },
         {
             "upc": "029882184097",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "d2e10d12",
             "brand": "Scor-Pal",
@@ -3024,7 +3025,7 @@
         },
         {
             "upc": "741813138589",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b7e2666e",
             "brand": "NEEDLES QUILT STUDIO",
@@ -3037,7 +3038,7 @@
         },
         {
             "upc": "713325005154",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "a00d2ade",
             "brand": "EVNEED",
@@ -3050,7 +3051,7 @@
         },
         {
             "upc": "729911060162",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e7f87762",
             "brand": "Gamblin",
@@ -3063,7 +3064,7 @@
         },
         {
             "upc": "743162033614",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "585742f1",
             "brand": "DANIEL SMITH",
@@ -3076,7 +3077,7 @@
         },
         {
             "upc": "766218086587",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "fa045fbe",
             "brand": "DecoArt",
@@ -3089,7 +3090,7 @@
         },
         {
             "upc": "751635273412",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -3102,7 +3103,7 @@
         },
         {
             "upc": "659676445143",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c41e0374",
             "brand": "HomDSim",
@@ -3115,7 +3116,7 @@
         },
         {
             "upc": "841182073136",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e14cbdd9",
             "brand": "Sizzix",
@@ -3128,7 +3129,7 @@
         },
         {
             "upc": "029444630048",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "312aab2b",
             "brand": "Colors of Rainbow",
@@ -3141,7 +3142,7 @@
         },
         {
             "upc": "759528282244",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "467f46fc",
             "brand": "esseelove",
@@ -3154,7 +3155,7 @@
         },
         {
             "upc": "082435151182",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8e77a02e",
             "brand": "Art Alternatives",
@@ -3167,7 +3168,7 @@
         },
         {
             "upc": "751635618411",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -3180,7 +3181,7 @@
         },
         {
             "upc": "886946315022",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b705ba50",
             "brand": "Craft Smart",
@@ -3193,7 +3194,7 @@
         },
         {
             "upc": "611890722790",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "877117bc",
             "brand": "Aodesy",
@@ -3206,7 +3207,7 @@
         },
         {
             "upc": "649870642981",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2e2a9229",
             "brand": "Artlicious",
@@ -3219,7 +3220,7 @@
         },
         {
             "upc": "726667735559",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "df58a261",
             "brand": "ELLASSAY",
@@ -3232,7 +3233,7 @@
         },
         {
             "upc": "678631116317",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e68c202a",
             "brand": "HYTIREBY",
@@ -3245,7 +3246,7 @@
         },
         {
             "upc": "753962441113",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2b9fb473",
             "brand": "Quakehold!",
@@ -3258,7 +3259,7 @@
         },
         {
             "upc": "741960993536",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "46006a47",
             "brand": "Color More",
@@ -3271,7 +3272,7 @@
         },
         {
             "upc": "890531001825",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b399e721",
             "brand": "Authentic Knitting Board",
@@ -3284,7 +3285,7 @@
         },
         {
             "upc": "743921411240",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "6d3144a1",
             "brand": "Gingher",
@@ -3297,7 +3298,7 @@
         },
         {
             "upc": "099295530095",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8e217281",
             "brand": "Lineco",
@@ -3310,7 +3311,7 @@
         },
         {
             "upc": "655457477792",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "4579df2c",
             "brand": "Rustic Wood Slices Inc.",
@@ -3323,7 +3324,7 @@
         },
         {
             "upc": "640746421211",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "ae4aa227",
             "brand": "Koalabu",
@@ -3336,7 +3337,7 @@
         },
         {
             "upc": "757063475909",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "baa53597",
             "brand": "Princeton",
@@ -3349,7 +3350,7 @@
         },
         {
             "upc": "743815954464",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "fce1e52b",
             "brand": "Mardili",
@@ -3362,7 +3363,7 @@
         },
         {
             "upc": "673807613225",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f98f3250",
             "brand": "Me & My Big Ideas",
@@ -3375,7 +3376,7 @@
         },
         {
             "upc": "096701136889",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "404718e4",
             "brand": "Grafix",
@@ -3388,7 +3389,7 @@
         },
         {
             "upc": "751635821415",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -3401,7 +3402,7 @@
         },
         {
             "upc": "606682937773",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "d2800997",
             "brand": "Afantti",
@@ -3414,7 +3415,7 @@
         },
         {
             "upc": "617237781444",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "27d7c91e",
             "brand": "Skutt",
@@ -3427,7 +3428,7 @@
         },
         {
             "upc": "735317809304",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "9135358a",
             "brand": "SOMOLUX",
@@ -3440,7 +3441,7 @@
         },
         {
             "upc": "731694233442",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "129eb0b5",
             "brand": "Find Scrapblooms",
@@ -3453,7 +3454,7 @@
         },
         {
             "upc": "751635446410",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "95c96575",
             "brand": "Smooth-On",
@@ -3466,7 +3467,7 @@
         },
         {
             "upc": "784126355823",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2448d8d0",
             "brand": "guofa",
@@ -3479,7 +3480,7 @@
         },
         {
             "upc": "046900998245",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "a26a987d",
             "brand": "Bowdabra",
@@ -3492,7 +3493,7 @@
         },
         {
             "upc": "715802748417",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "cc4d88b4",
             "brand": "Magicfly",
@@ -3505,7 +3506,7 @@
         },
         {
             "upc": "709758858610",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "4caddd98",
             "brand": "Centurion",
@@ -3518,7 +3519,7 @@
         },
         {
             "upc": "730425193048",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "73b54bd3",
             "brand": "Babluble",
@@ -3531,7 +3532,7 @@
         },
         {
             "upc": "791334650893",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "5cd93a4e",
             "brand": "GGLTECK",
@@ -3544,7 +3545,7 @@
         },
         {
             "upc": "082435751504",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "8e77a02e",
             "brand": "Art Alternatives",
@@ -3557,7 +3558,7 @@
         },
         {
             "upc": "753182312705",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "86184755",
             "brand": "SpectraFix",
@@ -3570,7 +3571,7 @@
         },
         {
             "upc": "028617437781",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c32eb785",
             "brand": "Marvy Uchida",
@@ -3583,7 +3584,7 @@
         },
         {
             "upc": "028995307256",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "44e1c1a0",
             "brand": "Plaid",
@@ -3596,7 +3597,7 @@
         },
         {
             "upc": "074994345614",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "5dc931e0",
             "brand": "Dylusions",
@@ -3609,7 +3610,7 @@
         },
         {
             "upc": "636123138834",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "c4e7582f",
             "brand": "Milton Sokol & Co.",
@@ -3622,7 +3623,7 @@
         },
         {
             "upc": "026614000311",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "f6c9e40b",
             "brand": "Paasche",
@@ -3635,7 +3636,7 @@
         },
         {
             "upc": "094006301582",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "823bd626",
             "brand": "Tsukineko",
@@ -3648,7 +3649,7 @@
         },
         {
             "upc": "606989001108",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "b367be82",
             "brand": "Rosenthal Collection",
@@ -3661,7 +3662,7 @@
         },
         {
             "upc": "190372957672",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "02e2690c",
             "brand": "OAIEGSD",
@@ -3674,7 +3675,7 @@
         },
         {
             "upc": "601140002666",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "0dae4a92",
             "brand": "Morgan",
@@ -3687,7 +3688,7 @@
         },
         {
             "upc": "619264005050",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "44f60d20",
             "brand": "Cheriswelry",
@@ -3700,7 +3701,7 @@
         },
         {
             "upc": "762511021034",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "2d44d102",
             "brand": "Omnigrid",
@@ -3713,7 +3714,7 @@
         },
         {
             "upc": "074994340435",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "6c6210c7",
             "brand": "Allary",
@@ -3726,7 +3727,7 @@
         },
         {
             "upc": "010199021946",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "727b79a9",
             "brand": "Accent",
@@ -3739,7 +3740,7 @@
         },
         {
             "upc": "641453060991",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "58cc76b4",
             "brand": "Martelli",
@@ -3752,7 +3753,7 @@
         },
         {
             "upc": "630454248828",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e14cbdd9",
             "brand": "Sizzix",
@@ -3765,7 +3766,7 @@
         },
         {
             "upc": "683203272438",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "db3b99b3",
             "brand": "American Crafts",
@@ -3778,7 +3779,7 @@
         },
         {
             "upc": "630454239437",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "e14cbdd9",
             "brand": "Sizzix",
@@ -3791,7 +3792,7 @@
         },
         {
             "upc": "033586002298",
-            "cat_main_id": "main_8d33a",
+            "cat_main_id": "main_841d8",
             "cat_sub_id": "sub_d41d8",
             "brand_id": "fa8d510b",
             "brand": "Wolfe Face Art & Fx",

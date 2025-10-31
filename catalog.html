@@ -7,46 +7,37 @@
     <link rel="icon" href="assets/media/favicon.png" type="image/png" sizes="32x32">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/catalog.css">
-    <script src="theme.config.js" defer></script>
     <script src="assets/main.js" defer></script>
     <script src="assets/catalog.js" defer></script>
   </head>
-  <body class="body theme-dark catalog-body">
+  <body class="body catalog-body">
     <div data-animation="default" class="navbar_component navbar w-nav" data-easing2="ease-out" data-easing="ease-in-out" data-collapse="medium" role="banner" data-duration="700">
       <section class="container_medium">
         <div class="mobile-nav_component">
           <div class="mobile-nav_content">
             <a href="index.html" class="nav_brand nav_brand_mobile w-nav-brand" aria-label="home">
-              <img loading="lazy" alt="Retail Stride" src="assets/media/logo.svg" class="nav_logo nav_logo--dark mobile_logo" aria-hidden="true">
-              <img loading="lazy" alt="Retail Stride" src="assets/media/logo_dark.svg" class="nav_logo nav_logo--light mobile_logo" aria-hidden="true">
+              <img loading="lazy" alt="Retail Stride" src="assets/media/logo.svg" class="nav_logo mobile_logo">
             </a>
             <a href="index.html#services" class="mobile-nav_link">Services</a>
             <a href="index.html#marketplaces" class="mobile-nav_link mt-20">Coverage</a>
+            <a href="index.html#how-we-work" class="mobile-nav_link">How We Work</a>
             <a href="index.html#about" class="mobile-nav_link">About Us</a>
-            <a href="catalog.html" class="mobile-nav_link">Catalog</a>
+            <a href="catalog.html" class="mobile-nav_link w--current" aria-current="page">Catalog</a>
             <div class="button-grup gap-tiny">
               <a href="index.html#cta" class="btn phone-inverted btn_icon btn_reverse nav w-button">Let's Connect</a>
-            </div>
-            <div class="mobile-theme-toggle">
-              <button type="button" class="theme-toggle theme-toggle--mobile" aria-pressed="true" aria-label="Switch to dark mode">
-                <span class="theme-toggle__indicator" aria-hidden="true">
-                  <span class="theme-toggle__thumb"></span>
-                </span>
-                <span class="theme-toggle__text" data-theme-toggle-text>Light mode</span>
-              </button>
             </div>
           </div>
         </div>
         <div class="nav_container w-container">
           <a href="index.html" class="nav_brand w-nav-brand" aria-label="home">
-            <img loading="lazy" alt="Retail Stride" src="assets/media/logo.svg" class="nav_logo nav_logo--dark" aria-hidden="true">
-            <img loading="lazy" alt="Retail Stride" src="assets/media/logo_dark.svg" class="nav_logo nav_logo--light" aria-hidden="true">
+            <img loading="lazy" alt="Retail Stride" src="assets/media/logo.svg" class="nav_logo">
           </a>
           <nav role="navigation" class="nav_menu w-nav-menu">
             <a href="index.html#services" class="nav_link w-nav-link">Services</a>
             <a href="index.html#marketplaces" class="nav_link w-nav-link">Coverage</a>
-            <a href="catalog.html" class="nav_link w-nav-link w--current">Catalog</a>
-            <a href="index.html#cta" class="nav_link w-nav-link">Contact</a>
+            <a href="index.html#how-we-work" class="nav_link w-nav-link">How We Work</a>
+            <a href="index.html#about" class="nav_link w-nav-link">About</a>
+            <a href="catalog.html" class="nav_link w-nav-link w--current" aria-current="page">Catalog</a>
           </nav>
           <div class="nav_cta">
             <div class="button-grup gap-tiny">
@@ -68,39 +59,38 @@
             </div>
           </div>
         </div>
-        <div class="nav_theme w-embed">
-          <button type="button" class="theme-toggle" aria-pressed="true" aria-label="Switch to dark mode">
-            <span class="theme-toggle__indicator" aria-hidden="true">
-              <span class="theme-toggle__thumb"></span>
-            </span>
-            <span class="theme-toggle__text" data-theme-toggle-text>Light mode</span>
-          </button>
-        </div>
       </section>
     </div>
     <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
 
     <main class="catalog-page">
-      <header class="catalog-hero">
-        <div class="catalog-hero-shell">
-          <div class="catalog-hero-content">
-            <div class="sub_header teal">Product Catalog</div>
-            <h1 class="heading-25">Explore <strong>Curated Inventory</strong> Across Our Marketplace Network</h1>
-            <p class="hero-sub">
-              Filter by category, price point, or brand to discover opportunities tailored to your growth plans.
-            </p>
-          </div>
-        </div>
-      </header>
-
-      <section class="catalog-shell">
+      <section class="catalog-shell" id="catalog-experience">
         <aside class="catalog-filters" aria-label="Filter products">
           <div class="catalog-filters__section" data-section="category">
-            <div class="catalog-filters__section-header">
-              <span>Category</span>
-              <button class="catalog-reset-button" data-reset="category">Reset</button>
+            <div class="catalog-collapse is-open" data-collapse="category">
+              <div class="catalog-collapse__header">
+                <button
+                  class="catalog-collapse__toggle"
+                  type="button"
+                  data-collapse-trigger="category"
+                  aria-expanded="true"
+                  aria-controls="catalog-category-panel"
+                  aria-label="Toggle category filters">
+                  <span class="catalog-collapse__title">Category</span>
+                  <span class="catalog-collapse__icon" aria-hidden="true"></span>
+                </button>
+                <div class="catalog-collapse__actions">
+                  <button class="catalog-reset-button" data-reset="category">Reset</button>
+                  <button class="catalog-reset-button catalog-reset-button--ghost" type="button" data-category-view="all" hidden>All categories</button>
+                </div>
+              </div>
+              <div
+                class="catalog-collapse__content"
+                data-collapse-content="category"
+                id="catalog-category-panel">
+                <div class="catalog-category-list" data-category-list></div>
+              </div>
             </div>
-            <div class="catalog-category-list" data-category-list></div>
           </div>
 
           <div class="catalog-filters__section" data-section="price">
@@ -175,9 +165,8 @@
         <div class="container_medium2">
           <div class="footer4_middle">
             <div class="col footer-col first">
-              <a href="#top" class="w-inline-block">
-                <img src="assets/media/logo.svg" loading="lazy" alt="Retail Stride" class="footer3_logo footer_logo footer_logo--dark" aria-hidden="true">
-                <img src="assets/media/logo_dark.svg" loading="lazy" alt="Retail Stride" class="footer3_logo footer_logo footer_logo--light" aria-hidden="true">
+              <a href="index.html#hero" class="w-inline-block">
+                <img src="assets/media/logo.svg" loading="lazy" alt="Retail Stride" class="footer3_logo footer_logo">
               </a>
               <div class="flex end gap-small-medium mobile-start desktop-only tablet-hidden">
                 <p class="paragraph_small copy">© 2025 Retail Stride. <span class="text-span-32">All rights reserved.</span></p>
@@ -191,7 +180,7 @@
           <div class="w-layout-blockcontainer mobile_extra mobile-only w-container">
             <div class="spacer_xsmall"></div>
             <div class="flex end gap-small-medium mobile-start">
-              <p class="paragraph_small copy">© Retail Stride. <span class="text-span-32">All rights reserved.</span></p>
+              <p class="paragraph_small copy">© 2025 Retail Stride. <span class="text-span-32">All rights reserved.</span></p>
             </div>
           </div>
         </div>

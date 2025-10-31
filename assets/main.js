@@ -1,90 +1,3 @@
-const themeConfig = window.themeToggleConfig ?? window.distributorConfig?.theme ?? {};
-const THEME_STORAGE_KEY = themeConfig.storageKey || 'bluehaven-theme';
-const TOGGLE_SELECTOR = themeConfig.toggleSelector || '[data-theme-toggle]';
-const LABEL_SELECTOR = themeConfig.labelSelector || themeConfig.textSelector || '[data-theme-toggle-text]';
-const THEME_ENABLED = themeConfig.enabled !== false;
-
-const applyThemePreference = (theme, toggles, options = {}) => {
-  const { persist = true } = options;
-  const normalizedTheme = theme === 'dark' ? 'dark' : 'light';
-  const body = document.body;
-  body.classList.remove('theme-light', 'theme-dark');
-  body.classList.add(`theme-${normalizedTheme}`);
-
-  if (persist) {
-    try {
-      localStorage.setItem(THEME_STORAGE_KEY, normalizedTheme);
-    } catch (error) {
-      // Ignore storage errors (private mode, etc.)
-    }
-  }
-
-  const toggleElements = Array.isArray(toggles) ? toggles : toggles ? [toggles] : [];
-  const isLight = normalizedTheme === 'light';
-
-  toggleElements.forEach((toggle) => {
-    const label = LABEL_SELECTOR ? toggle.querySelector(LABEL_SELECTOR) : null;
-    toggle.setAttribute('aria-pressed', isLight.toString());
-    toggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
-    if (label) {
-      label.textContent = isLight ? 'Light mode' : 'Dark mode';
-    }
-  });
-};
-
-const initThemeToggle = () => {
-  if (!THEME_ENABLED) return;
-  const toggles = Array.from(document.querySelectorAll(TOGGLE_SELECTOR));
-  if (!toggles.length) return;
-
-  const readStoredTheme = () => {
-    try {
-      return localStorage.getItem(THEME_STORAGE_KEY);
-    } catch (error) {
-      return null;
-    }
-  };
-
-  const mediaQuery = window.matchMedia?.('(prefers-color-scheme: dark)') ?? null;
-  const storedTheme = readStoredTheme();
-  let initialTheme = storedTheme;
-
-  if (!initialTheme) {
-    if (document.body.classList.contains('theme-light')) {
-      initialTheme = 'light';
-    } else if (document.body.classList.contains('theme-dark')) {
-      initialTheme = 'dark';
-    } else if (mediaQuery?.matches) {
-      initialTheme = 'dark';
-    } else {
-      initialTheme = 'light';
-    }
-  }
-
-  applyThemePreference(initialTheme, toggles, { persist: Boolean(storedTheme) });
-
-  toggles.forEach((toggle) => {
-    toggle.addEventListener('click', () => {
-      const currentTheme = document.body.classList.contains('theme-light') ? 'light' : 'dark';
-      const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
-      applyThemePreference(nextTheme, toggles);
-    });
-  });
-
-  if (!mediaQuery) return;
-
-  const handleMediaChange = (event) => {
-    if (readStoredTheme()) return;
-    applyThemePreference(event.matches ? 'dark' : 'light', toggles, { persist: false });
-  };
-
-  if (mediaQuery.addEventListener) {
-    mediaQuery.addEventListener('change', handleMediaChange);
-  } else if (mediaQuery.addListener) {
-    mediaQuery.addListener(handleMediaChange);
-  }
-};
-
 const resetWebflowStyles = () => {
   document.querySelectorAll('[data-w-id]').forEach((el) => {
     const style = el.getAttribute('style');
@@ -167,7 +80,6 @@ const initCtaForm = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   resetWebflowStyles();
-  initThemeToggle();
   initCtaForm();
   const navMenu = document.querySelector('.nav_menu');
   const navButton = document.querySelector('.navbar1_menu-button');

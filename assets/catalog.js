@@ -1,5 +1,8 @@
 const PAGE_SIZE = 12;
 const categoryListEl = document.querySelector('[data-category-list]');
+const categoryCollapseTrigger = document.querySelector('[data-collapse-trigger="category"]');
+const categoryCollapseContent = document.querySelector('[data-collapse-content="category"]');
+const categoryShowAllButton = document.querySelector('[data-category-view="all"]');
 const brandListEl = document.querySelector('[data-brand-list]');
 const ratingListEl = document.querySelector('[data-rating-list]');
 const resultCountEl = document.querySelector('[data-result-count]');
@@ -17,6 +20,8 @@ const state = {
   categories: [],
   activeMain: null,
   expandedMain: null,
+  categoryCollapseOpen: true,
+  showAllMainCategories: true,
   productsCache: new Map(),
   metaCache: new Map(),
   allProducts: [],
@@ -33,6 +38,73 @@ const state = {
   page: 1,
 };
 
+const setCategoryCollapseState = (isOpen) => {
+  state.categoryCollapseOpen = isOpen;
+  if (categoryCollapseTrigger) {
+    categoryCollapseTrigger.setAttribute('aria-expanded', String(isOpen));
+    categoryCollapseTrigger.classList.toggle('is-open', isOpen);
+    const header = categoryCollapseTrigger.closest('.catalog-collapse__header');
+    if (header) {
+      header.classList.toggle('is-open', isOpen);
+    }
+    const root = categoryCollapseTrigger.closest('.catalog-collapse');
+    if (root) {
+      root.classList.toggle('is-open', isOpen);
+    }
+  }
+  if (categoryCollapseContent) {
+    if (isOpen) {
+      categoryCollapseContent.removeAttribute('hidden');
+    } else {
+      categoryCollapseContent.setAttribute('hidden', '');
+    }
+    categoryCollapseContent.hidden = !isOpen;
+    categoryCollapseContent.setAttribute('aria-hidden', String(!isOpen));
+    categoryCollapseContent.classList.toggle('is-open', isOpen);
+  }
+};
+
+const syncCategoryControls = () => {
+  if (categoryShowAllButton) {
+    const shouldHide = state.showAllMainCategories || state.categories.length <= 1;
+    if (shouldHide) {
+      categoryShowAllButton.setAttribute('hidden', '');
+    } else {
+      categoryShowAllButton.removeAttribute('hidden');
+    }
+  }
+  if (categoryListEl) {
+    categoryListEl.dataset.view = state.showAllMainCategories ? 'all' : 'active';
+  }
+};
+
+const setupCategoryCollapse = () => {
+  const toggleCollapse = (nextState = !state.categoryCollapseOpen) => {
+    setCategoryCollapseState(nextState);
+    if (nextState && categoryCollapseContent) {
+      categoryCollapseContent.scrollTop = 0;
+    }
+  };
+
+  if (categoryCollapseTrigger) {
+    categoryCollapseTrigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      toggleCollapse();
+    });
+  }
+  if (categoryShowAllButton) {
+    categoryShowAllButton.addEventListener('click', () => {
+      state.showAllMainCategories = true;
+      if (!state.expandedMain) {
+        state.expandedMain = state.activeMain;
+      }
+      renderMainCategories();
+      toggleCollapse(true);
+    });
+  }
+  setCategoryCollapseState(state.categoryCollapseOpen);
+};
+
 const formatCurrency = (value) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -40,8 +112,6 @@ const formatCurrency = (value) => {
     maximumFractionDigits: value % 1 === 0 ? 0 : 2,
   }).format(value);
 };
-
-const integerFormatter = new Intl.NumberFormat('en-US');
 
 const cssEscape = (value) => {
   if (window.CSS && typeof window.CSS.escape === 'function') {
@@ -65,13 +135,25 @@ const loadCategories = async () => {
 
 const renderMainCategories = () => {
   if (!categoryListEl) return;
+  syncCategoryControls();
   categoryListEl.innerHTML = '';
+
   state.categories.forEach((category) => {
+    const shouldRender = state.showAllMainCategories || category.cat_main_id === state.activeMain;
+    if (!shouldRender) return;
+
     const wrapper = document.createElement('div');
     wrapper.className = 'catalog-category-main';
+    if (!state.showAllMainCategories) {
+      wrapper.classList.add('catalog-category-main--condensed');
+    }
+
     const isActive = category.cat_main_id === state.activeMain;
-    const isExpanded = category.cat_main_id === state.expandedMain;
     if (isActive) wrapper.classList.add('is-active');
+
+    const isExpanded = state.showAllMainCategories
+      ? category.cat_main_id === state.expandedMain
+      : state.expandedMain === category.cat_main_id;
     if (isExpanded) wrapper.classList.add('is-expanded');
 
     const button = document.createElement('button');
@@ -94,12 +176,19 @@ const renderMainCategories = () => {
     `;
     button.addEventListener('click', async () => {
       if (state.activeMain === category.cat_main_id) {
+        if (state.showAllMainCategories) {
+          state.showAllMainCategories = false;
+          state.expandedMain = category.cat_main_id;
+          renderMainCategories();
+          return;
+        }
         state.expandedMain = state.expandedMain === category.cat_main_id ? null : category.cat_main_id;
         renderMainCategories();
         return;
       }
       state.activeMain = category.cat_main_id;
       state.expandedMain = category.cat_main_id;
+      state.showAllMainCategories = false;
       state.filters.subs.clear();
       state.filters.brands.clear();
       state.filters.rating = null;
@@ -116,30 +205,30 @@ const renderMainCategories = () => {
     subList.setAttribute('role', 'region');
     subList.setAttribute('aria-labelledby', triggerId);
     subList.setAttribute('aria-hidden', String(!isExpanded));
+    subList.hidden = !isExpanded;
     category.subs.forEach((sub) => {
-      const label = document.createElement('label');
-      label.className = 'catalog-checkbox';
-      label.dataset.subId = sub.cat_sub_id;
-      label.innerHTML = `
-        <input type="checkbox" value="${sub.cat_sub_id}">
-        <span class="catalog-checkbox__visual">
-          <span class="catalog-checkbox__control"></span>
-          <span class="catalog-checkbox__label">${sub.category_sub}</span>
-        </span>
-        <span class="catalog-checkbox__count">${sub.products}</span>
-      `;
-      const input = label.querySelector('input');
-      input.checked = state.filters.subs.has(sub.cat_sub_id);
-      input.addEventListener('change', () => {
-        if (input.checked) {
-          state.filters.subs.add(sub.cat_sub_id);
-        } else {
-          state.filters.subs.delete(sub.cat_sub_id);
+      const subId = String(sub.cat_sub_id);
+      const pill = document.createElement('button');
+      pill.type = 'button';
+      pill.className = 'catalog-subcategory-pill';
+      pill.dataset.subId = subId;
+      pill.textContent = sub.category_sub;
+      const isSelected = state.filters.subs.has(subId);
+      if (isSelected) pill.classList.add('is-active');
+      pill.setAttribute('aria-pressed', String(isSelected));
+      pill.addEventListener('click', () => {
+        const wasSelected = state.filters.subs.has(subId);
+        state.filters.subs.clear();
+        if (!wasSelected) {
+          state.filters.subs.add(subId);
         }
+        pill.classList.toggle('is-active', !wasSelected);
+        pill.setAttribute('aria-pressed', String(!wasSelected));
         state.page = 1;
+        renderMainCategories();
         applyFilters();
       });
-      subList.appendChild(label);
+      subList.appendChild(pill);
     });
     wrapper.appendChild(subList);
     categoryListEl.appendChild(wrapper);
@@ -171,9 +260,9 @@ const loadProductsForCategory = async (catMainId) => {
 
 const decorateFiltersFromProducts = () => {
   if (!state.allProducts.length) {
-    renderBrandList(new Map());
     state.priceBounds = { min: 0, max: 0 };
     syncPriceInputs();
+    renderRatingOptions();
     return;
   }
   const prices = state.allProducts.map((product) => product.price).filter((price) => typeof price === 'number');
@@ -188,12 +277,6 @@ const decorateFiltersFromProducts = () => {
   }
   syncPriceInputs();
 
-  const brandCount = new Map();
-  state.allProducts.forEach((product) => {
-    if (!product.brand) return;
-    brandCount.set(product.brand, (brandCount.get(product.brand) || 0) + 1);
-  });
-  renderBrandList(brandCount);
   renderRatingOptions();
 };
 
@@ -216,23 +299,34 @@ const syncPriceInputs = () => {
   });
 };
 
-const renderBrandList = (brandCount) => {
+const renderBrandList = (brandCount = new Map()) => {
   if (!brandListEl) return;
   brandListEl.innerHTML = '';
   const sortedBrands = Array.from(brandCount.entries())
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 20);
+    .filter(([brand]) => Boolean(brand))
+    .sort((a, b) => b[1] - a[1]);
+  const topBrands = sortedBrands.slice(0, 6);
+  const selectedExtras = Array.from(state.filters.brands)
+    .filter((brand) => brand && !topBrands.some(([name]) => name === brand))
+    .map((brand) => [brand, brandCount.get(brand) ?? 0]);
+  const combined = [...topBrands, ...selectedExtras];
+  const seen = new Set();
+  const finalBrands = combined.filter(([brand]) => {
+    if (!brand || seen.has(brand)) return false;
+    seen.add(brand);
+    return true;
+  });
 
-  if (!sortedBrands.length) {
+  if (!finalBrands.length) {
     const empty = document.createElement('p');
     empty.textContent = 'No brand data available.';
     empty.style.fontSize = '0.85rem';
-    empty.style.color = 'rgba(15, 29, 58, 0.6)';
+    empty.style.color = 'rgba(226, 232, 255, 0.65)';
     brandListEl.appendChild(empty);
     return;
   }
 
-  sortedBrands.forEach(([brand, count]) => {
+  finalBrands.forEach(([brand, count]) => {
     const label = document.createElement('label');
     label.className = 'catalog-checkbox';
     label.dataset.brand = brand;
@@ -307,13 +401,23 @@ const applyFilters = () => {
   const priceMin = price.min ?? state.priceBounds.min;
   const priceMax = price.max ?? state.priceBounds.max;
 
+  const brandCount = new Map();
   let products = state.allProducts.filter((product) => {
-    const matchesSub = !subs.size || subs.has(product.cat_sub_id);
-    const matchesBrand = !brands.size || brands.has(product.brand);
+    const productSubId = product.cat_sub_id !== undefined && product.cat_sub_id !== null ? String(product.cat_sub_id) : null;
+    const matchesSub = !subs.size || (productSubId && subs.has(productSubId));
     const matchesRating = rating === null || (product.rating ?? 0) >= rating;
-    const matchesPrice = (product.price ?? 0) >= priceMin && (product.price ?? 0) <= priceMax;
+    const priceValue = product.price ?? 0;
+    const matchesPrice = priceValue >= priceMin && priceValue <= priceMax;
+
+    if (matchesSub && matchesRating && matchesPrice && product.brand) {
+      brandCount.set(product.brand, (brandCount.get(product.brand) || 0) + 1);
+    }
+
+    const matchesBrand = !brands.size || brands.has(product.brand);
     return matchesSub && matchesBrand && matchesRating && matchesPrice;
   });
+
+  renderBrandList(brandCount);
 
   products = applySort(products);
   state.filteredProducts = products;
@@ -348,7 +452,7 @@ const renderResultCount = (shown) => {
   const querySummary = (() => {
     if (!state.filters.subs.size) return categoryName;
     const subNames = meta?.subs
-      ?.filter((sub) => state.filters.subs.has(sub.cat_sub_id))
+      ?.filter((sub) => state.filters.subs.has(String(sub.cat_sub_id)))
       .map((sub) => sub.category_sub);
     return subNames?.length ? subNames.join(', ') : categoryName;
   })();
@@ -370,12 +474,16 @@ const renderAppliedFilters = () => {
   };
 
   state.filters.subs.forEach((subId) => {
-    const sub = meta?.subs?.find((item) => item.cat_sub_id === subId);
+    const sub = meta?.subs?.find((item) => String(item.cat_sub_id) === subId);
     const name = sub?.category_sub || 'Category';
     createChip(name, () => {
       state.filters.subs.delete(subId);
-      const checkbox = categoryListEl?.querySelector(`label[data-sub-id="${subId}"] input`);
-      if (checkbox) checkbox.checked = false;
+      const pill = categoryListEl?.querySelector(`.catalog-subcategory-pill[data-sub-id="${cssEscape(subId)}"]`);
+      if (pill) {
+        pill.classList.remove('is-active');
+        pill.setAttribute('aria-pressed', 'false');
+      }
+      renderMainCategories();
       state.page = 1;
       applyFilters();
     });
@@ -447,10 +555,6 @@ const renderProducts = () => {
           if (typeof product.rating === 'number' && product.rating >= 4.7) return 'Best Rated';
           return '';
         })();
-        const hasReviews = typeof product.reviews === 'number' && product.reviews > 0;
-        const reviewsLabel = hasReviews
-          ? `${integerFormatter.format(product.reviews)} review${product.reviews === 1 ? '' : 's'}`
-          : 'No reviews yet';
         const ratingValue = typeof product.rating === 'number' ? product.rating.toFixed(1) : '–';
         const ratingAria = typeof product.rating === 'number' ? `Rated ${ratingValue} out of 5 stars` : 'No rating available';
         card.innerHTML = `
@@ -459,13 +563,9 @@ const renderProducts = () => {
             ${badgeLabel ? `<span class="catalog-product-card__badge">${badgeLabel}</span>` : ''}
           </div>
           <div class="catalog-product-card__details">
-            <div class="catalog-product-card__brand-row">
-              <span class="catalog-product-card__brand">${product.brand ?? 'Unknown brand'}</span>
-              <span class="catalog-product-card__reviews">${reviewsLabel}</span>
-            </div>
-            <h3 class="catalog-product-card__title">${product.title}</h3>
-            <div class="catalog-product-card__footer">
-              <span class="catalog-product-card__price">${formatCurrency(product.price ?? 0)}</span>
+            <span class="catalog-product-card__brand">${product.brand ?? 'Unknown brand'}</span>
+            <h3 class="catalog-product-card__title" title="${product.title}">${product.title}</h3>
+            <div class="catalog-product-card__meta">
               <span class="catalog-product-card__rating" aria-label="${ratingAria}">
                 <span class="catalog-product-card__star" aria-hidden="true">★</span>
                 <span class="catalog-product-card__rating-value">${ratingValue}</span>
@@ -570,9 +670,15 @@ const attachResetHandlers = () => {
       switch (target) {
         case 'category':
           state.filters.subs.clear();
-          categoryListEl?.querySelectorAll('input[type="checkbox"]').forEach((input) => {
-            input.checked = false;
+          state.showAllMainCategories = true;
+          if (!state.expandedMain) {
+            state.expandedMain = state.activeMain;
+          }
+          categoryListEl?.querySelectorAll('.catalog-subcategory-pill').forEach((pill) => {
+            pill.classList.remove('is-active');
+            pill.setAttribute('aria-pressed', 'false');
           });
+          renderMainCategories();
           break;
         case 'price':
           state.filters.price = { min: state.priceBounds.min, max: state.priceBounds.max };
@@ -602,6 +708,7 @@ const attachResetHandlers = () => {
 const initCatalog = async () => {
   try {
     setupPriceHandlers();
+    setupCategoryCollapse();
     attachResetHandlers();
     sortSelectEl?.addEventListener('change', handleSortChange);
     await loadCategories();
