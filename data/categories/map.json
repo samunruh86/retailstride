@@ -1,0 +1,624 @@
+[
+    {
+        "category_main": "Health & Household",
+        "cat_main_id": "main_ee239",
+        "products": 500,
+        "subs": [
+            {
+                "category_main": "Health & Household",
+                "category_sub": "Blended Vitamin & Mineral Supplements",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_519bf",
+                "products": 125
+            },
+            {
+                "category_main": "Health & Household",
+                "category_sub": "Multivitamins",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_56565",
+                "products": 36
+            },
+            {
+                "category_main": "Health & Household",
+                "category_sub": "All-Purpose Household Cleaners",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_b876d",
+                "products": 35
+            },
+            {
+                "category_main": "Health & Household",
+                "category_sub": "Collagen Supplements",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_c560e",
+                "products": 33
+            },
+            {
+                "category_main": "Health & Household",
+                "category_sub": "Sports Nutrition Electrolyte Replacement Drinks",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_bba8e",
+                "products": 28
+            },
+            {
+                "category_main": "Health & Household",
+                "category_sub": "Detox & Cleanse Weight Loss Products",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_3a973",
+                "products": 27
+            },
+            {
+                "category_main": "Health & Household",
+                "category_sub": "Mushrooms Herbal Supplements",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_70d91",
+                "products": 22
+            },
+            {
+                "category_main": "Health & Household",
+                "category_sub": "Magnesium Mineral Supplements",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_ab4b4",
+                "products": 21
+            },
+            {
+                "category_main": "Health & Household",
+                "category_sub": "Multi-Enzyme Nutritional Supplements",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_ed2c4",
+                "products": 20
+            },
+            {
+                "category_main": "Health & Household",
+                "category_sub": "Probiotic Nutritional Supplements",
+                "cat_main_id": "main_ee239",
+                "cat_sub_id": "sub_d097e",
+                "products": 18
+            }
+        ]
+    },
+    {
+        "category_main": "Tools & Home Improvement",
+        "cat_main_id": "main_9d798",
+        "products": 500,
+        "subs": [
+            {
+                "category_main": "Tools & Home Improvement",
+                "category_sub": "In-Refrigerator Water Filters",
+                "cat_main_id": "main_9d798",
+                "cat_sub_id": "sub_0ac2a",
+                "products": 17
+            },
+            {
+                "category_main": "Tools & Home Improvement",
+                "category_sub": "Outdoor String Lights",
+                "cat_main_id": "main_9d798",
+                "cat_sub_id": "sub_8896b",
+                "products": 15
+            },
+            {
+                "category_main": "Tools & Home Improvement",
+                "category_sub": "Table Lamps",
+                "cat_main_id": "main_9d798",
+                "cat_sub_id": "sub_8e217",
+                "products": 12
+            },
+            {
+                "category_main": "Tools & Home Improvement",
+                "category_sub": "Hardware Sealers",
+                "cat_main_id": "main_9d798",
+                "cat_sub_id": "sub_82423",
+                "products": 12
+            },
+            {
+                "category_main": "Tools & Home Improvement",
+                "category_sub": "Handheld Flashlights",
+                "cat_main_id": "main_9d798",
+                "cat_sub_id": "sub_53ae1",
+                "products": 12
+            },
+            {
+                "category_main": "Tools & Home Improvement",
+                "category_sub": "Household Stains",
+                "cat_main_id": "main_9d798",
+                "cat_sub_id": "sub_726c1",
+                "products": 10
+            },
+            {
+                "category_main": "Tools & Home Improvement",
+                "category_sub": "Under-Counter Light Fixtures",
+                "cat_main_id": "main_9d798",
+                "cat_sub_id": "sub_87817",
+                "products": 10
+            }
+        ]
+    },
+    {
+        "category_main": "Beauty & Personal Care",
+        "cat_main_id": "main_07092",
+        "products": 500,
+        "subs": [
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Face Moisturizers",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_c026b",
+                "products": 38
+            },
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Hair Shampoo",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_c4ae3",
+                "products": 35
+            },
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Bath Soaps",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_3e393",
+                "products": 34
+            },
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Body Lotions",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_a7ee4",
+                "products": 24
+            },
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Body Oils",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_9b5a9",
+                "products": 23
+            },
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Body Creams",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_b9c97",
+                "products": 22
+            },
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Hair Conditioner",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_c8522",
+                "products": 22
+            },
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Facial Cleansing Washes",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_3a3bc",
+                "products": 20
+            },
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Bath & Shower Gels",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_b7fa2",
+                "products": 16
+            },
+            {
+                "category_main": "Beauty & Personal Care",
+                "category_sub": "Women's Eau de Parfum",
+                "cat_main_id": "main_07092",
+                "cat_sub_id": "sub_9f50e",
+                "products": 16
+            }
+        ]
+    },
+    {
+        "category_main": "Grocery & Gourmet Food",
+        "cat_main_id": "main_7ded3",
+        "products": 500,
+        "subs": [
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Ground Coffee",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_62e2f",
+                "products": 29
+            },
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Roasted Coffee Beans",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_965cf",
+                "products": 25
+            },
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Herbal Tea",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_1dcdf",
+                "products": 22
+            },
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Jerky",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_29c00",
+                "products": 18
+            },
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Energy Drinks",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_260eb",
+                "products": 17
+            },
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Single-Serve Coffee Capsules & Pods",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_57fe6",
+                "products": 16
+            },
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Syrups",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_15e12",
+                "products": 15
+            },
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Honey",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_b60eb",
+                "products": 14
+            },
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Hot Sauce",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_41971",
+                "products": 14
+            },
+            {
+                "category_main": "Grocery & Gourmet Food",
+                "category_sub": "Chewing Gum",
+                "cat_main_id": "main_7ded3",
+                "cat_sub_id": "sub_e2503",
+                "products": 13
+            }
+        ]
+    },
+    {
+        "category_main": "Home & Kitchen",
+        "cat_main_id": "main_eb070",
+        "products": 477,
+        "subs": [
+            {
+                "category_main": "Home & Kitchen",
+                "category_sub": "Personal Fans",
+                "cat_main_id": "main_eb070",
+                "cat_sub_id": "sub_35051",
+                "products": 18
+            },
+            {
+                "category_main": "Home & Kitchen",
+                "category_sub": "Air Purifier Filters",
+                "cat_main_id": "main_eb070",
+                "cat_sub_id": "sub_1e774",
+                "products": 17
+            },
+            {
+                "category_main": "Home & Kitchen",
+                "category_sub": "Bed Pillows",
+                "cat_main_id": "main_eb070",
+                "cat_sub_id": "sub_46c19",
+                "products": 13
+            },
+            {
+                "category_main": "Home & Kitchen",
+                "category_sub": "Jar Candles",
+                "cat_main_id": "main_eb070",
+                "cat_sub_id": "sub_2a96a",
+                "products": 12
+            },
+            {
+                "category_main": "Home & Kitchen",
+                "category_sub": "Neck & Cervical Pillows",
+                "cat_main_id": "main_eb070",
+                "cat_sub_id": "sub_49b10",
+                "products": 11
+            },
+            {
+                "category_main": "Home & Kitchen",
+                "category_sub": "Vases",
+                "cat_main_id": "main_eb070",
+                "cat_sub_id": "sub_a9dbe",
+                "products": 10
+            }
+        ]
+    },
+    {
+        "category_main": "Sports & Outdoors",
+        "cat_main_id": "main_e2310",
+        "products": 447,
+        "subs": []
+    },
+    {
+        "category_main": "Pet Supplies",
+        "cat_main_id": "main_996b4",
+        "products": 401,
+        "subs": [
+            {
+                "category_main": "Pet Supplies",
+                "category_sub": "Dog Treat Cookies, Biscuits & Snacks",
+                "cat_main_id": "main_996b4",
+                "cat_sub_id": "sub_71d1f",
+                "products": 27
+            },
+            {
+                "category_main": "Pet Supplies",
+                "category_sub": "Dog Hip & Joint Care",
+                "cat_main_id": "main_996b4",
+                "cat_sub_id": "sub_4689a",
+                "products": 19
+            },
+            {
+                "category_main": "Pet Supplies",
+                "category_sub": "Bird Food",
+                "cat_main_id": "main_996b4",
+                "cat_sub_id": "sub_aa0a0",
+                "products": 16
+            },
+            {
+                "category_main": "Pet Supplies",
+                "category_sub": "Dog Jerky Treats",
+                "cat_main_id": "main_996b4",
+                "cat_sub_id": "sub_81ee2",
+                "products": 13
+            },
+            {
+                "category_main": "Pet Supplies",
+                "category_sub": "Dog Multivitamins",
+                "cat_main_id": "main_996b4",
+                "cat_sub_id": "sub_343ee",
+                "products": 12
+            },
+            {
+                "category_main": "Pet Supplies",
+                "category_sub": "Dry Dog Food",
+                "cat_main_id": "main_996b4",
+                "cat_sub_id": "sub_f912e",
+                "products": 11
+            },
+            {
+                "category_main": "Pet Supplies",
+                "category_sub": "Dog Relaxants",
+                "cat_main_id": "main_996b4",
+                "cat_sub_id": "sub_9b936",
+                "products": 10
+            },
+            {
+                "category_main": "Pet Supplies",
+                "category_sub": "Dog Probiotic Supplements",
+                "cat_main_id": "main_996b4",
+                "cat_sub_id": "sub_9716a",
+                "products": 10
+            }
+        ]
+    },
+    {
+        "category_main": "Patio, Lawn & Garden",
+        "cat_main_id": "main_74d13",
+        "products": 387,
+        "subs": [
+            {
+                "category_main": "Patio, Lawn & Garden",
+                "category_sub": "Garden Fertilizers",
+                "cat_main_id": "main_74d13",
+                "cat_sub_id": "sub_55964",
+                "products": 28
+            },
+            {
+                "category_main": "Patio, Lawn & Garden",
+                "category_sub": "Garden Soil",
+                "cat_main_id": "main_74d13",
+                "cat_sub_id": "sub_11d65",
+                "products": 20
+            },
+            {
+                "category_main": "Patio, Lawn & Garden",
+                "category_sub": "Insect & Pest Repellent Sprays",
+                "cat_main_id": "main_74d13",
+                "cat_sub_id": "sub_5ecd9",
+                "products": 11
+            },
+            {
+                "category_main": "Patio, Lawn & Garden",
+                "category_sub": "Grass Seed",
+                "cat_main_id": "main_74d13",
+                "cat_sub_id": "sub_c22d9",
+                "products": 10
+            }
+        ]
+    },
+    {
+        "category_main": "Toys & Games",
+        "cat_main_id": "main_e392a",
+        "products": 361,
+        "subs": [
+            {
+                "category_main": "Toys & Games",
+                "category_sub": "Board Games",
+                "cat_main_id": "main_e392a",
+                "cat_sub_id": "sub_6aea6",
+                "products": 16
+            },
+            {
+                "category_main": "Toys & Games",
+                "category_sub": "Dedicated Deck Card Games",
+                "cat_main_id": "main_e392a",
+                "cat_sub_id": "sub_5197e",
+                "products": 16
+            },
+            {
+                "category_main": "Toys & Games",
+                "category_sub": "Stuffed Animals & Teddy Bears",
+                "cat_main_id": "main_e392a",
+                "cat_sub_id": "sub_7a638",
+                "products": 14
+            },
+            {
+                "category_main": "Toys & Games",
+                "category_sub": "Toy Magnetic Building Sets",
+                "cat_main_id": "main_e392a",
+                "cat_sub_id": "sub_3a30d",
+                "products": 14
+            },
+            {
+                "category_main": "Toys & Games",
+                "category_sub": "Kids' Multi-Item Party Favor Packs",
+                "cat_main_id": "main_e392a",
+                "cat_sub_id": "sub_4f7f1",
+                "products": 10
+            },
+            {
+                "category_main": "Toys & Games",
+                "category_sub": "Plush Figure Toys",
+                "cat_main_id": "main_e392a",
+                "cat_sub_id": "sub_0e576",
+                "products": 10
+            },
+            {
+                "category_main": "Toys & Games",
+                "category_sub": "Toy Building Sets",
+                "cat_main_id": "main_e392a",
+                "cat_sub_id": "sub_8f7b0",
+                "products": 10
+            }
+        ]
+    },
+    {
+        "category_main": "Clothing, Shoes & Jewelry",
+        "cat_main_id": "main_71405",
+        "products": 349,
+        "subs": []
+    },
+    {
+        "category_main": "Kitchen & Dining",
+        "cat_main_id": "main_5bcab",
+        "products": 346,
+        "subs": [
+            {
+                "category_main": "Kitchen & Dining",
+                "category_sub": "Food Container Sets",
+                "cat_main_id": "main_5bcab",
+                "cat_sub_id": "sub_86ac3",
+                "products": 12
+            },
+            {
+                "category_main": "Kitchen & Dining",
+                "category_sub": "Kitchen Storage Accessories",
+                "cat_main_id": "main_5bcab",
+                "cat_sub_id": "sub_2bfec",
+                "products": 12
+            },
+            {
+                "category_main": "Kitchen & Dining",
+                "category_sub": "Wine Glasses",
+                "cat_main_id": "main_5bcab",
+                "cat_sub_id": "sub_174f0",
+                "products": 10
+            }
+        ]
+    },
+    {
+        "category_main": "Automotive",
+        "cat_main_id": "main_61031",
+        "products": 269,
+        "subs": []
+    },
+    {
+        "category_main": "Office Products",
+        "cat_main_id": "main_f36ca",
+        "products": 245,
+        "subs": []
+    },
+    {
+        "category_main": "Industrial & Scientific",
+        "cat_main_id": "main_3a4c0",
+        "products": 210,
+        "subs": []
+    },
+    {
+        "category_main": "Electronics",
+        "cat_main_id": "main_9ca91",
+        "products": 160,
+        "subs": [
+            {
+                "category_main": "Electronics",
+                "category_sub": "Over-Ear Headphones",
+                "cat_main_id": "main_9ca91",
+                "cat_sub_id": "sub_1cb66",
+                "products": 11
+            },
+            {
+                "category_main": "Electronics",
+                "category_sub": "Smartwatches",
+                "cat_main_id": "main_9ca91",
+                "cat_sub_id": "sub_fbe9e",
+                "products": 11
+            },
+            {
+                "category_main": "Electronics",
+                "category_sub": "Earbud & In-Ear Headphones",
+                "cat_main_id": "main_9ca91",
+                "cat_sub_id": "sub_c4712",
+                "products": 10
+            }
+        ]
+    },
+    {
+        "category_main": "Baby Products",
+        "cat_main_id": "main_f18d0",
+        "products": 147,
+        "subs": []
+    },
+    {
+        "category_main": "Arts, Crafts & Sewing",
+        "cat_main_id": "main_8d33a",
+        "products": 125,
+        "subs": []
+    },
+    {
+        "category_main": "Cell Phones & Accessories",
+        "cat_main_id": "main_7d140",
+        "products": 96,
+        "subs": [
+            {
+                "category_main": "Cell Phones & Accessories",
+                "category_sub": "Cell Phone Portable Power Banks",
+                "cat_main_id": "main_7d140",
+                "cat_sub_id": "sub_f0693",
+                "products": 19
+            },
+            {
+                "category_main": "Cell Phones & Accessories",
+                "category_sub": "Cell Phone Wireless Chargers",
+                "cat_main_id": "main_7d140",
+                "cat_sub_id": "sub_f1df3",
+                "products": 13
+            },
+            {
+                "category_main": "Cell Phones & Accessories",
+                "category_sub": "Cell Phone Charging Stations",
+                "cat_main_id": "main_7d140",
+                "cat_sub_id": "sub_1ebd6",
+                "products": 10
+            }
+        ]
+    },
+    {
+        "category_main": "Musical Instruments",
+        "cat_main_id": "main_d3fd5",
+        "products": 30,
+        "subs": []
+    }
+]

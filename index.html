@@ -24,13 +24,14 @@
     <link rel="preconnect" href="https://p.typekit.net/" crossorigin>
     <script src="assets/main.js" defer></script>
   </head>
-  <body class="body">
+  <body class="body theme-light">
     <div data-animation="default" class="navbar_component navbar w-nav" data-easing2="ease-out" position="" theme="" data-easing="ease-in-out" data-collapse="medium" role="banner" data-duration="700">
       <section class="container_medium">
         <div class="mobile-nav_component" style="transform: translate3d(-100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
           <div class="mobile-nav_content">
             <a href="#hero" aria-current="page" class="nav_brand nav_brand_mobile w-nav-brand w--current" aria-label="home">
-              <img width="Auto" loading="lazy" alt="" src="assets/media/logo_dark.svg" class="nav_logo mobile_logo">
+              <img width="Auto" loading="lazy" alt="" src="assets/media/logo.svg" class="nav_logo nav_logo--dark mobile_logo" aria-hidden="true">
+              <img width="Auto" loading="lazy" alt="" src="assets/media/logo_dark.svg" class="nav_logo nav_logo--light mobile_logo" aria-hidden="true">
             </a>
             <a href="#services" class="mobile-nav_link">Services</a>
             <a href="#marketplaces" class="mobile-nav_link mt-20">Partnership</a>
@@ -39,11 +40,20 @@
             <div class="button-grup gap-tiny">
               <a href="#cta" class="btn phone-inverted btn_icon btn_reverse nav w-button">Let's Connect</a>
             </div>
+            <div class="mobile-theme-toggle">
+              <button type="button" class="theme-toggle theme-toggle--mobile" data-theme-toggle aria-pressed="true" aria-label="Switch to dark mode">
+                <span class="theme-toggle__indicator" aria-hidden="true">
+                  <span class="theme-toggle__thumb"></span>
+                </span>
+                <span class="theme-toggle__text" data-theme-toggle-text>Light mode</span>
+              </button>
+            </div>
           </div>
         </div>
         <div class="nav_container w-container">
           <a href="#hero" aria-current="page" class="nav_brand w-nav-brand w--current" aria-label="home">
-            <img width="Auto" loading="lazy" alt="" src="assets/media/logo.svg" class="nav_logo">
+            <img width="Auto" loading="lazy" alt="" src="assets/media/logo.svg" class="nav_logo nav_logo--dark" aria-hidden="true">
+            <img width="Auto" loading="lazy" alt="" src="assets/media/logo_dark.svg" class="nav_logo nav_logo--light" aria-hidden="true">
           </a>
           <nav role="navigation" class="nav_menu w-nav-menu">
             <a href="#services" class="nav_link w-nav-link" style="max-width: 100%;">Services</a>
@@ -76,7 +86,14 @@
             </div>
           </div>
         </div>
-        <div class="nav_theme w-embed"></div>
+        <div class="nav_theme w-embed">
+          <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="true" aria-label="Switch to dark mode">
+            <span class="theme-toggle__indicator" aria-hidden="true">
+              <span class="theme-toggle__thumb"></span>
+            </span>
+            <span class="theme-toggle__text" data-theme-toggle-text>Light mode</span>
+          </button>
+        </div>
       </section>
     </div>
     <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
@@ -590,7 +607,8 @@
       <div class="footer4_middle">
         <div id="w-node-fe1ede91-450b-6d43-2420-103cb620d954-7e612bdc" class="col footer-col first">
           <a href="#hero" class="w-inline-block">
-            <img src="assets/media/logo_footer.svg" loading="lazy" alt="" class="footer3_logo">
+            <img src="assets/media/logo.svg" loading="lazy" alt="" class="footer3_logo footer_logo footer_logo--dark" aria-hidden="true">
+            <img src="assets/media/logo_dark.svg" loading="lazy" alt="" class="footer3_logo footer_logo footer_logo--light" aria-hidden="true">
           </a>
           <div class="flex end gap-small-medium mobile-start desktop-only tablet-hidden">
             <p class="paragraph_small copy">© 2025 Blue Haven Brands. <span class="text-span-32">All rights reserved.</span></p>
