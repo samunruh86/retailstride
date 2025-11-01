@@ -973,7 +973,7 @@ body.catalog-body {
 .catalog-product-card__cta-icon--unlocked {
   background-image: url('media/icon-lock-no.svg');
   position: absolute;
-  left: 1rem;
+  left: 0.55rem;
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
