@@ -3302,8 +3302,9 @@ body.login-modal-open {
 .section_global_footer .footer-col.first {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 5rem;
   align-items: flex-start;
+  user-select: none;
 }
 .section_global_footer .footer-col.last {
   align-self: stretch;
@@ -4150,8 +4151,10 @@ body .nav_dropdown.w--open {
   width: 811px;
   z-index: -1;
 }
-.section_how_we_work .basic-tabs_component {
-  position: relative;
+
+
+.section_services .h2 {
+  max-width: 300px;
 }
 
 .basic-tabs-alt_link.first:not(.w--current) .text-block-16 {
