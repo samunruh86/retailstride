@@ -1,0 +1,39 @@
+---
+{
+  "title": "Retail Stride – Catalog",
+  "description": "Preview curated wholesale products and request access to the full Retail Stride catalog.",
+  "htmlAttributes": "lang=\"en\" data-wf-page=\"catalog\"",
+  "bodyClass": "body catalog-body",
+  "output": "catalog/index.html",
+  "currentPage": "catalog",
+  "extraHead": "<link rel=\"stylesheet\" href=\"/assets/catalog.css\">\n    <script src=\"/assets/catalog.js\" defer></script>"
+}
+---
+<main class="catalog-page">
+      <section class="catalog-shell" id="catalog-experience">
+        <div class="catalog-container">
+          <div class="catalog-main">
+            <div class="catalog-preview-banner catalog-preview-banner--inline">
+              <div class="catalog-preview-banner__text">You're viewing a preview selection of the Retail Stride catalog. Log in to unlock full pricing, minimum order quantities, and live inventory details.</div>
+              <button type="button" class="catalog-preview-banner__cta" data-login-trigger>Log in</button>
+            </div>
+            <div class="catalog-main-pills">
+              <div class="catalog-pill-row catalog-pill-row--main" data-category-list></div>
+            </div>
+            <div class="catalog-main-surface">
+              <div class="catalog-sort-bar">
+                <div class="catalog-sort-bar__actions">
+                  <div class="catalog-pill-row catalog-pill-row--sub" data-subcategory-list></div>
+                </div>
+                <div class="catalog-applied-filters">
+                  <span class="catalog-result-count" data-result-count>Loading products…</span>
+                  <div class="catalog-applied-filters__list" data-applied-filters></div>
+                </div>
+              </div>
+              <div class="catalog-products-grid" data-products-grid></div>
+              <div class="catalog-pagination" data-pagination></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
