@@ -3253,6 +3253,7 @@ body.login-modal-open {
 }
 .cta_button-group .btn {
   min-width: 180px;
+  z-index: 9;
 }
 @media (max-width: 767px) {
   .cta_button-group {

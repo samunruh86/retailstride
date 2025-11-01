@@ -6,6 +6,21 @@ const productsGridEl = document.querySelector('[data-products-grid]');
 const paginationEl = document.querySelector('[data-pagination]');
 const appliedFiltersEl = document.querySelector('[data-applied-filters]');
 const sortSelectEl = document.querySelector('[data-sort-select]');
+const previewBannerEl = document.querySelector('[data-preview-banner]');
+const previewBannerCloseEl = document.querySelector('[data-preview-banner-close]');
+
+if (previewBannerEl && previewBannerCloseEl) {
+  previewBannerCloseEl.addEventListener('click', () => {
+    previewBannerEl.classList.add('is-dismissed');
+    previewBannerEl.addEventListener(
+      'transitionend',
+      () => {
+        previewBannerEl.remove();
+      },
+      { once: true },
+    );
+  });
+}
 
 const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, (match) => {
   switch (match) {

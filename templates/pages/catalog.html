@@ -13,9 +13,11 @@
       <section class="catalog-shell" id="catalog-experience">
         <div class="catalog-container">
           <div class="catalog-main">
-            <div class="catalog-preview-banner catalog-preview-banner--inline">
+            <div class="catalog-preview-banner catalog-preview-banner--inline" role="status" data-preview-banner>
               <div class="catalog-preview-banner__text">You're viewing a preview selection of the Retail Stride catalog. Log in to unlock full pricing, minimum order quantities, and live inventory details.</div>
-              <button type="button" class="catalog-preview-banner__cta" data-login-trigger>Log in</button>
+              <button type="button" class="catalog-preview-banner__close" aria-label="Dismiss preview notice" data-preview-banner-close>
+                <span aria-hidden="true">×</span>
+              </button>
             </div>
             <div class="catalog-main-pills">
               <div class="catalog-pill-row catalog-pill-row--main" data-category-list></div>
