@@ -887,6 +887,7 @@ label {
   padding-right: 30px;
   font-size: 70px;
   position: relative;
+  color: #fff;
 }
 .icon_18 {
   width: 24px;
@@ -1043,6 +1044,7 @@ label {
 }
 .cta_content .cta_description {
   margin-top: 0;
+  color: #fff;
 }
 .stats-grid_component {
   grid-column-gap: 4rem;
@@ -1553,6 +1555,11 @@ label {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
+
+.section_global_cta__catalog {
+  background: linear-gradient(180deg, #040915, #071325);
+}
+
 .container_medium2 {
   width: 100%;
   max-width: 100%;

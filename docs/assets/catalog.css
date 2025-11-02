@@ -35,7 +35,6 @@ body.catalog-body {
 
 .catalog-shell {
   width: 100%;
-  padding: clamp(1rem, 5vw, 0.1rem) 0 6rem;
 }
 
 .catalog-container {
