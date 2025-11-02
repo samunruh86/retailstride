@@ -2,7 +2,7 @@
     "meta": {
         "category_main": "Grocery",
         "cat_main_id": "main_130fd",
-        "products": 1432,
+        "products": 1426,
         "relevancy": 10,
         "subs": [
             {
@@ -20055,90 +20055,6 @@
             "src_id": "ss",
             "image": "https://images-na.ssl-images-amazon.com/images/I/41t44PdcWWL.jpg",
             "brand_image": "https://img.logo.dev/bajacoastal.com?token=pk_PHiqpZOdRqiH9vzLC_7TPg&size=64&format=png&retina=true"
-        },
-        {
-            "id": "c98c87eb4b44",
-            "cat_main_id": "main_130fd",
-            "cat_sub_id": "sub_d41d8",
-            "brand_id": "063f9058",
-            "brand": "Kah's Journey",
-            "title": "Kah's Journey Star Anise Whole 16 oz for Cooking, Baking, or Brewing Tea, Chinese Star Anise Bulk Bag",
-            "reviews": 66,
-            "rating": 4.7,
-            "volume": 58,
-            "src_id": "ss",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/410Ajcqz6uL.jpg",
-            "brand_image": "https://img.logo.dev/kahsjourney.com?token=pk_PHiqpZOdRqiH9vzLC_7TPg&size=64&format=png&retina=true"
-        },
-        {
-            "id": "d15dda5ba8c7",
-            "cat_main_id": "main_130fd",
-            "cat_sub_id": "sub_d41d8",
-            "brand_id": "306e0894",
-            "brand": "Antico Molino Napoli",
-            "title": "Antico Molino Napoli Antimo Caputo Pizza Flour, Gluten Free, 2.2 Pound (Pack of 2)",
-            "reviews": 168,
-            "rating": 4.6,
-            "volume": 58,
-            "src_id": "ss",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/51-x0-KSxIL.jpg",
-            "brand_image": "https://img.logo.dev/anticomolinonapoli.com?token=pk_PHiqpZOdRqiH9vzLC_7TPg&size=64&format=png&retina=true"
-        },
-        {
-            "id": "3ab211d13aa6",
-            "cat_main_id": "main_130fd",
-            "cat_sub_id": "sub_d41d8",
-            "brand_id": "90b6051b",
-            "brand": "Hawaiian Shaved Ice",
-            "title": "Hawaiian Shaved Ice Syrup Assortment, 3 - 16oz Bottles of The Most Popular Flavors: Clear Cherry, Pina Colada, Clear Blue Raspberry. For Shaved Ice, Snow Cones, Sodas, Ice Pops, and Slushies. Allergy-Friendly. Dye-Free. No Artificial Colors",
-            "reviews": 26,
-            "rating": 4.7,
-            "volume": 58,
-            "src_id": "ss",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/418VVa643iL.jpg",
-            "brand_image": null
-        },
-        {
-            "id": "188191eb78c3",
-            "cat_main_id": "main_130fd",
-            "cat_sub_id": "sub_d41d8",
-            "brand_id": "23f8a1d8",
-            "brand": "SWANSON S",
-            "title": "Swanson Sipping Bone Broth, Beef Bone Broth, 10.75 OZ Cup",
-            "reviews": 55,
-            "rating": 4.4,
-            "volume": 58,
-            "src_id": "ss",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/41EvfxrZspL.jpg",
-            "brand_image": "https://img.logo.dev/swansons.com?token=pk_PHiqpZOdRqiH9vzLC_7TPg&size=64&format=png&retina=true"
-        },
-        {
-            "id": "ab4dbe5c2e7a",
-            "cat_main_id": "main_130fd",
-            "cat_sub_id": "sub_d41d8",
-            "brand_id": "c2dd6816",
-            "brand": "Nestl\u00e9 Pure Life",
-            "title": "Nestle Pure Life 8 Oz. Purified Water, 48 Per Carton",
-            "reviews": 130,
-            "rating": 4.5,
-            "volume": 58,
-            "src_id": "ss",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/31m3g5oNE6L.jpg",
-            "brand_image": "https://img.logo.dev/nestlpurelife.com?token=pk_PHiqpZOdRqiH9vzLC_7TPg&size=64&format=png&retina=true"
-        },
-        {
-            "id": "8963cd330057",
-            "cat_main_id": "main_130fd",
-            "cat_sub_id": "sub_d41d8",
-            "brand_id": "a838326e",
-            "brand": "VALESCO",
-            "title": "Valesco, O'Live 2 Snack Pitted Olives Variety Pack, 6 Flavors, 1 oz (12 Pouches)",
-            "reviews": 138,
-            "rating": 4.2,
-            "volume": 58,
-            "src_id": "ss",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/41Va82hfpPL.jpg",
-            "brand_image": "https://img.logo.dev/valesco.com?token=pk_PHiqpZOdRqiH9vzLC_7TPg&size=64&format=png&retina=true"
         }
     ]
 }
