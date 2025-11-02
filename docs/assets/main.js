@@ -41,6 +41,144 @@ const resolveAssetUrl = (relativePath) => {
   return script ? new URL(relativePath, script.src).href : `/assets/${relativePath}`;
 };
 
+const getFormName = (form, fallback = '') => {
+  if (!form) return fallback;
+  const name = form.dataset?.formName || '';
+  const trimmed = typeof name === 'string' ? name.trim() : '';
+  return trimmed || fallback;
+};
+
+const findFormControl = (form, fieldName, rawValue) => {
+  if (!form || !fieldName) return null;
+  const controls = form.elements?.[fieldName];
+  if (!controls) return null;
+  const isCollection = typeof controls.length === 'number' && controls.length > 0 && !controls.tagName;
+  if (!isCollection) {
+    return controls;
+  }
+  const controlArray = Array.from(controls);
+  const valueString = typeof rawValue === 'string' ? rawValue : String(rawValue);
+  return (
+    controlArray.find((control) => {
+      if ((control.type === 'radio' || control.type === 'checkbox') && !control.checked) {
+        return false;
+      }
+      return control.value === rawValue || control.value === valueString || control.value === valueString.trim();
+    }) ||
+    controlArray.find((control) => control.checked) ||
+    controlArray[0] ||
+    null
+  );
+};
+
+const getControlLabel = (control, form) => {
+  if (!control) return '';
+  const { id } = control;
+  if (id) {
+    const labels = form ? Array.from(form.querySelectorAll('label')) : [];
+    const matchingLabel = labels.find((label) => label.htmlFor === id);
+    if (matchingLabel) {
+      return matchingLabel.textContent.trim();
+    }
+  }
+  let node = control;
+  while (node && node !== form) {
+    if (node.tagName === 'LABEL') {
+      return node.textContent.trim();
+    }
+    node = node.parentElement;
+  }
+  return '';
+};
+
+const normalizeSubmissionValue = (rawValue) => {
+  if (typeof File !== 'undefined' && rawValue instanceof File) {
+    return rawValue.name || '';
+  }
+  if (Array.isArray(rawValue)) {
+    return rawValue.map((item) => normalizeSubmissionValue(item));
+  }
+  if (typeof rawValue === 'string') {
+    return rawValue.trim();
+  }
+  if (rawValue == null) {
+    return '';
+  }
+  return String(rawValue);
+};
+
+const buildFormSubmissionPayload = (form, formData) => {
+  if (!formData) {
+    return {
+      page_url: window.location.href,
+      submitted_uct: new Date().toISOString(),
+      form: {},
+      form_meta: {},
+    };
+  }
+
+  const entries = typeof formData.entries === 'function' ? Array.from(formData.entries()) : [];
+  const { formDict, formMeta } = entries
+    .filter(([field]) => typeof field === 'string' && !field.startsWith('_'))
+    .reduce(
+      (acc, [field, rawValue]) => {
+        const control = findFormControl(form, field, rawValue);
+        const key = control?.id || field;
+        if (!key) return acc;
+        const normalizedValue = normalizeSubmissionValue(rawValue);
+        if (Object.prototype.hasOwnProperty.call(acc.formDict, key)) {
+          const existingValue = acc.formDict[key];
+          if (Array.isArray(existingValue)) {
+            existingValue.push(normalizedValue);
+          } else {
+            acc.formDict[key] = [existingValue, normalizedValue];
+          }
+        } else {
+          acc.formDict[key] = normalizedValue;
+        }
+
+        if (!Object.prototype.hasOwnProperty.call(acc.formMeta, key)) {
+          const labelText = getControlLabel(control, form);
+          acc.formMeta[key] = labelText;
+        }
+
+        return acc;
+      },
+      { formDict: {}, formMeta: {} },
+    );
+
+  return {
+    page_url: window.location.href,
+    submitted_uct: new Date().toISOString(),
+    form: formDict,
+    form_meta: formMeta,
+  };
+};
+
+const submitRecordedForm = async (formName, form, formData) => {
+  if (typeof recordFormSubmission !== 'function') {
+    throw new Error('Form handler unavailable');
+  }
+
+  const normalizedFormName = typeof formName === 'string' ? formName.trim() : '';
+  if (!normalizedFormName) {
+    throw new Error('Form submission skipped: invalid form name');
+  }
+
+  const payload = buildFormSubmissionPayload(form, formData);
+  const result = await recordFormSubmission(normalizedFormName, payload);
+
+  if (result?.skipped) {
+    throw new Error(result?.reason || 'Submission skipped');
+  }
+
+  if (result?.ok === false) {
+    throw new Error(result?.error || 'Submission failed');
+  }
+
+  return result;
+};
+
 const initCtaForm = () => {
   const form = document.querySelector('.cta_form-grid');
   if (!form) return;
@@ -66,34 +204,11 @@ const initCtaForm = () => {
       submitButton.disabled = true;
       submitButton.textContent = 'Sending...';
     }
-
     const formData = new FormData(form);
 
     try {
-      if (typeof recordFormSubmission !== 'function') {
-        throw new Error('Form handler unavailable');
-      }
-
-      const formName = (form.dataset.formName || 'cta_form').trim();
-      const submissionData = Array.from(formData.entries())
-        .filter(([field]) => !field.startsWith('_'))
-        .map(([field, value]) => ({
-          field,
-          value: typeof value === 'string' ? value.trim() : value,
-        }));
-
-      submissionData.push({ field: '_page_url', value: window.location.href });
-
-      const result = await recordFormSubmission(formName, submissionData);
-
-      if (result?.skipped) {
-        throw new Error(result?.reason || 'Submission skipped');
-      }
-
-      if (result?.ok === false) {
-        throw new Error(result?.error || 'Submission failed');
-      }
-
+      const formName = getFormName(form, 'cta_form');
+      await submitRecordedForm(formName, form, formData);
       form.reset();
       updateStatus("Thanks! We'll be in touch soon.", 'success');
     } catch (error) {
@@ -186,8 +301,11 @@ const initApplicationForm = () => {
     }
 
     const formData = new FormData(form);
+    const formName = getFormName(form, 'retailer_app');
 
     try {
+      await submitRecordedForm(formName, form, formData);
+
       const response = await fetch('https://formsubmit.co/ajax/partners@retailstride.com', {
         method: 'POST',
         headers: {
@@ -277,6 +395,8 @@ const initLoginModal = (closeNav) => {
   const loginForm = loginModal.querySelector('[data-login-form]');
   const loginCloseElements = loginModal.querySelectorAll('[data-login-close]');
   const firstField = loginModal.querySelector('[data-login-first]');
+  const loginSubmitButton = loginForm?.querySelector('[type="submit"]');
+  const loginDefaultButtonText = loginSubmitButton?.textContent ?? '';
   let lastFocusedTrigger = null;
   let closeTimeout = null;
 
@@ -330,11 +450,38 @@ const initLoginModal = (closeNav) => {
   });
 
   if (loginForm) {
-    loginForm.addEventListener('submit', (event) => {
+    loginForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      if (loginStatus) {
-        loginStatus.textContent = 'Portal access is provided to approved partners. Please contact us to activate your login.';
-        loginStatus.classList.add('is-visible');
+      resetStatus();
+
+      if (loginSubmitButton) {
+        loginSubmitButton.disabled = true;
+        loginSubmitButton.textContent = 'Submitting...';
+      }
+
+      const formData = new FormData(loginForm);
+      const formName = getFormName(loginForm, 'login_modal');
+
+      try {
+        await submitRecordedForm(formName, loginForm, formData);
+        loginForm.reset();
+        if (loginStatus) {
+          loginStatus.textContent =
+            'Portal access is provided to approved partners. Please contact us to activate your login.';
+          loginStatus.classList.add('is-visible');
+        }
+      } catch (error) {
+        console.error('Login modal submission failed:', error);
+        if (loginStatus) {
+          loginStatus.textContent =
+            'Something went wrong. Please try again or email partners@retailstride.com for assistance.';
+          loginStatus.classList.add('is-visible');
+        }
+      } finally {
+        if (loginSubmitButton) {
+          loginSubmitButton.disabled = false;
+          loginSubmitButton.textContent = loginDefaultButtonText;
+        }
       }
     });
   }

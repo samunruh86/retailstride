@@ -1,4 +1,4 @@
-async function recordFormSubmission(form_name = null, form_data = []) {
+async function recordFormSubmission(form_name = null, form_data = {}) {
   const url = "https://trigger-2gb-616502391258.us-central1.run.app";
   const action = "site_form";
 
@@ -8,13 +8,9 @@ async function recordFormSubmission(form_name = null, form_data = []) {
     return { ok: false, skipped: true, reason: "invalid_form_name" };
   }
 
-  if (!Array.isArray(form_data)) {
-    form_data = [form_data]; // auto-wrap single object/value
-  }
-
-  if (form_data.length === 0) {
-    console.warn("⚠️ Form submission skipped: form_data is empty.");
-    return { ok: false, skipped: true, reason: "empty_form_data" };
+  if (!form_data || typeof form_data !== "object" || Array.isArray(form_data)) {
+    console.warn("⚠️ Form submission skipped: form_data must be an object.");
+    return { ok: false, skipped: true, reason: "invalid_form_data" };
   }
 
   const args = { form_name, form_data };
