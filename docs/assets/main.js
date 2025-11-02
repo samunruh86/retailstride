@@ -17,6 +17,30 @@ const smoothScroll = (targetId) => {
   target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
+const attachSmoothScrollHandlers = (root = document, onNavigate) => {
+  if (!root || typeof root.querySelectorAll !== 'function') return;
+  root.querySelectorAll('.nav_menu a, .mobile-nav_content a, .footer2_link, .btn.btn-primary, .btn.btn_reverse').forEach((anchor) => {
+    const { hash } = anchor;
+    if (!hash || hash.length <= 1) return;
+    if (anchor.dataset.smoothScrollBound === 'true') return;
+    anchor.dataset.smoothScrollBound = 'true';
+    anchor.addEventListener('click', (event) => {
+      if (document.getElementById(hash.substring(1))) {
+        event.preventDefault();
+        smoothScroll(hash);
+        if (typeof onNavigate === 'function') {
+          onNavigate();
+        }
+      }
+    });
+  });
+};
+
+const resolveAssetUrl = (relativePath) => {
+  const script = document.querySelector('script[src*="assets/main.js"]');
+  return script ? new URL(relativePath, script.src).href : `/assets/${relativePath}`;
+};
+
 const initCtaForm = () => {
   const form = document.querySelector('.cta_form-grid');
   if (!form) return;
@@ -197,6 +221,144 @@ const initApplicationForm = () => {
   });
 };
 
+const loadFooter = async (onNavigate) => {
+  const containers = document.querySelectorAll('[data-footer]');
+  if (!containers.length) return;
+
+  const footerUrl = resolveAssetUrl('footer.html');
+
+  try {
+    const response = await fetch(footerUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to load footer partial: ${response.status}`);
+    }
+    const footerHtml = await response.text();
+    containers.forEach((container) => {
+      container.innerHTML = footerHtml;
+      attachSmoothScrollHandlers(container, onNavigate);
+    });
+  } catch (error) {
+    console.error('Footer loading failed', error);
+  }
+};
+
+const loadLoginModal = async () => {
+  const containers = document.querySelectorAll('[data-login-modal-container]');
+  if (!containers.length) return;
+
+  const modalUrl = resolveAssetUrl('login-modal.html');
+
+  try {
+    const response = await fetch(modalUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to load login modal partial: ${response.status}`);
+    }
+    const modalHtml = await response.text();
+    containers.forEach((container) => {
+      container.innerHTML = modalHtml;
+    });
+  } catch (error) {
+    console.error('Login modal loading failed', error);
+  }
+};
+
+const initLoginModal = (closeNav) => {
+  if (document.body.dataset.loginModalInitialized === 'true') return;
+  const loginModal = document.querySelector('[data-login-modal]');
+  if (!loginModal) return;
+  document.body.dataset.loginModalInitialized = 'true';
+
+  const loginStatus = loginModal.querySelector('[data-login-status]');
+  const loginForm = loginModal.querySelector('[data-login-form]');
+  const loginCloseElements = loginModal.querySelectorAll('[data-login-close]');
+  const firstField = loginModal.querySelector('[data-login-first]');
+  let lastFocusedTrigger = null;
+  let closeTimeout = null;
+
+  const resetStatus = () => {
+    if (!loginStatus) return;
+    loginStatus.textContent = '';
+    loginStatus.classList.remove('is-visible');
+  };
+
+  const closeLoginModal = () => {
+    if (loginModal.hidden) return;
+    loginModal.classList.remove('is-active');
+    document.body.classList.remove('login-modal-open');
+    if (closeTimeout) {
+      clearTimeout(closeTimeout);
+    }
+    closeTimeout = window.setTimeout(() => {
+      if (!loginModal.classList.contains('is-active')) {
+        loginModal.hidden = true;
+      }
+    }, 280);
+    if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+      lastFocusedTrigger.focus({ preventScroll: true });
+    }
+  };
+
+  const openLoginModal = (trigger) => {
+    lastFocusedTrigger = trigger instanceof HTMLElement ? trigger : null;
+    resetStatus();
+    if (closeTimeout) {
+      clearTimeout(closeTimeout);
+    }
+    loginModal.hidden = false;
+    requestAnimationFrame(() => {
+      loginModal.classList.add('is-active');
+    });
+    document.body.classList.add('login-modal-open');
+    if (typeof closeNav === 'function') {
+      closeNav();
+    }
+    if (firstField) {
+      setTimeout(() => firstField.focus({ preventScroll: true }), 120);
+    }
+  };
+
+  loginCloseElements.forEach((el) => {
+    el.addEventListener('click', (event) => {
+      event.preventDefault();
+      closeLoginModal();
+    });
+  });
+
+  if (loginForm) {
+    loginForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (loginStatus) {
+        loginStatus.textContent = 'Portal access is provided to approved partners. Please contact us to activate your login.';
+        loginStatus.classList.add('is-visible');
+      }
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-login-trigger]');
+    if (!trigger) return;
+    event.preventDefault();
+    openLoginModal(trigger);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !loginModal.hidden) {
+      closeLoginModal();
+    }
+  });
+
+  loginModal.addEventListener('click', (event) => {
+    if (event.target === loginModal) {
+      closeLoginModal();
+    }
+  });
+
+  document.addEventListener('login:open', (event) => {
+    const trigger = event.detail?.trigger ?? null;
+    openLoginModal(trigger);
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   resetWebflowStyles();
   initCtaForm();
@@ -223,18 +385,10 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.addEventListener('click', closeNav);
   }
 
-  document.querySelectorAll('.nav_menu a, .mobile-nav_content a, .footer2_link, .btn.btn-primary, .btn.btn_reverse').forEach((anchor) => {
-    const { hash } = anchor;
-    if (!hash || hash.length <= 1) return;
-    anchor.addEventListener('click', (event) => {
-      if (document.getElementById(hash.substring(1))) {
-        event.preventDefault();
-        smoothScroll(hash);
-        closeNav();
-      }
-    });
-  });
-
+  attachSmoothScrollHandlers(document, closeNav);
+  loadFooter(closeNav);
+  initLoginModal(closeNav);
+  loadLoginModal().then(() => initLoginModal(closeNav));
 
   const animatedItems = document.querySelectorAll('.animate-item');
   if (animatedItems.length) {
@@ -513,98 +667,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const loginModal = document.querySelector('[data-login-modal]');
-  if (loginModal) {
-    const loginStatus = loginModal.querySelector('[data-login-status]');
-    const loginForm = loginModal.querySelector('[data-login-form]');
-    const loginCloseElements = loginModal.querySelectorAll('[data-login-close]');
-    const firstField = loginModal.querySelector('[data-login-first]');
-    let lastFocusedTrigger = null;
-    let closeTimeout = null;
-
-    const resetStatus = () => {
-      if (!loginStatus) return;
-      loginStatus.textContent = '';
-      loginStatus.classList.remove('is-visible');
-    };
-
-    const closeLoginModal = () => {
-      if (loginModal.hidden) return;
-      loginModal.classList.remove('is-active');
-      document.body.classList.remove('login-modal-open');
-      if (closeTimeout) {
-        clearTimeout(closeTimeout);
-      }
-      closeTimeout = window.setTimeout(() => {
-        if (!loginModal.classList.contains('is-active')) {
-          loginModal.hidden = true;
-        }
-      }, 280);
-      if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
-        lastFocusedTrigger.focus({ preventScroll: true });
-      }
-    };
-
-    const openLoginModal = (trigger) => {
-      lastFocusedTrigger = trigger instanceof HTMLElement ? trigger : null;
-      resetStatus();
-      if (closeTimeout) {
-        clearTimeout(closeTimeout);
-      }
-      loginModal.hidden = false;
-      requestAnimationFrame(() => {
-        loginModal.classList.add('is-active');
-      });
-      document.body.classList.add('login-modal-open');
-      if (typeof closeNav === 'function') {
-        closeNav();
-      }
-      if (firstField) {
-        setTimeout(() => firstField.focus({ preventScroll: true }), 120);
-      }
-    };
-
-    loginCloseElements.forEach((el) => {
-      el.addEventListener('click', (event) => {
-        event.preventDefault();
-        closeLoginModal();
-      });
-    });
-
-    if (loginForm) {
-      loginForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        if (loginStatus) {
-          loginStatus.textContent = 'Portal access is provided to approved partners. Please contact us to activate your login.';
-          loginStatus.classList.add('is-visible');
-        }
-      });
-    }
-
-    document.addEventListener('click', (event) => {
-      const trigger = event.target.closest('[data-login-trigger]');
-      if (!trigger) return;
-      event.preventDefault();
-      openLoginModal(trigger);
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !loginModal.hidden) {
-        closeLoginModal();
-      }
-    });
-
-    loginModal.addEventListener('click', (event) => {
-      if (event.target === loginModal) {
-        closeLoginModal();
-      }
-    });
-
-    document.addEventListener('login:open', (event) => {
-      const trigger = event.detail?.trigger ?? null;
-      openLoginModal(trigger);
-    });
-  }
   const counters = document.querySelectorAll('.counter');
   if (counters.length) {
     const observer = new IntersectionObserver((entries, obs) => {
