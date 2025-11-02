@@ -1,4 +1,5 @@
-const PAGE_SIZE = 30;
+const PAGE_SIZE = 50;
+const WINDOW_SIZE = 7;
 const categoryListEl = document.querySelector('[data-category-list]');
 const subcategoryListEl = document.querySelector('[data-subcategory-list]');
 const resultCountEl = document.querySelector('[data-result-count]');
@@ -316,9 +317,8 @@ const renderPagination = () => {
 
   makeButton('‹ Previous', Math.max(1, state.page - 1), state.page === 1);
 
-  const windowSize = 5;
-  const start = Math.max(1, state.page - Math.floor(windowSize / 2));
-  const end = Math.min(totalPages, start + windowSize - 1);
+  const start = Math.max(1, state.page - Math.floor(WINDOW_SIZE / 2));
+  const end = Math.min(totalPages, start + WINDOW_SIZE - 1);
 
   for (let page = start; page <= end; page += 1) {
     makeButton(String(page), page, false, page === state.page);
