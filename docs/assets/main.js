@@ -70,23 +70,28 @@ const initCtaForm = () => {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/sam@bluehavenbrands.com', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-        },
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error(`Request failed: ${response.status}`);
+      if (typeof recordFormSubmission !== 'function') {
+        throw new Error('Form handler unavailable');
       }
 
-      const data = await response.json();
-      const isSuccess = data.success === true || data.success === 'true';
+      const formName = (form.dataset.formName || 'cta_form').trim();
+      const submissionData = Array.from(formData.entries())
+        .filter(([field]) => !field.startsWith('_'))
+        .map(([field, value]) => ({
+          field,
+          value: typeof value === 'string' ? value.trim() : value,
+        }));
 
-      if (!isSuccess) {
-        throw new Error(data.message || 'Submission failed');
+      submissionData.push({ field: '_page_url', value: window.location.href });
+
+      const result = await recordFormSubmission(formName, submissionData);
+
+      if (result?.skipped) {
+        throw new Error(result?.reason || 'Submission skipped');
+      }
+
+      if (result?.ok === false) {
+        throw new Error(result?.error || 'Submission failed');
       }
 
       form.reset();
