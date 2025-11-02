@@ -21,7 +21,7 @@ async function recordFormSubmission(form_name = null, form_data = []) {
 
   try {
     const res = await fetch(url, {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
@@ -41,6 +41,3 @@ async function recordFormSubmission(form_name = null, form_data = []) {
     return { ok: false, error: err.message };
   }
 }
-
-// Example usage:
-// recordFormSubmission("retailer_signup", [{ field: "email", value: "test@example.com" }]);
