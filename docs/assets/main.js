@@ -359,6 +359,262 @@ const initLoginModal = (closeNav) => {
   });
 };
 
+const initCatalogPreview = () => {
+  const section = document.querySelector('[data-preview-section]');
+  if (!section) return;
+
+  const pillsContainer = section.querySelector('[data-preview-category-list]');
+  const grid = section.querySelector('[data-preview-grid]');
+  const statusEl = section.querySelector('[data-preview-status]');
+  if (!pillsContainer || !grid || !statusEl) return;
+
+  const gridId = grid.id || 'catalog-preview-grid';
+  if (!grid.id) {
+    grid.id = gridId;
+  }
+
+  const MAX_STAGGERED_ITEMS = 12;
+  let categories = [];
+  let activeIndex = 0;
+  let pillButtons = [];
+
+  const setStatus = (message) => {
+    const text = message ? String(message) : '';
+    statusEl.textContent = text;
+    statusEl.hidden = text.length === 0;
+  };
+
+  const sanitizeProduct = (product) => {
+    if (!product || typeof product !== 'object') return null;
+    const brand = typeof product.brand === 'string' ? product.brand.trim() : '';
+    const title = typeof product.title === 'string' ? product.title.trim() : '';
+    const image = typeof product.image === 'string' ? product.image.trim() : '';
+    if (!brand && !title && !image) return null;
+    return { brand, title, image };
+  };
+
+  const createProductCard = (product, index) => {
+    const card = document.createElement('article');
+    card.className = 'preview_card';
+    card.style.setProperty('--preview-animation-delay', `${Math.min(index, MAX_STAGGERED_ITEMS) * 0.06}s`);
+
+    const imageWrapper = document.createElement('div');
+    imageWrapper.className = 'preview_card-image';
+
+    if (product.image) {
+      const image = document.createElement('img');
+      image.src = product.image;
+      image.alt = product.title || product.brand || 'Catalog product';
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      imageWrapper.appendChild(image);
+    } else {
+      imageWrapper.classList.add('preview_card-image--empty');
+      const placeholder = document.createElement('div');
+      placeholder.className = 'preview_card-placeholder';
+      placeholder.textContent = 'Image coming soon';
+      imageWrapper.appendChild(placeholder);
+    }
+
+    const content = document.createElement('div');
+    content.className = 'preview_card-content';
+
+    const brandEl = document.createElement('div');
+    brandEl.className = 'preview_card-brand';
+    brandEl.textContent = product.brand || 'Featured Brand';
+
+    const titleEl = document.createElement('div');
+    titleEl.className = 'preview_card-title';
+    titleEl.textContent = product.title || 'Product details coming soon.';
+
+    content.append(brandEl, titleEl);
+    card.append(imageWrapper, content);
+
+    return card;
+  };
+
+  const renderProducts = () => {
+    grid.innerHTML = '';
+    const category = categories[activeIndex];
+    if (!category) {
+      grid.classList.add('is-empty');
+      setStatus('Preview currently unavailable. Explore the full catalog for more.');
+      return;
+    }
+
+    const products = category.products;
+    if (!products.length) {
+      grid.classList.add('is-empty');
+      setStatus(`No preview products available for ${category.name}.`);
+      return;
+    }
+
+    grid.classList.remove('is-empty');
+    setStatus('');
+    grid.scrollLeft = 0;
+    products.forEach((product, index) => {
+      const card = createProductCard(product, index);
+      grid.appendChild(card);
+      requestAnimationFrame(() => {
+        card.classList.add('is-visible');
+      });
+    });
+  };
+
+  const updatePillStates = () => {
+    let activeButtonId = '';
+    pillButtons.forEach((button, index) => {
+      const isActive = index === activeIndex;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      button.tabIndex = isActive ? 0 : -1;
+      if (isActive) {
+        activeButtonId = button.id || '';
+      }
+    });
+    if (activeButtonId) {
+      grid.setAttribute('aria-labelledby', activeButtonId);
+    } else {
+      grid.removeAttribute('aria-labelledby');
+    }
+  };
+
+  const setActiveCategory = (index, { focus } = { focus: false }) => {
+    if (index < 0 || index >= categories.length) return;
+    const isSameCategory = index === activeIndex;
+    if (!isSameCategory) {
+      activeIndex = index;
+      updatePillStates();
+      renderProducts();
+    } else {
+      updatePillStates();
+    }
+    if (focus) {
+      const target = pillButtons[index];
+      if (target && typeof target.focus === 'function') {
+        target.focus({ preventScroll: true });
+      }
+    }
+  };
+
+  const handlePillKeydown = (event) => {
+    if (!pillButtons.length) return;
+    const keys = ['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End', 'Enter', ' '];
+    if (!keys.includes(event.key)) return;
+
+    const currentIndex = pillButtons.indexOf(document.activeElement);
+    if (event.key === 'Enter' || event.key === ' ') {
+      if (currentIndex >= 0) {
+        event.preventDefault();
+        setActiveCategory(currentIndex);
+      }
+      return;
+    }
+
+    let nextIndex = currentIndex;
+    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+      nextIndex = (currentIndex + 1) % pillButtons.length;
+    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+      nextIndex = (currentIndex - 1 + pillButtons.length) % pillButtons.length;
+    } else if (event.key === 'Home') {
+      nextIndex = 0;
+    } else if (event.key === 'End') {
+      nextIndex = pillButtons.length - 1;
+    }
+
+    if (nextIndex < 0 || nextIndex >= pillButtons.length) return;
+    event.preventDefault();
+    setActiveCategory(nextIndex, { focus: true });
+  };
+
+  const buildPills = () => {
+    pillsContainer.innerHTML = '';
+    pillButtons = [];
+    if (!categories.length) {
+      pillsContainer.hidden = true;
+      return;
+    }
+
+    pillsContainer.hidden = false;
+    pillsContainer.setAttribute('aria-orientation', 'horizontal');
+
+    pillButtons = categories.map((category, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'catalog-preview_pill';
+      button.dataset.previewIndex = String(index);
+      button.id = `${gridId}-pill-${index}`;
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-controls', gridId);
+      button.textContent = category.name || `Category ${index + 1}`;
+      button.addEventListener('click', () => {
+        setActiveCategory(index);
+      });
+      pillsContainer.appendChild(button);
+      return button;
+    });
+
+    if (!pillsContainer.dataset.previewKeyboardBound) {
+      pillsContainer.dataset.previewKeyboardBound = 'true';
+      pillsContainer.addEventListener('keydown', handlePillKeydown);
+    }
+
+    updatePillStates();
+  };
+
+  const parseCategories = (data) => {
+    if (!Array.isArray(data)) return [];
+    const parsed = [];
+    data.forEach((entry) => {
+      if (!entry || typeof entry !== 'object') return;
+      Object.entries(entry).forEach(([name, products]) => {
+        const label = typeof name === 'string' ? name.trim() : '';
+        const productList = Array.isArray(products) ? products.map(sanitizeProduct).filter(Boolean) : [];
+        if (!label || !productList.length) return;
+        parsed.push({
+          name: label,
+          products: productList,
+        });
+      });
+    });
+    return parsed;
+  };
+
+  const loadPreview = async () => {
+    setStatus('Loading preview…');
+    grid.classList.add('is-empty');
+    try {
+      const previewUrl = resolveAssetUrl('../data/categories/preview.json');
+      const response = await fetch(previewUrl);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch catalog preview: ${response.status}`);
+      }
+      const data = await response.json();
+      categories = parseCategories(data);
+      if (!categories.length) {
+        setStatus('Preview currently unavailable. Explore the full catalog for more.');
+        pillsContainer.hidden = true;
+        pillButtons = [];
+        grid.removeAttribute('aria-labelledby');
+        return;
+      }
+      activeIndex = 0;
+      buildPills();
+      renderProducts();
+    } catch (error) {
+      console.error('Catalog preview loading failed', error);
+      setStatus('Unable to load the catalog preview right now. Explore the full catalog instead.');
+      pillsContainer.hidden = true;
+      grid.classList.add('is-empty');
+      pillButtons = [];
+      grid.removeAttribute('aria-labelledby');
+    }
+  };
+
+  loadPreview();
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   resetWebflowStyles();
   initCtaForm();
@@ -389,6 +645,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadFooter(closeNav);
   initLoginModal(closeNav);
   loadLoginModal().then(() => initLoginModal(closeNav));
+  initCatalogPreview();
 
   const animatedItems = document.querySelectorAll('.animate-item');
   if (animatedItems.length) {
