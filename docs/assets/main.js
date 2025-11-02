@@ -306,25 +306,6 @@ const initApplicationForm = () => {
     try {
       await submitRecordedForm(formName, form, formData);
 
-      const response = await fetch('https://formsubmit.co/ajax/partners@retailstride.com', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-        },
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error(`Request failed: ${response.status}`);
-      }
-
-      const data = await response.json();
-      const isSuccess = data.success === true || data.success === 'true';
-
-      if (!isSuccess) {
-        throw new Error(data.message || 'Submission failed');
-      }
-
       form.reset();
       updateOnlineField();
       accordionItems.forEach((item, index) => setItemState(item, index === 0));
