@@ -1213,7 +1213,7 @@ body.catalog-body .navbar_component .nav_container {
   }
 
   .catalog-main-pills {
-    padding: 5px 0.9rem;
+    padding: 5px 15px 0px 20px;
   }
 
   .catalog-main-surface {
@@ -1235,9 +1235,6 @@ body.catalog-body .navbar_component .nav_container {
     padding-top: 0px;
   }
 
-  .catalog-main-pills {
-    padding: clamp(0.65rem, 4.5vw, 1.1rem) clamp(1rem, 7vw, 2rem);
-  }
 
   .catalog-sort-bar__actions {
     flex-direction: column;
