@@ -3799,12 +3799,22 @@ body:before {
   display: inline-block;
   position: relative;
 }
-.nav_menu .nav_link.w--current {
+.nav_menu .nav_link.w--current,
+.nav_menu .nav_link.nav_is_current {
   color: #fff !important;
+  user-select: none !important;
+  cursor: default;
+  pointer-events: none;
+}
+.mobile-nav_link.nav_is_current {
+  pointer-events: none;
+  cursor: default;
 }
 .nav_menu > .nav_link:not(.dropdown):before,
 .nav_menu > .nav_link.dropdown a:before,
 .nav_menu > .nav_link.w--current:before,
+.nav_menu > .nav_link.nav_is_current:before,
+.nav_menu > .nav_link.dropdown a.nav_is_current:before,
 .footer2_link:before {
   content: "";
   position: absolute;
@@ -3820,13 +3830,31 @@ body:before {
   transform: scaleX(0) !important;
   opacity: 1 !important;
 }
+.nav_menu > .nav_link.w--current:before,
+.nav_menu > .nav_link.nav_is_current:before,
+.nav_menu > .nav_link.dropdown a.w--current:before,
+.nav_menu > .nav_link.dropdown a.nav_is_current:before {
+  animation: nav-link-underline-in 0.6s cubic-bezier(0.835, -0.005, 0.06, 1) both;
+}
 .nav_menu > .nav_link:not(.dropdown):hover:before,
 .nav_menu > .nav_link.dropdown a:hover:before,
 .nav_menu > .nav_link.dropdown a.w--current:before,
+.nav_menu > .nav_link.dropdown a.nav_is_current:before,
 .nav_menu > .nav_link.w--current:before,
+.nav_menu > .nav_link.nav_is_current:before,
 .footer2_link:hover:before {
   transform-origin: left !important;
   transform: scaleX(1) !important;
+}
+@keyframes nav-link-underline-in {
+  from {
+    transform-origin: right;
+    transform: scaleX(0);
+  }
+  to {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
 }
 .w-dropdown-list .w-dropdown-link:before {
   display: none;
