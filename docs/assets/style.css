@@ -2,6 +2,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   font-family: sans-serif;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -109,6 +110,7 @@ body {
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
+  overflow-x: hidden;
 }
 img {
   vertical-align: middle;
@@ -520,6 +522,7 @@ label {
   font-family: Inter;
   line-height: 150%;
   overflow: visible;
+  overflow-x: hidden;
 }
 .col {
   flex: 0 auto;
