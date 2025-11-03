@@ -718,7 +718,7 @@ const renderProducts = () => {
                   data-product-remove${productIdAttr}
                 >
                 <span class="catalog-admin-switch__track" aria-hidden="true"></span>
-                <span class="catalog-admin-switch__label">Remove</span>
+                <span class="catalog-admin-switch__label">Demote</span>
               </label>
             `
           : `
