@@ -29,8 +29,18 @@ body.catalog-body {
   --color--muted: rgba(8, 19, 38, 0.65);
 }
 
+body.catalog-body .navbar_component {
+  position: relative;
+  inset: auto;
+  margin-top: clamp(1.5rem, 5vw, 2.25rem);
+}
+
+body.catalog-body .navbar_component .nav_container {
+  margin-bottom: clamp(1rem, 4vw, 1.5rem);
+}
+
 .catalog-page {
-  padding-top: clamp(6.25rem, 11vw, 7.8rem);
+  padding-top: 0px;
 }
 
 .catalog-shell {
@@ -1095,6 +1105,12 @@ body.catalog-body {
   border-color: rgba(135, 145, 255, 0.9);
 }
 
+.catalog-pagination button:hover {
+  background: rgba(107, 119, 255, 0.11);
+  color: #ffffff;
+  border-color: rgba(135, 145, 255, 0.42);
+}
+
 @media (max-width: 600px) {
   .catalog-pagination {
     width: 100%;
@@ -1142,7 +1158,7 @@ body.catalog-body {
 
 @media (max-width: 768px) {
   .catalog-page {
-    padding-top: clamp(5.2rem, 16vw, 6.6rem);
+    padding-top: 0px;
   }
 
   .catalog-shell {
@@ -1189,7 +1205,7 @@ body.catalog-body {
 }
 .catalog-subcategory-pill,
 .catalog-category-pill {
-  border: 1px solid rgba(98, 111, 202, 0.6);
+  border: 1px solid rgb(79 106 148);
   background: rgba(12, 22, 44, 0.85);
   color: rgba(225, 232, 255, 0.92);
   border-radius: 14px;
@@ -1213,16 +1229,18 @@ body.catalog-body {
 
 .catalog-subcategory-pill:hover,
 .catalog-category-pill:hover {
-  background: rgba(98, 110, 202, 0.9);
-  border-color: rgba(135, 145, 255, 0.9);
+  background: rgb(0 255 212 / 49%);
+  border-color: rgb(0 252 210);
   color: #030813;
+  box-shadow: 0 16px 28px rgba(7, 14, 36, 0.3), 0 0 0 3px rgb(0 255 212 / 19%);
 }
 
 .catalog-subcategory-pill.is-active,
 .catalog-category-pill.is-active {
-  background: linear-gradient(120deg, #6a74ff 0%, #0baaff 100%);
   border-color: rgba(146, 156, 255, 0.6);
-  color: #030813;
+  box-shadow: 0 8px 32px rgba(74, 90, 255, 0.2);
+  background: #00ffd4;
+  color: #061a3a;
   box-shadow: 0 8px 32px rgba(74, 90, 255, 0.2);
 }
 
@@ -1230,6 +1248,29 @@ body.catalog-body {
 .catalog-category-pill:focus-visible {
   outline: 2px solid rgba(107, 120, 255, 0.6);
   outline-offset: 2px;
+}
+
+.catalog-subcategory-pill {
+    background: rgb(48 58 92 / 88%);
+    color: rgba(225, 232, 255, 0.92);
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    box-shadow: -3px 7px 28px rgb(7 14 36 / 26%);
+}
+
+.catalog-subcategory-pill.is-active {
+  background: linear-gradient(45deg, #6a74fe, #6a74fead);
+  border-color: #5b43e7;
+  color: #fff;
+}
+
+.catalog-subcategory-pill:hover {
+  background: #6a74fec0;
+  border-color: #6a74fe;
+  color: #fff;
+  box-shadow: 0 16px 28px rgba(7, 14, 36, 0.3), 0 0 0 3px rgba(43, 0, 255, 0.19);
 }
 
 .catalog-pill__count {
