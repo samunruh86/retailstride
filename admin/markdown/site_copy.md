@@ -291,7 +291,7 @@
 
 ## Logo & Company Info
 - © 2025 Retail Stride All rights reserved.  
-- 1014 W Jackson Blvd, Chicago, IL 60607  
+- 14910 West 101st Terrace, Lenexa, KS 66215  
 
 ---
 

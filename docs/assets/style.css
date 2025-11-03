@@ -1265,6 +1265,7 @@ label {
 .cta_content .cta_description {
   margin-top: 0;
   color: #fff;
+  font-size: 18px;
 }
 .stats-grid_component {
   grid-column-gap: 4rem;
