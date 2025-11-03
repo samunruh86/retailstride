@@ -4792,3 +4792,55 @@ body .nav_dropdown.w--open {
   padding-bottom: clamp(4rem, 9vw, 6rem);
   display: block;
 }
+
+.legal-page {
+  padding-top: clamp(6.5rem, 10vw, 8.5rem);
+  padding-bottom: clamp(4rem, 9vw, 6rem);
+}
+
+.section_legal-hero {
+  padding-bottom: 10px;
+}
+
+.section_legal-body {
+  padding-top: 0;
+}
+
+.legal-content {
+  color: rgba(255, 255, 255, 0.85);
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.legal-content h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+  line-height: 1.35;
+  margin-top: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.legal-content p + h2,
+.legal-content ul + h2 {
+  margin-top: 10px;
+}
+
+.legal-content ul {
+  padding-left: 1.2rem;
+}
+
+.legal-content li {
+  margin-bottom: 0.4rem;
+}
+
+@media screen and (max-width: 767px) {
+  .legal-page {
+    padding-top: clamp(5.5rem, 13vw, 6.75rem);
+  }
+
+  .legal-content h2 {
+    font-size: clamp(1.25rem, 5vw, 1.45rem);
+  }
+}
