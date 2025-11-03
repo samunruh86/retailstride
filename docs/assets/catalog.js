@@ -9,6 +9,7 @@ const appliedFiltersEl = document.querySelector('[data-applied-filters]');
 const sortSelectEl = document.querySelector('[data-sort-select]');
 const previewBannerEl = document.querySelector('[data-preview-banner]');
 const previewBannerCloseEl = document.querySelector('[data-preview-banner-close]');
+const isCatalogAdminPage = typeof window !== 'undefined' && window.location.pathname.includes('catalog-admin');
 
 if (previewBannerEl && previewBannerCloseEl) {
   previewBannerCloseEl.addEventListener('click', () => {
@@ -311,15 +312,40 @@ const renderProducts = () => {
         const imageAttributes = productImage
           ? `src="${TRANSPARENT_PIXEL}" data-product-src="${productImage}"`
           : `src="${TRANSPARENT_PIXEL}"`;
-        card.innerHTML = `
-          <div class="catalog-product-card__media">
-            <img ${imageAttributes} alt="${productTitle}" class="catalog-product-card__image">
-            ${badgeLabel ? `<span class="catalog-product-card__badge">${badgeLabel}</span>` : ''}
-          </div>
-          <div class="catalog-product-card__details">
-            <span class="catalog-product-card__brand">${productBrand}</span>
-            <h3 class="catalog-product-card__title" title="${escapeAttribute(product.title || 'Product title')}">${productTitle}</h3>
-            <div class="catalog-product-card__actions">
+        const rawProductId = product.id == null ? '' : String(product.id);
+        const safeProductId = escapeAttribute(rawProductId);
+        const productIdAttr = safeProductId ? ` data-product-id="${safeProductId}"` : '';
+        const promoteFieldName = safeProductId ? `product_promote_${safeProductId}` : 'product_promote';
+        const removeFieldName = safeProductId ? `product_remove_${safeProductId}` : 'product_remove';
+        const actionsClass = isCatalogAdminPage
+          ? 'catalog-product-card__actions catalog-product-card__actions--admin'
+          : 'catalog-product-card__actions';
+        const actionMarkup = isCatalogAdminPage
+          ? `
+              <label class="catalog-admin-switch">
+                <input
+                  type="checkbox"
+                  id="product_promote"
+                  name="${promoteFieldName}"
+                  class="catalog-admin-switch__input"
+                  data-product-promote${productIdAttr}
+                >
+                <span class="catalog-admin-switch__track" aria-hidden="true"></span>
+                <span class="catalog-admin-switch__label">Promote</span>
+              </label>
+              <label class="catalog-admin-switch">
+                <input
+                  type="checkbox"
+                  id="product_remove"
+                  name="${removeFieldName}"
+                  class="catalog-admin-switch__input"
+                  data-product-remove${productIdAttr}
+                >
+                <span class="catalog-admin-switch__track" aria-hidden="true"></span>
+                <span class="catalog-admin-switch__label">Remove</span>
+              </label>
+            `
+          : `
               <button
                 type="button"
                 class="catalog-product-card__cta"
@@ -329,6 +355,17 @@ const renderProducts = () => {
                 <span class="catalog-product-card__cta-icon catalog-product-card__cta-icon--unlocked" aria-hidden="true"></span>
                 <span class="catalog-product-card__cta-label">Unlock Price</span>
               </button>
+            `;
+        card.innerHTML = `
+          <div class="catalog-product-card__media">
+            <img ${imageAttributes} alt="${productTitle}" class="catalog-product-card__image">
+            ${badgeLabel ? `<span class="catalog-product-card__badge">${badgeLabel}</span>` : ''}
+          </div>
+          <div class="catalog-product-card__details">
+            <span class="catalog-product-card__brand">${productBrand}</span>
+            <h3 class="catalog-product-card__title" title="${escapeAttribute(product.title || 'Product title')}">${productTitle}</h3>
+            <div class="${actionsClass}">
+              ${actionMarkup}
             </div>
           </div>
         `;

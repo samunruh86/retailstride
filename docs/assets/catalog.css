@@ -883,6 +883,74 @@ body.catalog-body .navbar_component .nav_container {
   margin-top: auto;
 }
 
+.catalog-product-card__actions--admin {
+  gap: 0.75rem;
+}
+
+.catalog-admin-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(7, 16, 38, 0.75);
+  cursor: pointer;
+  user-select: none;
+}
+
+.catalog-admin-switch__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.catalog-admin-switch__track {
+  position: relative;
+  width: 2.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  background: rgba(7, 16, 38, 0.2);
+  transition: background var(--catalog-transition);
+  flex-shrink: 0;
+}
+
+.catalog-admin-switch__track::after {
+  content: '';
+  position: absolute;
+  top: 0.15rem;
+  left: 0.18rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(7, 16, 38, 0.3);
+  transition: transform var(--catalog-transition);
+}
+
+.catalog-admin-switch__input:checked + .catalog-admin-switch__track {
+  background: #2148f5;
+}
+
+.catalog-admin-switch__input:checked + .catalog-admin-switch__track::after {
+  transform: translateX(0.82rem);
+}
+
+.catalog-admin-switch__input:focus-visible + .catalog-admin-switch__track {
+  outline: 2px solid rgba(33, 72, 245, 0.6);
+  outline-offset: 2px;
+}
+
+.catalog-admin-switch__label {
+  pointer-events: none;
+}
+
 .catalog-product-card__cta {
     position: relative;
     display: inline-flex;
