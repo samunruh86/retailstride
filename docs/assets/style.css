@@ -4893,4 +4893,7 @@ body .nav_dropdown.w--open {
   #w-node-fe1ede91-450b-6d43-2420-103cb620d954-7e612bdc {
     align-self: start;
   }
+  .accordion.accordion__style2 .accordion__block {
+    padding: 14px 22px 10px 16px;
+  }
 }
