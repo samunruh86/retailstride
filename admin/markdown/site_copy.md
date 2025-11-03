@@ -238,9 +238,7 @@
 # Contact | retailstride.com/contact/
 
 ## **Hero Section**
-- **Headline:** Join the Retail Stride Network
-- **Subheadline:** Ready to access premium brands, consistent pricing, and reliable supply? Apply today to become a verified Retail Stride partner.
-- **CTA Button:** Request Access
+- **Headline:** We're excited to connect!
 
 ---
 
@@ -250,10 +248,9 @@
   - **Name:** text input (required) — placeholder: Your name
   - **Email:** email input (required) — placeholder: you@example.com
   - **Company:** text input — placeholder: Store or organization name
-  - **Message:** textarea — placeholder: Tell us a bit about your retail goals
-- **Submit Button:** Request Access
+  - **Message:** textarea — placeholder: Message
+- **Submit Button:** Submit
 - **Form Type:** POST
-- **Form Subject:** Retail Stride CTA submission
 
 ---
 
