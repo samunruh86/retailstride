@@ -466,8 +466,47 @@ const initNavigation = async () => {
   const navButton = navRoot?.querySelector('.navbar1_menu-button') || document.querySelector('.navbar1_menu-button');
   const mobileNav = navRoot?.querySelector('.mobile-nav_component') || document.querySelector('.mobile-nav_component');
   const overlay = document.getElementById('w-nav-overlay-0');
-  let bodyScrollLocked = false;
-  let previousBodyOverflow = '';
+  let scrollLockState = null;
+
+  const lockBodyScroll = () => {
+    if (scrollLockState) return;
+    const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    const scrollbarCompensation = window.innerWidth - document.documentElement.clientWidth;
+    scrollLockState = {
+      scrollY,
+      bodyStyles: {
+        overflow: document.body.style.overflow,
+        position: document.body.style.position,
+        width: document.body.style.width,
+        top: document.body.style.top,
+        paddingRight: document.body.style.paddingRight,
+      },
+      htmlOverflow: document.documentElement.style.overflow,
+    };
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    document.body.style.top = `-${scrollY}px`;
+    if (scrollbarCompensation > 0) {
+      document.body.style.paddingRight = `${scrollbarCompensation}px`;
+    }
+    document.documentElement.style.overflow = 'hidden';
+  };
+
+  const unlockBodyScroll = () => {
+    if (!scrollLockState) return;
+    const { scrollY, bodyStyles, htmlOverflow } = scrollLockState;
+    document.body.style.overflow = bodyStyles.overflow;
+    document.body.style.position = bodyStyles.position;
+    document.body.style.width = bodyStyles.width;
+    document.body.style.top = bodyStyles.top;
+    document.body.style.paddingRight = bodyStyles.paddingRight;
+    document.documentElement.style.overflow = htmlOverflow;
+    if (typeof window.scrollTo === 'function') {
+      window.scrollTo(0, scrollY);
+    }
+    scrollLockState = null;
+  };
 
   const closeNav = () => {
     if (navMenu) navMenu.classList.remove('w--open');
@@ -484,10 +523,7 @@ const initNavigation = async () => {
       navButton.setAttribute('aria-expanded', 'false');
     }
     if (overlay) overlay.style.display = 'none';
-    if (bodyScrollLocked) {
-      document.body.style.overflow = previousBodyOverflow;
-      bodyScrollLocked = false;
-    }
+    unlockBodyScroll();
   };
 
   if (mobileNav) {
@@ -506,14 +542,9 @@ const initNavigation = async () => {
       navButton.setAttribute('aria-expanded', String(isOpen));
       if (overlay) overlay.style.display = isOpen ? 'block' : 'none';
       if (isOpen) {
-        if (!bodyScrollLocked) {
-          previousBodyOverflow = document.body.style.overflow;
-          bodyScrollLocked = true;
-        }
-        document.body.style.overflow = 'hidden';
-      } else if (bodyScrollLocked) {
-        document.body.style.overflow = previousBodyOverflow;
-        bodyScrollLocked = false;
+        lockBodyScroll();
+      } else {
+        unlockBodyScroll();
       }
     });
   }

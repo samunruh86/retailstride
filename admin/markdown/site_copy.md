@@ -1,20 +1,23 @@
-# Home | retailstride.com/
+# Website Copy
+> While Retail Stride appears to speak to both brands and retailers, the primary audience is brands. Most brand visitors will arrive after direct outreach inviting them to partner with us as an authorized distributor. The core pitch is: “Allow us to purchase your products at distributor terms so we can supply independent brick-and-mortar retailers you’re not currently reaching.”
 
-## **Hero Section**
+## Home | retailstride.com/
+
+### **Hero Section**
 - **Headline:** <strong>Brand-Safe</strong> Distribution
 - **Subheadline:** <strong>Retail Stride</strong> connects national brands to verified retail partners through curated distribution, MAP-compliant standards, and dependable supply.
 - **CTA Button:** Request Access
 
 ---
 
-## **Stats Section**
+### **Stats Section**
 - **Card:** 75+ — Brands Represented in Our Catalog
 - **Card:** 2,000+ — Independent Retail Partners Nationwide
 - **Card:** 100% — MAP-Compliant, Authorized Distribution
 
 ---
 
-## **Our Solution Section**
+### **Our Solution Section**
 - **Pre Header:** Our Solution
 - **Headline:** Bringing Clarity to Distribution.
 - **Supporting:** Independent retailers deserve consistent, authorized access to trusted brands—without uncertainty, price drift, or unreliable supply. Retail Stride simplifies distribution through verified partnerships, curated assortments, and a platform built on compliance and trust.
@@ -26,18 +29,18 @@
 
 ---
 
-## **Service Suite**
+### **Service Suite**
 - **Pre Header:** Our Service Suite
 - **Headline:** Built for <strong>Brand-Safe</strong> Distribution
 - **Service:**
   - **Authorized Distribution:** We partner directly with approved suppliers and brand owners to ensure every product is authentic, MAP-compliant, and responsibly represented across retail channels.
   - **Curated Catalogs:** Our catalog highlights proven, high-velocity assortments designed for independent and regional retailers—balancing sell-through, presentation, and availability for every partner brand.
   - **Logistics & Retail Support:** From onboarding to fulfillment, our team coordinates product flow, packaging standards, and replenishment to keep retailers stocked and your brand represented consistently.
-- **Inline Links:** each service card includes a Learn More link to **#how-we-work**.
+- **Inline Links:** each service card includes a Learn More link to **##how-we-work**.
 
 ---
 
-## **Catalog Preview**
+### **Catalog Preview**
 - **Pre Header:** Catalog Preview
 - **Headline:** Connecting Trusted Brands with Modern Retailers
 - **Supporting:** Explore a curated view of the brands and assortments we represent. Each collection reflects retail-ready packaging, and consistent availability for qualified partners.
@@ -46,7 +49,7 @@
 
 ---
 
-## **How We Work**
+### **How We Work**
 - **Pre Header:** HOW WE WORK
 - **Headline:** Distribution, Done Right.
 - **Supporting:** We combine verified partnerships, MAP-compliant sourcing, and modern systems to make distribution simple, transparent, and brand-safe—for both sides of the supply chain.
@@ -72,7 +75,7 @@
 
 ---
 
-## **FAQs Section**
+### **FAQs Section**
 
 - **Do you work directly with brands?**  
   Yes. Retail Stride partners with brand owners and authorized distributors to ensure every product is authentic, MAP-compliant, and responsibly represented across retail channels.  
@@ -100,23 +103,23 @@
 
 ---
 
-## **Footer CTA**
+### **Footer CTA**
 - **Headline:** Ready to dive in?
 - **Supporting:** Discover how Retail Stride supports premium brands and independent retailers with trusted distribution partnerships tailored to each growth plan.
 - **Buttons:** Brands → /brands • Retailers → /retailers
 
 ---
 
-# Brands | retailstride.com/brands/
+## Brands | retailstride.com/brands/
 
-## **Hero Section**
+### **Hero Section**
 - **Headline:** Modern Brand Distribution.
 - **Subheadline:** Retail Stride expands your retail reach through authorized partnerships, MAP-compliant standards, and curated access to verified independent retailers.
 - **CTA Button:** Let's Connect
 
 ---
 
-## **Our Solution Section**
+### **Our Solution Section**
 - **Pre Header:** Our Solution
 - **Headline:** Distribution, Built for Control.
 - **Supporting:** Retail Stride partners with emerging and established brands to expand their reach into trusted retail channels while preserving pricing integrity, compliance, and brand story.
@@ -132,7 +135,7 @@
 
 ---
 
-## **FAQs Section**
+### **FAQs Section**
 
 **Supporting:** We’ve gathered common questions from the brands we partner with. Have a different question? Let’s connect.
 
@@ -151,23 +154,23 @@
 
 ---
 
-## **CTA Section**
+### **CTA Section**
 - **Headline:** Partner With Us
 - **Supporting:** Ready to expand your brand’s reach through verified retailers and controlled distribution? Retail Stride helps brands grow across independent retail channels—maintaining pricing integrity, packaging consistency, and brand presentation every step of the way. There are no fees or commitments to get started—just a conversation about fit.
 - **CTA Button:** Submit
 
 ---
 
-# Retailers | retailstride.com/retailers/
+## Retailers | retailstride.com/retailers/
 
-## **Hero Section**
+### **Hero Section**
 - **Headline:** Trusted Brand Access.
 - **Subheadline:** Discover premium brands with verified supply and transparent standards.
 - **CTA Button:** Apply Now
 
 ---
 
-## **Our Solution Section**
+### **Our Solution Section**
 - **Pre Header:** Our Solution
 - **Headline:** Simplifying Distribution for Independent Retailers.
 - **Supporting:** We simplify wholesale for independent retailers—curating assortments that align with your channel, ensuring pricing consistency, and managing logistics so your store stays stocked with trusted products.
@@ -183,7 +186,7 @@
 
 ---
 
-## **FAQs Section**
+### **FAQs Section**
 
 **Supporting:** We’ve answered a few common questions from independent retailers interested in joining our network.  
 
@@ -210,16 +213,16 @@
 
 ---
 
-## **CTA Section**
+### **CTA Section**
 - **Headline:** Become a Verified Partner
 - **Supporting:** Ready to stock trusted national brands with consistent pricing and dependable supply? Apply today to join the Retail Stride network and gain access to authorized distribution built for independent retailers.
 - **CTA Button:** Apply Now
 
 ---
 
-# Catalog | retailstride.com/catalog/
+## Catalog | retailstride.com/catalog/
 
-## **Catalog Experience**
+### **Catalog Experience**
 - **Main Category Pills:** dynamic list (data-category-list) for high-level categories
 - **Subcategory Pills:** contextual filters (data-subcategory-list) shown after a main category is selected
 - **Result Count:** live counter (data-result-count) — default: Loading products…
@@ -228,21 +231,21 @@
 
 ---
 
-## **CTA Footer**
+### **CTA Footer**
 - **Headline:** Ready to Learn More?
 - **Supporting:** Discover how Retail Stride supports premium brands and independent retailers with trusted wholesale partnerships tailored to each growth plan.
 - **Buttons:** Brands → /brands • Retailers → /retailers
 
 ---
 
-# Contact | retailstride.com/contact/
+## Contact | retailstride.com/contact/
 
-## **Hero Section**
+### **Hero Section**
 - **Headline:** We're excited to connect!
 
 ---
 
-## **Contact Form Section**
+### **Contact Form Section**
 - **Form Name:** contact_main
 - **Fields:**
   - **Name:** text input (required) — placeholder: Your name
@@ -254,16 +257,16 @@
 
 ---
 
-# Application | retailstride.com/apply/
+## Application | retailstride.com/apply/
 
-## **Hero Section**
+### **Hero Section**
 - **Headline:** Become a Retail Partner
 - **Subheadline:** We partner exclusively with established, independently owned retailers that operate verified storefronts—prioritizing brand safety and authentic distribution.
-- **Primary CTA:** Begin Application → #app-form
+- **Primary CTA:** Begin Application → ##app-form
 
 ---
 
-## **Qualification Criteria**
+### **Qualification Criteria**
 - Maintain an **active, publicly accessible brick & mortar** location
 - **Do not** sell on **3rd-party marketplaces** (Amazon, Walmart, eBay, etc.)
 - Provide a valid **resale/tax certificate** and agree to Authorized Retailer Terms
@@ -271,13 +274,13 @@
 
 ---
 
-## **Application Form**
+### **Application Form**
 - **Form Name:** retailer_app
 - **Method:** POST (multipart/form-data)
 
 ---
 
-## **What Happens Next**
+### **What Happens Next**
 - **Headline:** What happens next
 - **Review Window:** Applications reviewed within **3 business days**
 - **Steps:**
@@ -287,33 +290,33 @@
 
 ---
 
-# All Pages | Footer
+## All Pages | Footer
 
-## Logo & Company Info
+### Logo & Company Info
 - © 2025 Retail Stride All rights reserved.  
 - 14910 West 101st Terrace, Lenexa, KS 66215  
 
 ---
 
-## Site Links
+### Site Links
 
-### **Brands**
+#### **Brands**
 - [Services](/brands/)
-- [Solutions](/brands/#services)
-- [FAQs](/brands/#faqs)
-- [Connect with Us](/brands/#cta)
+- [Solutions](/brands/##services)
+- [FAQs](/brands/##faqs)
+- [Connect with Us](/brands/##cta)
 
 ---
 
-### **Retailers**
-- [Login](#) *(opens login modal)*
+#### **Retailers**
+- [Login](##) *(opens login modal)*
 - [Apply for Access](/apply/)
 - [Solutions](/retailers/)
 - [Partner with Us](/contact/)
 
 ---
 
-### **Explore**
+#### **Explore**
 - [Catalog](/catalog/)
 - [Who We Are](/)
 - [Get in Touch](/contact/)
@@ -321,15 +324,15 @@
 
 ---
 
-# All Pages | Login Modal
+## All Pages | Login Modal
 
-### Copy
+#### Copy
 **Title:** Partner Login  
 **Description:** Sign in to view wholesale pricing, minimum order quantities, and live availability.
 **Access Notice:** Need credentials? [Click Here](/apply/) to apply — open to established retail locations only.
 ---
 
-### **Login Form**
+#### **Login Form**
 - **Form Name:** login_modal  
 - **Fields:**
   - **Username:** text input (required) — placeholder: your@email.com
