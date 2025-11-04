@@ -212,7 +212,7 @@ const initCtaForm = () => {
       form.reset();
       updateStatus("Thanks! We'll be in touch soon.", 'success');
     } catch (error) {
-      updateStatus('Something went wrong. Please try again or email partners@retailstride.com.', 'error');
+      updateStatus('Something went wrong. Please try again later.', 'error');
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
@@ -315,7 +315,7 @@ const initApplicationForm = () => {
         'success',
       );
     } catch (error) {
-      setStatus('Something went wrong. Please try again or email partners@retailstride.com.', 'error');
+      setStatus('Something went wrong. Please try again later.', 'error');
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
@@ -690,7 +690,7 @@ const initLoginModal = (closeNav) => {
         console.error('Login modal submission failed:', error);
         if (loginStatus) {
           loginStatus.textContent =
-            'Something went wrong. Please try again or email partners@retailstride.com for assistance.';
+            'Something went wrong. Please try again later.';
           loginStatus.classList.add('is-visible');
         }
       } finally {
