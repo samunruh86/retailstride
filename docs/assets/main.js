@@ -41,6 +41,7 @@ const resolveAssetUrl = (relativePath) => {
   return script ? new URL(relativePath, script.src).href : `/assets/${relativePath}`;
 };
 
+const GEOAPIFY_API_KEY = 'e9ea7703b7a14dbcb315138791cb258a';
 const LEAFLET_CDN_VERSION = '1.9.4';
 let leafletLoader = null;
 
@@ -270,19 +271,23 @@ const initLocationsMap = async () => {
 
     const map = L.map(canvas, {
       center: [39.5, -98.35],
-      zoom: 4,
+      zoom: 5,
       zoomControl: true,
       attributionControl: false,
+      minZoom: 4,
+      maxZoom: 7,
+      scrollWheelZoom: false,
     });
 
-    const cartoLayer = L.tileLayer('https://{s}.tile.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap contributors & CARTO',
-      maxZoom: 18,
-      subdomains: 'abcd',
+    const geoapifyUrl = `https://maps.geoapify.com/v1/tile/positron/{z}/{x}/{y}.png?apikey=${GEOAPIFY_API_KEY}`;
+    const geoapifyLayer = L.tileLayer(geoapifyUrl, {
+      attribution:
+        'Powered by <a href="https://www.geoapify.com/" target="_blank" rel="noopener">Geoapify</a> | © OpenStreetMap contributors',
+      maxZoom: 7,
       crossOrigin: true,
     });
 
-    let activeLayer = cartoLayer.addTo(map);
+    let activeLayer = geoapifyLayer.addTo(map);
     let usingFallback = false;
 
     const attachFallbackLayer = () => {
@@ -293,16 +298,21 @@ const initLocationsMap = async () => {
       }
       const fallbackLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
-        maxZoom: 19,
+        maxZoom: 7,
         crossOrigin: true,
       });
       activeLayer = fallbackLayer.addTo(map);
       if (creditEl) {
         creditEl.textContent = 'Map data © OpenStreetMap contributors';
+        creditEl.hidden = false;
       }
     };
 
-    cartoLayer.on('tileerror', attachFallbackLayer);
+    geoapifyLayer.on('tileerror', attachFallbackLayer);
+    map.on('zoomend', () => {
+      const currentZoom = map.getZoom();
+      console.log(`Locations map zoom level: ${currentZoom}`);
+    });
 
     const values = locations
       .map((location) => {
@@ -349,7 +359,10 @@ const initLocationsMap = async () => {
     if (circleMarkers.length) {
       const bounds = L.featureGroup(circleMarkers).getBounds().pad(0.2);
       if (bounds.isValid()) {
-        map.fitBounds(bounds);
+        const preferredZoom = map.getBoundsZoom(bounds);
+        const clampedZoom = Math.max(5, Math.min(preferredZoom, 6));
+        const targetCenter = bounds.getCenter();
+        map.setView(targetCenter, clampedZoom, { animate: false });
       }
     }
 
@@ -363,7 +376,7 @@ const initLocationsMap = async () => {
       renderLocationsLegend(legendEl, locations);
     }
     if (creditEl) {
-      creditEl.textContent = 'Map data © OpenStreetMap contributors & CARTO';
+      creditEl.textContent = 'Map data © OpenStreetMap contributors | Tiles © Geoapify';
       creditEl.hidden = false;
     }
 
