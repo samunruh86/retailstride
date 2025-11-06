@@ -642,7 +642,7 @@ const renderLocationsLegend = (legendEl, locations) => {
     const count = document.createElement('span');
     count.className = 'locations-map__state-count';
     const verifiedValue = state.totalRetailers > 0 ? state.totalRetailers : state.locations.length;
-    count.textContent = `${formatNumber(verifiedValue)} verified`;
+    count.textContent = `${formatNumber(verifiedValue)}`;
 
     title.append(name, count);
 
