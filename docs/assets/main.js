@@ -484,11 +484,13 @@ const sanitizeLocationEntry = (entry) => {
   const lon = Number(entry.lon ?? entry.lng ?? entry.longitude);
   if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
   const city = typeof entry.city === 'string' ? entry.city.trim() : '';
+  const county = typeof entry.county === 'string' ? entry.county.trim() : '';
   const state = typeof entry.state === 'string' ? entry.state.trim() : '';
   const populationValue = Number(entry.population);
   const countValue = Number(entry.count);
   return {
     city,
+    county,
     state,
     lat,
     lon,
@@ -580,7 +582,7 @@ const renderLocationsLegend = (legendEl, locations) => {
     entry.totalRetailers += retailerCount;
     entry.totalPopulation += population;
     entry.locations.push({
-      city: location.city || 'Retailer',
+      county: location.county || 'Retailer',
       count: retailerCount,
       population,
     });
@@ -666,10 +668,10 @@ const renderLocationsLegend = (legendEl, locations) => {
 
     const thead = document.createElement('thead');
     const headRow = document.createElement('tr');
-    const cityHead = document.createElement('th');
-    cityHead.scope = 'col';
-    cityHead.textContent = 'City';
-    cityHead.className = 'locations-map__cell-number locations-map__cell-number-left';
+    const countyHead = document.createElement('th');
+    countyHead.scope = 'col';
+    countyHead.textContent = 'County';
+    countyHead.className = 'locations-map__cell-number locations-map__cell-number-left';
     const retailersHead = document.createElement('th');
     retailersHead.scope = 'col';
     retailersHead.textContent = 'Retailers';
@@ -679,7 +681,7 @@ const renderLocationsLegend = (legendEl, locations) => {
     populationHead.textContent = 'Population';
     populationHead.className = 'locations-map__cell-number';
 
-    headRow.append(cityHead, retailersHead, populationHead);
+    headRow.append(countyHead, retailersHead, populationHead);
     thead.appendChild(headRow);
 
     const tbody = document.createElement('tbody');
@@ -695,8 +697,8 @@ const renderLocationsLegend = (legendEl, locations) => {
     sortedLocations.forEach((locationEntry) => {
       const row = document.createElement('tr');
 
-      const cityCell = document.createElement('td');
-      cityCell.textContent = locationEntry.city;
+      const countyCell = document.createElement('td');
+      countyCell.textContent = locationEntry.county;
 
       const retailersCell = document.createElement('td');
       retailersCell.className = 'locations-map__cell-number';
@@ -706,7 +708,7 @@ const renderLocationsLegend = (legendEl, locations) => {
       populationCell.className = 'locations-map__cell-number';
       populationCell.textContent = locationEntry.population ? formatNumber(locationEntry.population) : '—';
 
-      row.append(cityCell, retailersCell, populationCell);
+      row.append(countyCell, retailersCell, populationCell);
       tbody.appendChild(row);
     });
 
@@ -746,7 +748,7 @@ const renderLocationsLegend = (legendEl, locations) => {
     if (totalDisplayed > 0 && state.locations.length > totalDisplayed) {
       const note = document.createElement('p');
       note.className = 'locations-map__state-note';
-      note.textContent = `Top ${totalDisplayed} of ${state.locations.length} cities shown.`;
+      note.textContent = `Top ${totalDisplayed} of ${state.locations.length} counties shown.`;
       panel.appendChild(note);
     }
 
@@ -754,9 +756,6 @@ const renderLocationsLegend = (legendEl, locations) => {
     statesEl.appendChild(stateItem);
     stateItems.push({ toggle, panel, stateItem });
 
-    if (index === 0) {
-      setExpanded(true);
-    }
   });
 };
 
@@ -861,7 +860,7 @@ const initLocationsMap = async () => {
         interactive: true,
       }).addTo(map);
 
-      const cityName = location.city || 'Retailer';
+      const cityName = location.county || 'Retailer';
       const stateName = location.state ? `, ${location.state}` : '';
       const lines = [`<strong>${cityName}${stateName}</strong>`];
       if (Number.isFinite(location.count)) {
