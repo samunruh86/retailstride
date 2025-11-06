@@ -148,6 +148,10 @@ body.pdf-exporting .pdf-page {
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
+body:not(.pdf-mode) .pdf-header__download {
+  display: none !important;
+}
+
 body.pdf-exporting .pdf-header__download {
   display: none !important;
 }

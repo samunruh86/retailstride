@@ -41,6 +41,36 @@ const resolveAssetUrl = (relativePath) => {
   return script ? new URL(relativePath, script.src).href : `/assets/${relativePath}`;
 };
 
+const isPdfDownloadMode = () => {
+  if (typeof window === 'undefined') {
+    return false;
+  }
+  try {
+    const search = typeof window.location?.search === 'string' ? window.location.search : '';
+    const params = new URLSearchParams(search);
+    const value = params.get('pdf');
+    if (value == null) {
+      return false;
+    }
+    const normalized = value.trim().toLowerCase();
+    return normalized === '1' || normalized === 'true' || normalized === 'yes';
+  } catch (error) {
+    console.warn('Failed to parse pdf mode flag from URL', error);
+    return false;
+  }
+};
+
+const applyBodyPdfModeState = (enabled) => {
+  if (typeof document === 'undefined') {
+    return;
+  }
+  const body = document.body;
+  if (!body) {
+    return;
+  }
+  body.classList.toggle('pdf-mode', Boolean(enabled));
+};
+
 const HTML2CANVAS_CDN_VERSION = '1.4.1';
 const JSPDF_CDN_VERSION = '2.5.1';
 let html2canvasLoader = null;
@@ -147,6 +177,8 @@ const generatePdfFromElement = async (element, options = {}) => {
   const {
     html2canvas: html2canvasOptions = {},
     breakOffsets = [],
+    protectedSections = [],
+    footerBounds = null,
   } = options;
 
   const html2canvas = await loadHtml2CanvasLibrary();
@@ -168,7 +200,7 @@ const generatePdfFromElement = async (element, options = {}) => {
     compress: true,
   });
 
-  const margin = 36; // half-inch margins
+  const margin = 0; // let page CSS define its own spacing
   const pdfWidth = pdf.internal.pageSize.getWidth();
   const pdfHeight = pdf.internal.pageSize.getHeight();
   const contentWidth = pdfWidth - margin * 2;
@@ -176,56 +208,154 @@ const generatePdfFromElement = async (element, options = {}) => {
 
   const canvasWidth = canvas.width;
   const canvasHeight = canvas.height;
+  const elementScrollHeight = Math.max(element.scrollHeight, 1);
+  const verticalScale = canvasHeight / elementScrollHeight;
   const pageHeightPx = (contentHeight * canvasWidth) / contentWidth;
 
-  const tolerancePx = Math.max(scale * 4, 4);
-  const minGapPx = Math.max(scale * 24, 24);
-  const breakpointsPx = Array.isArray(breakOffsets)
+  const tolerancePx = Math.max(verticalScale * 4, 4);
+  const minGapPx = Math.max(verticalScale * 24, 24);
+  let breakpointsPx = Array.isArray(breakOffsets)
     ? Array.from(
         new Set(
           breakOffsets
-            .map((offset) => Math.round(offset * scale))
+            .map((offset) => Math.round(offset * verticalScale))
             .filter((value) => Number.isFinite(value) && value > 0 && value < canvasHeight),
         ),
       )
     : [];
-  if (!breakpointsPx.includes(canvasHeight)) {
-    breakpointsPx.push(canvasHeight);
+
+  const protectedSectionsPx = Array.isArray(protectedSections)
+    ? protectedSections
+        .map((section) => {
+          if (
+            !section ||
+            !Number.isFinite(section.start) ||
+            !Number.isFinite(section.end) ||
+            section.end <= section.start
+          ) {
+            return null;
+          }
+          const start = Math.round(section.start * verticalScale);
+          const end = Math.round(section.end * verticalScale);
+          const height = Math.max(end - start, 0);
+          if (!(Number.isFinite(start) && Number.isFinite(end)) || height <= 0) {
+            return null;
+          }
+          return { start, end, height };
+        })
+        .filter(Boolean)
+    : [];
+
+  const footerPx =
+    footerBounds &&
+    Number.isFinite(footerBounds.start) &&
+    Number.isFinite(footerBounds.end) &&
+    footerBounds.end > footerBounds.start
+      ? {
+          start: Math.round(footerBounds.start * verticalScale),
+          end: Math.round(footerBounds.end * verticalScale),
+          height: Math.max(Math.round(footerBounds.height * verticalScale), 0),
+        }
+      : null;
+
+  const footerHeightPx = footerPx ? footerPx.height : 0;
+  const canRepeatFooter = Boolean(
+    footerPx && footerHeightPx < pageHeightPx - tolerancePx
+  );
+  const reservedFooterHeightPx = canRepeatFooter ? footerHeightPx : 0;
+  const footerRenderedHeight = canRepeatFooter
+    ? (footerHeightPx / canvasWidth) * contentWidth
+    : 0;
+  // Reserve vertical room for the footer on each PDF page when repeating it.
+  const pageContentHeightPx = Math.max(
+    pageHeightPx - reservedFooterHeightPx,
+    tolerancePx * 2,
+  );
+  const contentEndPx = canRepeatFooter
+    ? Math.min(Math.max(footerPx.start, 0), canvasHeight)
+    : canvasHeight;
+
+  breakpointsPx = breakpointsPx.filter((value) => value <= contentEndPx);
+  if (!breakpointsPx.includes(contentEndPx)) {
+    breakpointsPx.push(contentEndPx);
   }
   breakpointsPx.sort((a, b) => a - b);
+
+  let footerImageData = null;
+  if (canRepeatFooter && footerPx) {
+    const footerCanvas = document.createElement('canvas');
+    footerCanvas.width = canvasWidth;
+    footerCanvas.height = Math.max(footerHeightPx, 1);
+    const footerCtx = footerCanvas.getContext('2d');
+    footerCtx.drawImage(
+      canvas,
+      0,
+      footerPx.start,
+      canvasWidth,
+      footerHeightPx,
+      0,
+      0,
+      canvasWidth,
+      footerHeightPx,
+    );
+    footerImageData = footerCanvas.toDataURL('image/png', 1.0);
+  }
 
   let positionPx = 0;
   let pageIndex = 0;
 
-  while (positionPx < canvasHeight - tolerancePx) {
+  while (
+    positionPx < contentEndPx - tolerancePx ||
+    (pageIndex === 0 && contentEndPx > positionPx + tolerancePx / 2)
+  ) {
     while (breakpointsPx.length && breakpointsPx[0] <= positionPx + minGapPx) {
       breakpointsPx.shift();
     }
 
-    let sliceEndPx = Math.min(positionPx + pageHeightPx, canvasHeight);
-    let selectedIndex = -1;
+    let sliceEndPx = Math.min(positionPx + pageContentHeightPx, contentEndPx);
+    let selectedBreakpoint = null;
 
     for (let i = 0; i < breakpointsPx.length; i += 1) {
       const breakpoint = breakpointsPx[i];
-      if (breakpoint - positionPx <= pageHeightPx + tolerancePx) {
-        selectedIndex = i;
+      if (breakpoint - positionPx <= pageContentHeightPx + tolerancePx) {
+        selectedBreakpoint = breakpoint;
       } else {
         break;
       }
     }
 
-    if (selectedIndex !== -1) {
-      sliceEndPx = breakpointsPx[selectedIndex];
-      breakpointsPx.splice(0, selectedIndex + 1);
+    if (selectedBreakpoint != null) {
+      sliceEndPx = selectedBreakpoint;
+    }
+
+    const interferingSection = protectedSectionsPx.find((section) => {
+      if (section.end <= positionPx + tolerancePx) {
+        return false;
+      }
+      const crossesCut =
+        section.start < sliceEndPx - tolerancePx && section.end > sliceEndPx + tolerancePx;
+      const fitsWithinPage = section.height <= pageContentHeightPx - tolerancePx;
+      return crossesCut && fitsWithinPage;
+    });
+
+    if (interferingSection) {
+      const candidateEnd = Math.max(positionPx, interferingSection.start);
+      if (candidateEnd - positionPx > tolerancePx) {
+        sliceEndPx = candidateEnd;
+      }
     }
 
     if (sliceEndPx - positionPx <= tolerancePx) {
-      sliceEndPx = Math.min(positionPx + pageHeightPx, canvasHeight);
+      sliceEndPx = Math.min(positionPx + pageContentHeightPx, contentEndPx);
     }
 
     const sliceHeightPx = Math.max(sliceEndPx - positionPx, 0);
     if (sliceHeightPx <= tolerancePx) {
       break;
+    }
+
+    while (breakpointsPx.length && breakpointsPx[0] <= sliceEndPx + tolerancePx) {
+      breakpointsPx.shift();
     }
 
     const pageCanvas = document.createElement('canvas');
@@ -250,7 +380,28 @@ const generatePdfFromElement = async (element, options = {}) => {
     if (pageIndex > 0) {
       pdf.addPage();
     }
-    pdf.addImage(imgData, 'PNG', margin, margin, contentWidth, renderedHeight, undefined, 'FAST');
+    const containsFooter =
+      !canRepeatFooter &&
+      footerPx &&
+      footerPx.end > positionPx + tolerancePx &&
+      footerPx.start < sliceEndPx - tolerancePx;
+    const renderY = containsFooter
+      ? Math.max(pdfHeight - margin - renderedHeight, margin)
+      : margin;
+    pdf.addImage(imgData, 'PNG', margin, renderY, contentWidth, renderedHeight, undefined, 'FAST');
+    if (canRepeatFooter && footerImageData) {
+      const footerY = Math.max(pdfHeight - margin - footerRenderedHeight, margin);
+      pdf.addImage(
+        footerImageData,
+        'PNG',
+        margin,
+        footerY,
+        contentWidth,
+        footerRenderedHeight,
+        undefined,
+        'FAST',
+      );
+    }
 
     positionPx += sliceHeightPx;
     pageIndex += 1;
@@ -317,13 +468,59 @@ const collectBreakOffsets = (container, selectors = []) => {
   return Array.from(offsets).sort((a, b) => a - b);
 };
 
+const collectElementBounds = (container, selectors = []) => {
+  if (!(container instanceof HTMLElement)) {
+    return [];
+  }
+  const bounds = [];
+  selectors.forEach((selector) => {
+    container.querySelectorAll(selector).forEach((element) => {
+      if (!(element instanceof HTMLElement)) return;
+      const start = getRelativeOffsetTop(element, container);
+      const height = element.offsetHeight;
+      if (!(Number.isFinite(start) && Number.isFinite(height)) || height <= 0) {
+        return;
+      }
+      bounds.push({
+        selector,
+        start,
+        end: start + height,
+        height,
+      });
+    });
+  });
+  bounds.sort((a, b) => a.start - b.start);
+  return bounds;
+};
+
 const initializePolicyPdfDownloads = () => {
+  const pdfModeEnabled = isPdfDownloadMode();
+  applyBodyPdfModeState(pdfModeEnabled);
+
   const triggers = document.querySelectorAll('[data-pdf-download]');
   if (!triggers.length) return;
 
   triggers.forEach((trigger) => {
     if (!(trigger instanceof HTMLElement)) return;
     if (trigger.dataset.pdfInitialized === 'true') return;
+
+    if (!pdfModeEnabled) {
+      trigger.setAttribute('hidden', 'hidden');
+      trigger.setAttribute('aria-hidden', 'true');
+      trigger.setAttribute('aria-disabled', 'true');
+      trigger.setAttribute('tabindex', '-1');
+      trigger.dataset.pdfInitialized = 'true';
+      return;
+    }
+
+    trigger.removeAttribute('hidden');
+    trigger.removeAttribute('aria-hidden');
+    if (trigger.getAttribute('tabindex') === '-1') {
+      trigger.removeAttribute('tabindex');
+    }
+    if (trigger.getAttribute('aria-disabled') === 'true') {
+      trigger.removeAttribute('aria-disabled');
+    }
 
     const targetSelector = trigger.getAttribute('data-pdf-target') || '.pdf-page';
     const target =
@@ -368,7 +565,13 @@ const initializePolicyPdfDownloads = () => {
       try {
         const pdf = await withPdfExportState(target, async () => {
           const breakOffsets = collectBreakOffsets(target, ['.pdf-section', '.pdf-footer']);
-          return generatePdfFromElement(target, { breakOffsets });
+          const protectedSections = collectElementBounds(target, ['.pdf-section']);
+          const [footerBounds] = collectElementBounds(target, ['.pdf-footer']);
+          return generatePdfFromElement(target, {
+            breakOffsets,
+            protectedSections,
+            footerBounds: footerBounds || null,
+          });
         });
         pdf.save(filename);
       } catch (error) {
