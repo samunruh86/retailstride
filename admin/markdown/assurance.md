@@ -1,5 +1,5 @@
 # Retail Stride | Brand Assurance & Compliance Overview  
-*(Private page: shared only with verified brand contacts.)*
+> **ADMIN_NOTE** Private page: shared only with verified brand contacts.
 
 At Retail Stride, we operate with full transparency.  
 This page provides a concise overview of our compliance framework, retailer verification process, and the standards that guide every brand partnership.  
@@ -7,6 +7,7 @@ Our objective is simple: **protect brand integrity while enabling controlled ret
 
 ---
 
+> **ADMIN_NOTE** page section id: "core_docs"
 ## Core Documents for Brand Verification
 
 To ensure complete clarity, the following documents outline how Retail Stride manages authorized distribution and channel control. Each is available for download upon request or during partnership review.
@@ -14,21 +15,25 @@ To ensure complete clarity, the following documents outline how Retail Stride ma
 ⬇️ **[Retail Stride for Brands (PDF)](#)**  
 A comprehensive overview of our distribution model, compliance systems, and 90-day onboarding process.  
 Includes details on how we vet retailers, monitor MAP, and maintain full brand alignment.
+> **ADMIN_NOTE** Link to: "/pdfs/brand-overview"
 
 ⬇️ **[MAP & Channel Policy (PDF)](#)**  
 Defines our minimum advertised price (MAP) enforcement standards and outlines marketplace-exclusion requirements for all participants.
+> **ADMIN_NOTE** Link to: "/pdfs/map-policy"
 
 ⬇️ **[Retailer Agreement Contract (PDF)](#)**  
 The agreement signed by every approved retailer.  
 Covers eligibility, authorized channels, and adherence to brand presentation and pricing standards.
+> **ADMIN_NOTE** Link to: "/pdfs/retailer-agreement"
 
 ---
 
+> **ADMIN_NOTE** page section id: "partnership_contacts"
 ## Partnership Contacts  
 
 For questions regarding distribution partnerships, compliance, or verification:  
 
-📧 **partnerships@retailstride.com** — Brand & distribution inquiries  
+📧 **partners@retailstride.com** — Brand & distribution inquiries  
 📧 **compliance@retailstride.com** — MAP monitoring, policy enforcement, and retailer audits  
 📧 **info@retailstride.com** — General contact and documentation support  
 
@@ -36,6 +41,7 @@ Each request is reviewed within 1–2 business days by our brand relations team.
 
 ---
 
+> **ADMIN_NOTE** page section id: "locations_map"
 ## Verified Retail Network  
 
 Retail Stride currently supports **1,200+ verified storefronts** across the United States.  
@@ -47,12 +53,9 @@ Our network focuses on **independent retailers** in home, outdoor, hardware, and
 - Compliance with MAP and brand imagery guidelines  
 - Regular performance and display audits  
 
-**Planned Feature — Interactive Map:**  
-A state-level visualization showing verified retail coverage, with download options for anonymized count data.  
-(Example: KS – 87 | MO – 133 | NE – 42)
-
-> *Retailer names and locations remain confidential until a brand partnership is formalized.  
-> Verified data available under NDA upon request.*
+**Interactive Map:**  
+> **ADMIN_NOTE** Already partially implemented
+> **ADMIN_NOTE** Update table next to map so if you click states it accordions open a more detail table from the map data
 
 ---
 
@@ -82,10 +85,7 @@ Our onboarding system is designed for accountability—protecting both brand par
 Retail Stride was built to serve brands that care about **how** their products reach customers, not just **where** they sell.  
 We act as a **credibility layer** between manufacturers and independent retailers, ensuring that pricing, presentation, and channel control remain consistent from warehouse to shelf.
 
-Every policy, audit, and system on this page exists to uphold one standard:  
-> **Authorized. Reliable. Protected.**
+Every policy, audit, and system on this page exists to uphold one standard: **Authorized. Reliable. Protected.**
 
 ---
 
-© 2025 Retail Stride LLC — All rights reserved.  
-Participation subject to MAP compliance, retailer verification, and ongoing network review.
