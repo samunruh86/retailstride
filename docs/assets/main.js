@@ -41,6 +41,355 @@ const resolveAssetUrl = (relativePath) => {
   return script ? new URL(relativePath, script.src).href : `/assets/${relativePath}`;
 };
 
+const HTML2CANVAS_CDN_VERSION = '1.4.1';
+const JSPDF_CDN_VERSION = '2.5.1';
+let html2canvasLoader = null;
+let jsPdfLoader = null;
+
+const loadExternalScriptOnce = (src, datasetKey) =>
+  new Promise((resolve, reject) => {
+    let script = document.querySelector(`script[data-${datasetKey}]`);
+    if (script) {
+      if (script.dataset.loaded === 'true') {
+        resolve();
+        return;
+      }
+      script.addEventListener(
+        'load',
+        () => {
+          script.dataset.loaded = 'true';
+          resolve();
+        },
+        { once: true },
+      );
+      script.addEventListener(
+        'error',
+        () => reject(new Error(`Failed to load script: ${src}`)),
+        { once: true },
+      );
+      return;
+    }
+
+    script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.defer = true;
+    script.dataset[datasetKey] = 'true';
+    script.addEventListener(
+      'load',
+      () => {
+        script.dataset.loaded = 'true';
+        resolve();
+      },
+      { once: true },
+    );
+    script.addEventListener(
+      'error',
+      () => reject(new Error(`Failed to load script: ${src}`)),
+      { once: true },
+    );
+    document.body.appendChild(script);
+  });
+
+const loadHtml2CanvasLibrary = () => {
+  if (typeof window === 'undefined') {
+    return Promise.reject(new Error('html2canvas requires a browser environment'));
+  }
+  if (typeof window.html2canvas === 'function') {
+    return Promise.resolve(window.html2canvas);
+  }
+  if (!html2canvasLoader) {
+    const src = `https://cdnjs.cloudflare.com/ajax/libs/html2canvas/${HTML2CANVAS_CDN_VERSION}/html2canvas.min.js`;
+    html2canvasLoader = loadExternalScriptOnce(src, 'html2canvas')
+      .then(() => {
+        if (typeof window.html2canvas !== 'function') {
+          throw new Error('html2canvas failed to initialize');
+        }
+        return window.html2canvas;
+      })
+      .catch((error) => {
+        html2canvasLoader = null;
+        throw error;
+      });
+  }
+  return html2canvasLoader;
+};
+
+const loadJsPdfLibrary = () => {
+  if (typeof window === 'undefined') {
+    return Promise.reject(new Error('jsPDF requires a browser environment'));
+  }
+  if (window.jspdf && typeof window.jspdf.jsPDF === 'function') {
+    return Promise.resolve(window.jspdf.jsPDF);
+  }
+  if (!jsPdfLoader) {
+    const src = `https://cdnjs.cloudflare.com/ajax/libs/jspdf/${JSPDF_CDN_VERSION}/jspdf.umd.min.js`;
+    jsPdfLoader = loadExternalScriptOnce(src, 'jspdf')
+      .then(() => {
+        if (!(window.jspdf && typeof window.jspdf.jsPDF === 'function')) {
+          throw new Error('jsPDF failed to initialize');
+        }
+        return window.jspdf.jsPDF;
+      })
+      .catch((error) => {
+        jsPdfLoader = null;
+        throw error;
+      });
+  }
+  return jsPdfLoader;
+};
+
+const generatePdfFromElement = async (element, options = {}) => {
+  if (!element) {
+    throw new Error('No element provided to generate PDF');
+  }
+
+  const {
+    html2canvas: html2canvasOptions = {},
+    breakOffsets = [],
+  } = options;
+
+  const html2canvas = await loadHtml2CanvasLibrary();
+  const JsPdfConstructor = await loadJsPdfLibrary();
+
+  const scale = Math.min(Math.max(window.devicePixelRatio || 2, 2), 3);
+  const canvas = await html2canvas(element, {
+    scale,
+    useCORS: true,
+    backgroundColor: '#ffffff',
+    windowWidth: element.scrollWidth,
+    ...html2canvasOptions,
+  });
+
+  const pdf = new JsPdfConstructor({
+    orientation: 'portrait',
+    unit: 'pt',
+    format: 'letter',
+    compress: true,
+  });
+
+  const margin = 36; // half-inch margins
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = pdf.internal.pageSize.getHeight();
+  const contentWidth = pdfWidth - margin * 2;
+  const contentHeight = pdfHeight - margin * 2;
+
+  const canvasWidth = canvas.width;
+  const canvasHeight = canvas.height;
+  const pageHeightPx = (contentHeight * canvasWidth) / contentWidth;
+
+  const tolerancePx = Math.max(scale * 4, 4);
+  const minGapPx = Math.max(scale * 24, 24);
+  const breakpointsPx = Array.isArray(breakOffsets)
+    ? Array.from(
+        new Set(
+          breakOffsets
+            .map((offset) => Math.round(offset * scale))
+            .filter((value) => Number.isFinite(value) && value > 0 && value < canvasHeight),
+        ),
+      )
+    : [];
+  if (!breakpointsPx.includes(canvasHeight)) {
+    breakpointsPx.push(canvasHeight);
+  }
+  breakpointsPx.sort((a, b) => a - b);
+
+  let positionPx = 0;
+  let pageIndex = 0;
+
+  while (positionPx < canvasHeight - tolerancePx) {
+    while (breakpointsPx.length && breakpointsPx[0] <= positionPx + minGapPx) {
+      breakpointsPx.shift();
+    }
+
+    let sliceEndPx = Math.min(positionPx + pageHeightPx, canvasHeight);
+    let selectedIndex = -1;
+
+    for (let i = 0; i < breakpointsPx.length; i += 1) {
+      const breakpoint = breakpointsPx[i];
+      if (breakpoint - positionPx <= pageHeightPx + tolerancePx) {
+        selectedIndex = i;
+      } else {
+        break;
+      }
+    }
+
+    if (selectedIndex !== -1) {
+      sliceEndPx = breakpointsPx[selectedIndex];
+      breakpointsPx.splice(0, selectedIndex + 1);
+    }
+
+    if (sliceEndPx - positionPx <= tolerancePx) {
+      sliceEndPx = Math.min(positionPx + pageHeightPx, canvasHeight);
+    }
+
+    const sliceHeightPx = Math.max(sliceEndPx - positionPx, 0);
+    if (sliceHeightPx <= tolerancePx) {
+      break;
+    }
+
+    const pageCanvas = document.createElement('canvas');
+    pageCanvas.width = canvasWidth;
+    pageCanvas.height = sliceHeightPx;
+    const ctx = pageCanvas.getContext('2d');
+    ctx.drawImage(
+      canvas,
+      0,
+      positionPx,
+      canvasWidth,
+      sliceHeightPx,
+      0,
+      0,
+      canvasWidth,
+      sliceHeightPx,
+    );
+
+    const imgData = pageCanvas.toDataURL('image/png', 1.0);
+    const renderedHeight = (sliceHeightPx / canvasWidth) * contentWidth;
+
+    if (pageIndex > 0) {
+      pdf.addPage();
+    }
+    pdf.addImage(imgData, 'PNG', margin, margin, contentWidth, renderedHeight, undefined, 'FAST');
+
+    positionPx += sliceHeightPx;
+    pageIndex += 1;
+  }
+
+  if (!pageIndex) {
+    throw new Error('Failed to render content into PDF.');
+  }
+
+  return pdf;
+};
+
+const withPdfExportState = async (container, task) => {
+  if (typeof document === 'undefined') {
+    return task();
+  }
+
+  const body = document.body;
+  if (!body) {
+    return task();
+  }
+
+  const previousScrollX = window.scrollX || document.documentElement.scrollLeft || 0;
+  const previousScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  const previousOverflow = body.style.overflow;
+
+  body.classList.add('pdf-exporting');
+  body.style.overflow = 'hidden';
+  window.scrollTo(0, 0);
+
+  try {
+    return await task();
+  } finally {
+    body.classList.remove('pdf-exporting');
+    body.style.overflow = previousOverflow;
+    window.scrollTo(previousScrollX, previousScrollY);
+  }
+};
+
+const getRelativeOffsetTop = (element, container) => {
+  if (!(element instanceof HTMLElement) || !(container instanceof HTMLElement)) return 0;
+  let offset = 0;
+  let node = element;
+  while (node && node !== container) {
+    offset += node.offsetTop || 0;
+    node = node.offsetParent;
+  }
+  return offset;
+};
+
+const collectBreakOffsets = (container, selectors = []) => {
+  if (!(container instanceof HTMLElement)) {
+    return [];
+  }
+  const offsets = new Set();
+  selectors.forEach((selector) => {
+    container.querySelectorAll(selector).forEach((element) => {
+      const offset = getRelativeOffsetTop(element, container);
+      if (Number.isFinite(offset) && offset > 0) {
+        offsets.add(offset);
+      }
+    });
+  });
+  return Array.from(offsets).sort((a, b) => a - b);
+};
+
+const initializePolicyPdfDownloads = () => {
+  const triggers = document.querySelectorAll('[data-pdf-download]');
+  if (!triggers.length) return;
+
+  triggers.forEach((trigger) => {
+    if (!(trigger instanceof HTMLElement)) return;
+    if (trigger.dataset.pdfInitialized === 'true') return;
+
+    const targetSelector = trigger.getAttribute('data-pdf-target') || '.pdf-page';
+    const target =
+      trigger.closest(targetSelector) ||
+      document.querySelector(targetSelector);
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const filename =
+      trigger.getAttribute('data-pdf-filename') || 'RetailStride-Document.pdf';
+    const originalText = trigger.textContent;
+    const originalAriaLabel = trigger.getAttribute('aria-label');
+
+    const setLoadingState = (isLoading) => {
+      trigger.setAttribute('aria-disabled', isLoading ? 'true' : 'false');
+      trigger.classList.toggle('is-loading', isLoading);
+      if (isLoading) {
+        trigger.textContent = 'Preparing PDF…';
+      } else if (originalText != null) {
+        trigger.textContent = originalText;
+      }
+      if (originalAriaLabel) {
+        trigger.setAttribute(
+          'aria-label',
+          isLoading ? 'Preparing downloadable PDF' : originalAriaLabel,
+        );
+      }
+    };
+
+    const handleError = (error) => {
+      console.error('PDF generation failed', error);
+      window.alert(
+        'We were unable to generate the PDF. Please try again in a moment or capture the page using your browser’s print to PDF option.',
+      );
+    };
+
+    trigger.addEventListener('click', async (event) => {
+      event.preventDefault();
+      if (trigger.getAttribute('aria-disabled') === 'true') return;
+      setLoadingState(true);
+      try {
+        const pdf = await withPdfExportState(target, async () => {
+          const breakOffsets = collectBreakOffsets(target, ['.pdf-section', '.pdf-footer']);
+          return generatePdfFromElement(target, { breakOffsets });
+        });
+        pdf.save(filename);
+      } catch (error) {
+        handleError(error);
+      } finally {
+        setLoadingState(false);
+      }
+    });
+
+    trigger.dataset.pdfInitialized = 'true';
+  });
+};
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePolicyPdfDownloads);
+  } else {
+    initializePolicyPdfDownloads();
+  }
+}
+
 const TILE_PROVIDERS = {
   osmStandard: {
     id: 'osmStandard',

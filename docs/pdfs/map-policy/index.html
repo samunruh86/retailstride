@@ -10,267 +10,43 @@
       href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@500;600&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
-    <style>
-      :root {
-        --brand-navy: #0c031e;
-        --brand-rose: #ff3b7f;
-        --brand-teal: #04c1de;
-        --text-muted: rgba(12, 3, 30, 0.68);
-        --page-background: #f4f6fb;
-        --card-border: rgba(12, 3, 30, 0.08);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        padding: 3.5rem 1.5rem;
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: var(--page-background);
-        color: var(--brand-navy);
-      }
-
-      .pdf-page {
-        max-width: 980px;
-        margin: 0 auto;
-        background: #ffffff;
-        border-radius: 26px;
-        border: 1px solid var(--card-border);
-        box-shadow: 0 45px 90px rgba(9, 27, 63, 0.2);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .pdf-header {
-        padding: clamp(2.5rem, 3vw + 2rem, 3.75rem);
-        background: linear-gradient(145deg, rgba(4, 193, 222, 0.06), rgba(255, 59, 127, 0.04)),
-          #ffffff;
-        border-bottom: 1px solid var(--card-border);
-        display: grid;
-        gap: 1.75rem;
-      }
-
-      .pdf-header__brand {
-        display: flex;
-        gap: clamp(1.25rem, 4vw, 2.5rem);
-        align-items: center;
-      }
-
-      .pdf-header__logo {
-        width: clamp(150px, 18vw, 210px);
-        height: auto;
-        display: block;
-      }
-
-      .pdf-header__text {
-        display: grid;
-        gap: 0.75rem;
-      }
-
-      .pdf-header__tag {
-        margin: 0;
-        font-size: 0.75rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--brand-rose);
-        font-weight: 600;
-      }
-
-      .pdf-header__title {
-        margin: 0;
-        font-family: "Clash Display", "Inter", sans-serif;
-        font-weight: 600;
-        font-size: clamp(2.25rem, 4vw, 3.25rem);
-        line-height: 1.1;
-      }
-
-      .pdf-header__subtitle {
-        margin: 0;
-        font-size: 1rem;
-        color: var(--text-muted);
-        max-width: 520px;
-      }
-
-      .pdf-header__meta {
-        margin: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.25rem;
-        font-size: 0.95rem;
-        color: var(--text-muted);
-      }
-
-      .pdf-header__meta span {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .pdf-body {
-        padding: clamp(2.5rem, 3vw + 2rem, 4rem);
-        display: grid;
-        gap: 3rem;
-      }
-
-      .pdf-intro {
-        display: grid;
-        gap: 1rem;
-        font-size: 1.05rem;
-        color: var(--text-muted);
-      }
-
-      .pdf-section {
-        display: grid;
-        gap: 1.25rem;
-      }
-
-      .pdf-section h2 {
-        margin: 0;
-        font-family: "Clash Display", "Inter", sans-serif;
-        font-size: clamp(1.5rem, 2vw + 1.2rem, 2rem);
-        font-weight: 600;
-        color: var(--brand-navy);
-      }
-
-      .pdf-section p {
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.7;
-        color: var(--text-muted);
-      }
-
-      .pdf-section ul {
-        margin: 0;
-        padding-left: 1.2rem;
-        display: grid;
-        gap: 0.6rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
-
-      .pdf-section ul li::marker {
-        color: var(--brand-rose);
-      }
-
-      .pdf-card {
-        border: 1px solid rgba(12, 3, 30, 0.08);
-        border-radius: 18px;
-        background: #f8f9ff;
-        padding: 1.75rem;
-        display: grid;
-        gap: 1rem;
-      }
-
-      .pdf-card h3 {
-        margin: 0;
-        font-size: 1.15rem;
-        font-weight: 600;
-        color: var(--brand-navy);
-      }
-
-      .pdf-contact {
-        display: grid;
-        gap: 0.65rem;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-
-      .pdf-contact strong {
-        color: var(--brand-navy);
-      }
-
-      .pdf-footer {
-        padding: 2.25rem clamp(2.5rem, 3vw + 2rem, 4rem);
-        background: #f8f9ff;
-        border-top: 1px solid var(--card-border);
-        font-size: 0.85rem;
-        color: rgba(12, 3, 30, 0.6);
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .pdf-footer span {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-
-      @media (max-width: 720px) {
-        body {
-          padding: 2rem 1rem;
-        }
-
-        .pdf-header__brand {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .pdf-footer {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-
-      @media print {
-        body {
-          background: #ffffff;
-          padding: 0;
-        }
-
-        .pdf-page {
-          border-radius: 0;
-          box-shadow: none;
-          border: none;
-        }
-
-        .pdf-footer {
-          position: static;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="../../assets/pdfs.css">
   </head>
   <body>
     <div class="pdf-page">
       <header class="pdf-header">
         <div class="pdf-header__brand">
+          <p class="pdf-header__tag">Policy Brief</p>
+          <h1 class="pdf-header__title">
+            Minimum Advertised Price &amp; Channel Policy
+          </h1>
+          <p class="pdf-header__subtitle">
+            Standards that preserve brand integrity, protect authorized channels, and
+            ensure a level marketplace for all Retail Stride partners.
+          </p>
+          <p class="pdf-header__meta">
+            <span class="pdf-header__meta-label">Last updated</span>
+            <span class="pdf-header__meta-date">June 2025</span>
+          </p>
+        </div>
+        <div class="pdf-header__aside">
           <img
             src="/assets/media/logo_dark.svg"
             alt="Retail Stride logo"
             class="pdf-header__logo"
           >
-          <div class="pdf-header__text">
-            <p class="pdf-header__tag">Policy Brief</p>
-            <h1 class="pdf-header__title">
-              Minimum Advertised Price &amp; Channel Policy
-            </h1>
-            <p class="pdf-header__subtitle">
-              Standards that preserve brand integrity, protect authorized channels, and
-              ensure a level marketplace for all Retail Stride partners.
-            </p>
-          </div>
+          <button
+            type="button"
+            class="pdf-header__download"
+            data-pdf-download="true"
+            data-pdf-target=".pdf-page"
+            data-pdf-filename="RetailStride-MAP-Policy.pdf"
+          >
+            Download PDF
+          </button>
         </div>
-        <p class="pdf-header__meta">
-          <span>Retail Stride LLC</span>
-          <span>Last updated: November 2025</span>
-        </p>
       </header>
       <main class="pdf-body">
-        <section class="pdf-intro">
-          <p>
-            This policy establishes the Minimum Advertised Price (MAP) and channel compliance
-            standards governing every product distributed by <strong>Retail Stride LLC</strong>.
-          </p>
-          <p>
-            Our aim is to maintain brand integrity, ensure fair market conditions, and safeguard the
-            long-term value of authorized sales channels across the Retail Stride network.
-          </p>
-        </section>
-
         <section class="pdf-section" id="purpose">
           <h2>1. Purpose</h2>
           <p>
@@ -384,9 +160,21 @@
         </section>
       </main>
       <footer class="pdf-footer">
-        <span>&copy; 2025 Retail Stride LLC. All rights reserved.</span>
-        <span>Retail Stride operates as a MAP-aligned distributor serving vetted brick-and-mortar retailers.</span>
+        <div class="pdf-footer__group">
+          <img src="/assets/media/logo_dark.svg" alt="Retail Stride logo" class="pdf-footer__logo">
+          <p class="pdf-footer__meta-compact">&copy; 2025 Retail Stride LLC</p>
+        </div>
+        <div class="pdf-footer__group pdf-footer__group--meta">
+          <p class="pdf-footer__title">Contact &amp; Compliance</p>
+          <p class="pdf-footer__cta">
+            <a href="mailto:compliance@retailstride.com">compliance@retailstride.com</a>
+          </p>
+          <p class="pdf-footer__cta">
+            <a href="mailto:partnerships@retailstride.com">partnerships@retailstride.com</a>
+          </p>
+        </div>
       </footer>
     </div>
+    <script src="/assets/main.js" defer></script>
   </body>
 </html>
