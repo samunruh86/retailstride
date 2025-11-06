@@ -528,74 +528,235 @@ const formatNumber = (value) => {
 
 const renderLocationsLegend = (legendEl, locations) => {
   if (!legendEl) return;
-  legendEl.innerHTML = '';
+  const statesEl = legendEl.querySelector('[data-locations-map-states]');
+  const usingStructuredLegend = Boolean(statesEl);
+
+  if (usingStructuredLegend) {
+    statesEl.innerHTML = '';
+  } else {
+    legendEl.innerHTML = '';
+  }
+
+  const showEmptyState = (message) => {
+    const text = message || 'Coverage data is unavailable.';
+    if (usingStructuredLegend) {
+      const empty = document.createElement('p');
+      empty.className = 'locations-map__states-empty';
+      empty.textContent = text;
+      statesEl.appendChild(empty);
+      legendEl.hidden = false;
+    } else {
+      legendEl.hidden = true;
+    }
+  };
+
   if (!Array.isArray(locations) || !locations.length) {
-    legendEl.hidden = true;
+    showEmptyState();
     return;
   }
 
-  const stats = locations.reduce(
-    (acc, location) => {
-      const count = Number.isFinite(location.count) ? location.count : 0;
-      const population = Number.isFinite(location.population) ? location.population : 0;
-      if (location.state) {
-        acc.states.add(location.state);
-      }
-      acc.totalCount += count;
-      acc.totalPopulation += population;
-      const weight = count || population;
-      if (weight > acc.topLocation.weight) {
-        acc.topLocation = {
-          city: location.city,
-          state: location.state,
-          count,
-          population,
-          weight,
-        };
-      }
-      return acc;
-    },
-    {
-      totalCount: 0,
-      totalPopulation: 0,
-      states: new Set(),
-      topLocation: { city: '', state: '', count: 0, population: 0, weight: 0 },
-    },
-  );
-
-  const items = [
-    { label: 'Independent retailers', value: formatNumber(stats.totalCount) },
-    { label: 'States covered', value: stats.states.size ? String(stats.states.size) : '--' },
-  ];
-
-  if (stats.topLocation.weight > 0 && stats.topLocation.city) {
-    const { city, state, count, population } = stats.topLocation;
-    const locationLabel = state ? `${city}, ${state}` : city;
-    const detail = count
-      ? `${formatNumber(count)} retailer${count === 1 ? '' : 's'}`
-      : `${formatNumber(population)} population`;
-    items.push({
-      label: 'Largest cluster',
-      value: `${locationLabel} - ${detail}`,
-    });
+  if (!usingStructuredLegend) {
+    legendEl.hidden = !Array.isArray(locations) || locations.length === 0;
+    return;
   }
 
-  legendEl.hidden = items.length === 0;
+  legendEl.hidden = false;
 
-  items.forEach((item) => {
-    const row = document.createElement('div');
-    row.className = 'locations-map__legend-item';
+  const stateAggregates = new Map();
+  locations.forEach((location) => {
+    const rawState = typeof location.state === 'string' ? location.state.trim() : '';
+    if (!rawState) return;
+    if (!stateAggregates.has(rawState)) {
+      stateAggregates.set(rawState, {
+        state: rawState,
+        totalRetailers: 0,
+        totalPopulation: 0,
+        locations: [],
+      });
+    }
+    const entry = stateAggregates.get(rawState);
+    const retailerCount = Number.isFinite(location.count) ? location.count : 0;
+    const population = Number.isFinite(location.population) ? location.population : 0;
+    entry.totalRetailers += retailerCount;
+    entry.totalPopulation += population;
+    entry.locations.push({
+      city: location.city || 'Retailer',
+      count: retailerCount,
+      population,
+    });
+  });
 
-    const label = document.createElement('span');
-    label.className = 'locations-map__legend-label';
-    label.textContent = item.label;
+  const states = Array.from(stateAggregates.values()).filter((state) => state.locations.length);
+  if (!states.length) {
+    showEmptyState('State-level coverage details are unavailable.');
+    return;
+  }
 
-    const value = document.createElement('span');
-    value.className = 'locations-map__legend-value';
-    value.textContent = item.value;
+  states.sort((a, b) => {
+    const aWeight = a.totalRetailers || a.totalPopulation;
+    const bWeight = b.totalRetailers || b.totalPopulation;
+    if (bWeight !== aWeight) {
+      return bWeight - aWeight;
+    }
+    return a.state.localeCompare(b.state);
+  });
 
-    row.append(label, value);
-    legendEl.appendChild(row);
+  const toSlug = (value) =>
+    value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
+  const stateItems = [];
+
+  const closeAllStates = () => {
+    stateItems.forEach(({ toggle, panel, stateItem }) => {
+      toggle.setAttribute('aria-expanded', 'false');
+      panel.classList.remove('is-visible');
+      panel.setAttribute('aria-hidden', 'true');
+      stateItem.classList.remove('is-open');
+    });
+  };
+
+  states.forEach((state, index) => {
+    const stateItem = document.createElement('div');
+    stateItem.className = 'locations-map__state';
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'locations-map__state-toggle';
+    toggle.setAttribute('aria-expanded', 'false');
+
+    const panelId = `locations-map-state-${toSlug(state.state) || index}`;
+    toggle.setAttribute('aria-controls', panelId);
+    const toggleId = `${panelId}-toggle`;
+    toggle.id = toggleId;
+
+    const title = document.createElement('div');
+    title.className = 'locations-map__state-title';
+
+    const name = document.createElement('span');
+    name.className = 'locations-map__state-name';
+    name.textContent = state.state;
+
+    const count = document.createElement('span');
+    count.className = 'locations-map__state-count';
+    const verifiedValue = state.totalRetailers > 0 ? state.totalRetailers : state.locations.length;
+    count.textContent = `${formatNumber(verifiedValue)} verified`;
+
+    title.append(name, count);
+
+    const icon = document.createElement('span');
+    icon.className = 'locations-map__state-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.innerHTML =
+      '<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    toggle.append(title, icon);
+
+    const panel = document.createElement('div');
+    panel.className = 'locations-map__state-panel';
+    panel.id = panelId;
+    panel.setAttribute('role', 'region');
+    panel.setAttribute('aria-labelledby', toggleId);
+    panel.setAttribute('aria-hidden', 'true');
+
+    const table = document.createElement('table');
+    table.className = 'locations-map__state-table';
+
+    const thead = document.createElement('thead');
+    const headRow = document.createElement('tr');
+    const cityHead = document.createElement('th');
+    cityHead.scope = 'col';
+    cityHead.textContent = 'City';
+    cityHead.className = 'locations-map__cell-number locations-map__cell-number-left';
+    const retailersHead = document.createElement('th');
+    retailersHead.scope = 'col';
+    retailersHead.textContent = 'Retailers';
+    retailersHead.className = 'locations-map__cell-number';
+    const populationHead = document.createElement('th');
+    populationHead.scope = 'col';
+    populationHead.textContent = 'Population';
+    populationHead.className = 'locations-map__cell-number';
+
+    headRow.append(cityHead, retailersHead, populationHead);
+    thead.appendChild(headRow);
+
+    const tbody = document.createElement('tbody');
+    const sortedLocations = state.locations
+      .slice()
+      .sort((a, b) => {
+        const countDiff = (b.count || 0) - (a.count || 0);
+        if (countDiff !== 0) return countDiff;
+        return (b.population || 0) - (a.population || 0);
+      })
+      .slice(0, 8);
+
+    sortedLocations.forEach((locationEntry) => {
+      const row = document.createElement('tr');
+
+      const cityCell = document.createElement('td');
+      cityCell.textContent = locationEntry.city;
+
+      const retailersCell = document.createElement('td');
+      retailersCell.className = 'locations-map__cell-number';
+      retailersCell.textContent = locationEntry.count ? formatNumber(locationEntry.count) : '—';
+
+      const populationCell = document.createElement('td');
+      populationCell.className = 'locations-map__cell-number';
+      populationCell.textContent = locationEntry.population ? formatNumber(locationEntry.population) : '—';
+
+      row.append(cityCell, retailersCell, populationCell);
+      tbody.appendChild(row);
+    });
+
+    table.append(thead, tbody);
+    panel.appendChild(table);
+
+    const setExpanded = (expanded) => {
+      if (expanded) {
+        closeAllStates();
+      }
+      toggle.setAttribute('aria-expanded', String(expanded));
+      panel.classList.toggle('is-visible', expanded);
+      panel.setAttribute('aria-hidden', String(!expanded));
+      stateItem.classList.toggle('is-open', expanded);
+      if (expanded) {
+        requestAnimationFrame(() => {
+          const container = statesEl;
+          if (!container) return;
+          const containerRect = container.getBoundingClientRect();
+          const itemRect = stateItem.getBoundingClientRect();
+          const offset = itemRect.top - containerRect.top + container.scrollTop;
+          container.scrollTo({
+            top: Math.max(offset, 0),
+            behavior: 'smooth',
+          });
+        });
+      }
+    };
+
+    toggle.addEventListener('click', () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      setExpanded(!isExpanded);
+    });
+
+    const totalDisplayed = tbody.childElementCount;
+
+    if (totalDisplayed > 0 && state.locations.length > totalDisplayed) {
+      const note = document.createElement('p');
+      note.className = 'locations-map__state-note';
+      note.textContent = `Top ${totalDisplayed} of ${state.locations.length} cities shown.`;
+      panel.appendChild(note);
+    }
+
+    stateItem.append(toggle, panel);
+    statesEl.appendChild(stateItem);
+    stateItems.push({ toggle, panel, stateItem });
+
+    if (index === 0) {
+      setExpanded(true);
+    }
   });
 };
 

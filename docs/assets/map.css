@@ -1,0 +1,236 @@
+.locations-map {
+  padding: clamp(4rem, 6vw, 5.5rem) 0;
+  background: #f8fafc;
+}
+
+.locations-map__container {
+  display: grid;
+  gap: 2rem;
+}
+
+.locations-map__header {
+  max-width: 720px;
+  display: grid;
+  gap: 1rem;
+}
+
+.locations-map__header h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.locations-map__header p {
+  margin: 0;
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.locations-map__grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  align-items: stretch;
+}
+
+.locations-map__canvas {
+  height: 520px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+}
+
+.locations-map__legend {
+    padding: 25px 10px 35px 15px;
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2rem);
+    align-content: start;
+    max-width: 620px;
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+}
+
+@media (min-width: 900px) {
+  .locations-map__grid {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 2fr);
+  }
+
+  .locations-map__legend {
+    justify-self: stretch;
+  }
+}
+
+.locations-map__status {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.locations-map__credit {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  display: none;
+}
+
+.locations-map__states {
+  display: grid;
+  gap: 10px;
+  border-top: none;
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 460px;
+  padding-right: 15px;
+}
+
+.locations-map__state {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 10px;
+  background: #f8fafc;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.locations-map__state.is-open {
+  border-color: #2563eb;
+  box-shadow: -4px 6px 14px rgb(37 99 235 / 4%);
+}
+
+.locations-map__state-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0f172a;
+  text-align: left;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.locations-map__state-toggle:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.locations-map__state-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.locations-map__state-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.locations-map__state-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgb(0 255 212 / 11%);
+    color: #03c4a4;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.locations-map__state-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: #e2ebfa;
+    color: #1d4ed8;
+    border: 1px solid rgba(79, 70, 229, 0.25);
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.locations-map__state-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.locations-map__state.is-open .locations-map__state-icon {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  transform: rotate(180deg);
+  border-color: rgba(37, 99, 235, 0.45);
+}
+
+.locations-map__state-panel {
+    padding: 5px 10px 5px 10px;
+    display: none;
+    background: #ffffff;
+    border-radius: 0px 0px 12px 12px;
+}
+
+.locations-map__state-panel.is-visible {
+  display: block;
+}
+
+.locations-map__state-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  color: #0f172a;
+}
+
+.locations-map__state-table thead {
+  color: #475569;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 0.75rem;
+}
+
+.locations-map__state-table th,
+.locations-map__state-table td {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  word-break: break-word;
+}
+
+.locations-map__state-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.locations-map__cell-number {
+  text-align: right;
+  white-space: nowrap;
+  color: #0f172a;
+  word-break: normal;
+}
+
+.locations-map__cell-number-left {
+  text-align: left;
+}
+
+.locations-map__states-empty {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.locations-map__state-note {
+  margin: 0.5rem 0 0;
+  color: #64748b;
+  font-size: 0.8rem;
+}
