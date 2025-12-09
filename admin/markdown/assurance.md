@@ -44,7 +44,7 @@ Each request is reviewed within 1–2 business days by our brand relations team.
 > **ADMIN_NOTE** page section id: "locations_map"
 ## Verified Retail Network  
 
-Retail Stride currently supports **1,200+ verified storefronts** across the United States.  
+Retail Stride supports verified storefronts across the United States.  
 Our network focuses on **independent retailers** in home, outdoor, hardware, and specialty categories—businesses that value brand integrity and maintain consistent in-store presentation.
 
 **Key Network Attributes:**  

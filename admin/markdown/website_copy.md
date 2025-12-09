@@ -112,7 +112,7 @@
 ### **Verified Retail Network Map**
 - **Subhead:** Authorized coverage across independent storefronts.
 - **Stats & Proof Points:**
-  - Retail Stride currently supports 1,200+ verified storefronts across the United States.
+  - Retail Stride supports verified storefronts across the United States.
   - 100% brick-and-mortar verification — no pure online resellers.
   - Active resale certificates and business licenses on file for every location.
   - Ongoing MAP compliance monitoring with proactive remediation.
