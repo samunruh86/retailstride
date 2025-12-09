@@ -1,0 +1,214 @@
+home:
+  hero:
+    headline: "<strong>Brand-Safe</strong> Distribution"
+    subheadline: "<strong>Retail Stride</strong> connects national brands to verified retail partners through curated distribution, MAP-compliant standards, and dependable supply."
+    cta:
+      label: "Request Access"
+      link: "/apply/"
+  stats:
+    cards:
+      - metric: "75+"
+        description: "Brands represented in our catalog"
+      - metric: "1,200+"
+        description: "Independent retail partners nationwide"
+      - metric: "100%"
+        description: "MAP-compliant, authorized distribution"
+  our_solution:
+    pre_header: "Our Solution"
+    headline: "Bringing Clarity to Distribution."
+    supporting: "Independent retailers deserve consistent, authorized access to trusted brands--without uncertainty, price drift, or unreliable supply. Retail Stride simplifies distribution through verified partnerships, curated assortments, and a platform built on compliance and trust."
+    accordion_items:
+      - title: "Access to Premium Brands"
+        body: "We partner directly with brand owners and authorized distributors--ensuring authentic products, stable pricing, and long-term availability."
+      - title: "Reliable Distribution Supply"
+        body: "Every partner we source from is vetted for consistency and transparency, so retailers can plan confidently and brands maintain controlled distribution."
+      - title: "Curated for Retail Success"
+        body: "We highlight high-performing products and assortments tailored to independent and regional retailers--helping the right products reach the right shelves."
+      - title: "Protected Brand Standards"
+        body: "All featured brands are MAP-compliant and authorized. Our approach protects pricing integrity, packaging presentation, and your brand reputation."
+  service_suite:
+    pre_header: "Our Service Suite"
+    headline: "Built for <strong>Brand-Safe</strong> Distribution"
+    service_cards:
+      - title: "Authorized Distribution"
+        body: "We partner directly with approved suppliers and brand owners to ensure every product is authentic, MAP-compliant, and responsibly represented across retail channels."
+      - title: "Curated Catalogs"
+        body: "Our catalog highlights proven, high-velocity assortments designed for independent and regional retailers--balancing sell-through, presentation, and availability for every partner brand."
+      - title: "Retail Support"
+        body: "From onboarding to fulfillment, our team coordinates product flow, packaging standards, and replenishment to keep retailers stocked and your brand represented consistently."
+  catalog_preview:
+    pre_header: "Catalog Preview"
+    headline: "Connecting Trusted Brands with Modern Retailers"
+    supporting: "Explore a curated view of the brands and assortments we represent. Each collection reflects retail-ready packaging, and consistent availability for qualified partners."
+    elements:
+      - "Category filter pill row (data-category-list)"
+      - "Contextual subcategory pills (data-subcategory-list)"
+      - "Live status text (data-result-count) -- default: \"Loading products...\""
+      - "Inline preview banner that can be dismissed; text: \"You're viewing a preview catalog. Log in to see pricing, MOQs, and live inventory details.\""
+      - "Dynamic products grid and pagination."
+    cta:
+      label: "Explore Our Catalog"
+      link: "/catalog/"
+  how_we_work:
+    pre_header: "HOW WE WORK"
+    headline: "Distribution, Done Right."
+    supporting: "We combine verified partnerships, MAP-compliant sourcing, and modern systems to make distribution simple, transparent, and brand-safe--for both sides of the supply chain."
+    tabs:
+      - name: "Brand Partnerships"
+        headline: "Authorized. Reliable. Protected."
+        bullets:
+          - "Verified supplier and brand sourcing"
+          - "MAP compliance and pricing protection"
+          - "Controlled presentation and packaging integrity"
+      - name: "Catalog Curation"
+        headline: "Curated for Retail Success."
+        bullets:
+          - "Organized premium assortments by retail channel"
+          - "Streamlined discovery and replenishment"
+          - "Focus on performance, presentation, and availability"
+      - name: "Retailer Support"
+        headline: "From Supplier to Shelf."
+        bullets:
+          - "Predictable restock and delivery cycles"
+          - "Transparent inventory coordination"
+          - "Dependable fulfillment through verified partners"
+  faqs:
+    intro: "Frequently Asked Questions"
+    supporting: "Have a different question? Let's connect."
+    cta:
+      label: "Let's Connect"
+      link: "/contact/"
+    items:
+      - question: "Do you work directly with brands?"
+        answer: "Yes. Retail Stride partners with brand owners and authorized distributors to ensure every product is authentic, MAP-compliant, and responsibly represented across retail channels."
+      - question: "Are you a marketplace or a distributor?"
+        answer: "Retail Stride operates as a modern distributor--not a public marketplace. We source directly from authorized brands and suppliers, maintaining control, compliance, and consistency across every retail partner relationship."
+      - question: "Can I buy products without a retail business license?"
+        answer: "No. Retail Stride serves verified retail businesses and licensed resale partners only. This ensures brand protection and proper sales channel compliance."
+      - question: "Do I need to have a physical storefront?"
+        answer: "Yes. Retail Stride primarily partners with established brick-and-mortar retailers to ensure controlled distribution and genuine in-store representation."
+      - question: "How do you ensure pricing consistency?"
+        answer: "All catalog items follow strict MAP policies and are sourced exclusively from approved suppliers--maintaining consistent pricing and brand integrity across every marketplace."
+      - question: "Do you ship directly to stores?"
+        answer: "Yes. We support direct store delivery (DSD) and regional fulfillment through approved logistics partners to ensure consistent supply and brand-safe handling."
+      - question: "Is there a membership or access fee?"
+        answer: "No. Retail Stride is not a membership model. Approved retailers receive access to browse our catalog and place orders through verified wholesale partnerships."
+    mobile_cta:
+      label: "Request Access"
+      link: "/apply/"
+  footer_cta:
+    headline: "Ready to dive in?"
+    supporting: "Discover how Retail Stride supports premium brands and independent retailers with trusted wholesale partnerships tailored to each growth plan."
+    buttons:
+      - label: "Brands"
+        link: "/brands"
+      - label: "Retailers"
+        link: "/retailers"
+brands:
+  hero:
+    headline: "Modern Brand Distribution."
+    subheadline: "Retail Stride expands your retail reach through authorized partnerships, MAP-compliant standards, and curated access to verified independent retailers."
+    cta:
+      label: "Let's Connect"
+      link: "/contact/"
+  verified_retail_network_map:
+    subhead: "Authorized coverage across independent storefronts."
+    stats:
+      - "Retail Stride currently supports 1,200+ verified storefronts across the United States."
+      - "100% brick-and-mortar verification -- no pure online resellers."
+      - "Active resale certificates and business licenses on file for every location."
+      - "Ongoing MAP compliance monitoring with proactive remediation."
+      - "Regular performance and merchandising audits with photo validation."
+    map_note: "Map data (c) OpenStreetMap contributors | Tiles (c) OpenStreetMap."
+  our_solution:
+    pre_header: "Our Solution"
+    headline: "Distribution, Built for Control."
+    accordion_items:
+      - title: "Authorized Distribution"
+        body: "We work directly with brand owners and vetted distributors to ensure every product is sourced, represented, and delivered through approved channels with full MAP compliance."
+      - title: "Pricing Integrity"
+        body: "Strict MAP standards and authorized sourcing safeguard your pricing strategy across both brick-and-mortar and online retail, ensuring consistency and eliminating unauthorized erosion."
+      - title: "Brand Presentation"
+        body: "We manage approved assets, listings, and retail presentation to ensure your brand is represented accurately--from product content to in-store execution."
+  faqs:
+    intro: "We have gathered common questions from the brands we partner with. Have a different question? Let's connect."
+    items:
+      - question: "How do you manage retail access?"
+        answer: "We operate as a closed distribution network. Only verified, brick-and-mortar retailers are approved to purchase--protecting your pricing structure, channel integrity, and in-store presentation."
+      - question: "Do you work directly with brands?"
+        answer: "Yes. Retail Stride partners with brand owners and authorized distributors to ensure every product is authentic, MAP-compliant, and represented responsibly across all retail channels."
+      - question: "How do you ensure pricing compliance?"
+        answer: "Every SKU in our catalog follows strict MAP and authorized-sourcing standards. We maintain clear communication and purchasing controls with our retail partners to uphold brand pricing policies and consistency."
+      - question: "Are you a marketplace or a distributor?"
+        answer: "Retail Stride is a modern distributor, not an open marketplace. We do not list products publicly or allow unverified sellers--ensuring total control over how your brand is represented."
+      - question: "What support do you provide for new brand partners?"
+        answer: "We make onboarding seamless--our team handles the setup, data organization, and catalog integration so your products are presented accurately and quickly to qualified retailers."
+      - question: "Is there a cost to partner with Retail Stride?"
+        answer: "No. There are no fees, subscriptions, or commissions for brands or retailers. Retail Stride operates as a modern distributor--purchasing inventory directly under authorized terms and supplying it to verified retail partners through controlled, compliant channels."
+  core_documentation:
+    intro: "Compliance resources to keep brands protected. Our documentation outlines the standards, agreements, and monitoring systems that uphold authorized distribution inside the Retail Stride network."
+    cards:
+      - title: "MAP & Channel Policy"
+        body: "Defines minimum advertised price standards, channel restrictions, and enforcement procedures across our retailer community."
+        cta_label: "View PDF"
+        cta_link: "/pdfs/map-policy/"
+      - title: "Retailer Agreement Contract"
+        body: "Signed by every approved retailer to confirm eligibility, authorized sales channels, and adherence to brand presentation standards."
+        cta_label: "View PDF"
+        cta_link: "/pdfs/retailer-agreement/"
+      - title: "Retailer Application"
+        body: "Access our streamlined application to request verification and join the Retail Stride network of authorized storefronts."
+        cta_label: "View Application"
+        cta_link: "/apply/"
+  cta_contact:
+    headline: "Partner With Us"
+    supporting: "Ready to expand your brand's reach through verified retailers and controlled distribution? Retail Stride helps brands grow across independent retail channels--maintaining pricing integrity, packaging consistency, and brand presentation every step of the way. There are no fees or commitments to get started--just a conversation about fit."
+    secondary: "We would love to have a conversation with you about fit. If email is better feel free to reach out below. partners@retailstride.com"
+    form:
+      name: "partners_contact"
+      fields:
+        - "Name (required)"
+        - "Email (required)"
+        - "Company (required)"
+        - "How can we help? (textarea)"
+        - "Submit button"
+retailers:
+  hero:
+    headline: "Trusted Brand Access."
+    subheadline: "Discover premium brands with verified supply and transparent standards."
+    cta:
+      label: "Apply Now"
+      link: "/apply/"
+  our_solution:
+    pre_header: "Our Solution"
+    headline: "Simplifying Distribution for Independent Retailers."
+    accordion_items:
+      - title: "Catalogs Tailored to Your Store"
+        body: "We organize premium product lines around store type, region, and seasonal demand--making it easy for independent retailers to access the right products without endless searching or middlemen."
+      - title: "Consistent, MAP-Aligned Pricing"
+        body: "Every brand we represent is MAP-compliant and sourced directly from authorized suppliers, ensuring stable pricing and transparent terms across all your wholesale orders."
+      - title: "Reliable Distribution"
+        body: "We coordinate logistics and restock through trusted fulfillment partners, keeping your shelves stocked and your operations predictable--without added complexity or minimum commitments."
+  faqs:
+    intro: "We have answered a few common questions from independent retailers interested in joining our network."
+    items:
+      - question: "Do you sell directly to retailers?"
+        answer: "Yes. Retail Stride works directly with verified retail businesses--providing access to brand-approved inventory, consistent pricing, and dependable fulfillment through authorized channels."
+      - question: "What types of retailers do you work with?"
+        answer: "We partner with established brick-and-mortar stores and regional chains. Our focus is on independent retail channels that represent brands well and align with authorized distribution standards."
+      - question: "Do I need a business license or resale certificate?"
+        answer: "Yes. Retail Stride serves licensed retail businesses only. Verification helps maintain brand protection and ensures compliance across all purchasing activity."
+      - question: "Do you charge membership or access fees?"
+        answer: "No. There are no membership costs or platform fees. Once approved, retailers simply purchase from our catalog at standard wholesale pricing through our distributor network."
+      - question: "How do you maintain pricing consistency?"
+        answer: "All products are sourced directly from brand owners and authorized distributors. We follow strict MAP and brand compliance standards to ensure fair and stable pricing across all retail partners."
+      - question: "Do you ship directly to stores?"
+        answer: "Yes. We support direct store delivery (DSD) and coordinated replenishment through trusted logistics partners to ensure reliable, on-time supply."
+      - question: "Are products authentic and brand-approved?"
+        answer: "Absolutely. Every item in our catalog comes from authorized sources and verified brand relationships--no third-party resellers or diverted inventory."
+  cta:
+    headline: "Become a Verified Partner"
+    supporting: "Ready to stock trusted national brands with consistent pricing and dependable supply? Apply today to join the Retail Stride network and gain access to authorized distribution built for independent retailers."
+    cta_button:
+      label: "Apply Now"
+      link: "/apply/"

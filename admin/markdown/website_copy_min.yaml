@@ -1,0 +1,112 @@
+home:
+  sections:
+    - title: "Brand-Safe Distribution"
+      summary: "Retail Stride connects national brands to verified retail partners with MAP-compliant, reliable supply."
+      bullets:
+        - "Core ask to brands: sell to us on distributor terms so we can reach independent stores you do not currently cover."
+    - title: "Proof Points"
+      summary: "Scale and compliance snapshot."
+      bullets:
+        - "75+ brands represented"
+        - "1,200+ independent retail partners"
+        - "100% MAP-compliant, authorized distribution"
+    - title: "Our Solution"
+      summary: "Clear, controlled distribution for independent retailers."
+      bullets:
+        - "Access to premium brands via direct and authorized sourcing"
+        - "Reliable supply from vetted partners for predictable planning"
+        - "Curated assortments matched to regional and independent retail needs"
+        - "Brand standards protected across pricing, packaging, and presentation"
+    - title: "Service Suite"
+      summary: "Support built for brand-safe distribution."
+      bullets:
+        - "Authorized distribution with MAP enforcement"
+        - "Curated catalogs featuring high-velocity assortments"
+        - "Retail support across onboarding, packaging standards, and replenishment"
+    - title: "Catalog Preview"
+      summary: "Curated view of represented brands and assortments; full details available to approved partners."
+      bullets:
+        - "Emphasizes retail-ready packaging and consistent availability"
+        - "Preview messaging notes pricing, MOQs, and inventory are available after login"
+    - title: "How We Work"
+      summary: "Process focused on control, compliance, and ease for both brands and retailers."
+      bullets:
+        - "Brand Partnerships: verified sourcing, MAP protection, controlled presentation"
+        - "Catalog Curation: organized assortments by channel with streamlined discovery and restock"
+        - "Retailer Support: predictable cycles, transparent coordination, dependable fulfillment"
+    - title: "FAQs"
+      summary: "Answers for prospective partners."
+      bullets:
+        - "We work directly with brands and authorized distributors"
+        - "We are a distributor, not a public marketplace"
+        - "Retail license and physical storefront required; no consumer sales"
+        - "Strict MAP compliance and authorized sourcing maintain pricing consistency"
+        - "Direct store delivery and regional fulfillment are supported"
+        - "No membership or access fees; approved retailers browse and order wholesale"
+    - title: "Invitation"
+      summary: "Ready to dive in? Discover how Retail Stride supports premium brands and independent retailers with trusted wholesale partnerships."
+      bullets:
+        - "Primary actions: brands engage with us; retailers apply for access"
+brands:
+  sections:
+    - title: "Modern Brand Distribution"
+      summary: "Retail Stride expands retail reach through authorized partnerships, MAP standards, and curated access to verified independent retailers."
+      bullets:
+        - "Closed, authorized network focused on brick-and-mortar coverage"
+    - title: "Verified Retail Network"
+      summary: "Proof of controlled coverage."
+      bullets:
+        - "1,200+ verified storefronts across the United States"
+        - "100% brick-and-mortar verification; no pure online resellers"
+        - "Resale certificates and licenses on file; ongoing MAP monitoring and remediation"
+        - "Performance and merchandising audits with photo validation"
+    - title: "Our Solution for Brands"
+      summary: "Distribution built for control and pricing integrity."
+      bullets:
+        - "Authorized distribution through brand owners and vetted distributors"
+        - "Strict MAP standards protect pricing strategy across channels"
+        - "Brand presentation managed across assets, listings, and in-store execution"
+    - title: "Brand FAQs"
+      summary: "Common partner questions."
+      bullets:
+        - "Retail access is closed to verified, brick-and-mortar retailers only"
+        - "We partner directly with brands; every SKU follows MAP and authorized sourcing"
+        - "We are a distributor, not an open marketplace; no public listings"
+        - "Onboarding handled by our team for accurate, fast catalog integration"
+        - "No fees, subscriptions, or commissions for brands or retailers"
+    - title: "Core Documentation"
+      summary: "Resources that define compliance and partner standards."
+      bullets:
+        - "MAP and channel policy"
+        - "Retailer agreement contract"
+        - "Retailer application for verification"
+    - title: "Partner Invitation"
+      summary: "Expand reach through verified retailers while maintaining pricing and presentation control; conversations start without fees or commitments."
+      bullets:
+        - "Contact email available for partners"
+        - "Contact form collects name, email, company, and support needs"
+retailers:
+  sections:
+    - title: "Trusted Brand Access"
+      summary: "Independent retailers can discover premium brands with verified supply and transparent standards."
+      bullets:
+        - "Application-based access to authorized distribution"
+    - title: "Our Solution for Retailers"
+      summary: "Simplified distribution with consistent pricing and reliable supply."
+      bullets:
+        - "Catalogs tailored by store type, region, and seasonal demand"
+        - "MAP-aligned pricing from authorized sources for stable terms"
+        - "Logistics and restock coordinated through trusted partners"
+    - title: "Retailer FAQs"
+      summary: "Answers for prospective retail partners."
+      bullets:
+        - "We sell directly to verified retail businesses with licenses"
+        - "Focus on established brick-and-mortar stores and regional chains"
+        - "No membership or platform fees; standard wholesale purchasing after approval"
+        - "Strict MAP and brand compliance keep pricing stable"
+        - "Direct store delivery and coordinated replenishment supported"
+        - "All products are authentic and brand-approved; no diverted inventory"
+    - title: "Retailer Invitation"
+      summary: "Join to access trusted national brands with dependable supply and consistent pricing."
+      bullets:
+        - "Call to apply for verification and catalog access"
